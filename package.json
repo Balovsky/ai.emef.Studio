@@ -9,6 +9,11 @@
     "astro": "astro"
   },
   "dependencies": {
-    "astro": "^5.16.2"
+    "@astrojs/tailwind": "^6.0.2",
+    "@studio-freight/lenis": "^1.0.42",
+    "aos": "^2.3.4",
+    "astro": "^5.16.2",
+    "img-comparison-slider": "^8.0.6",
+    "tailwindcss": "^3.4.18"
   }
 }

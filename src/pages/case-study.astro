@@ -1,0 +1,299 @@
+---
+// Plik: src/pages/case-study.astro
+import MainLayout from '../layouts/MainLayout.astro';
+import BeforeAfter from '../components/BeforeAfter.astro';
+---
+
+<MainLayout title="Case Study: Producent Obuwia | Studio.AI">
+
+    <header class="pt-32 pb-24 bg-slate-900 text-white text-center px-4 relative overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-b from-slate-900 via-slate-900/90 to-slate-900 z-10"></div>
+        <div class="absolute top-0 left-0 w-full h-full bg-[url('/images/po.png')] bg-cover bg-center opacity-20 blur-sm z-0"></div>
+
+        <div class="relative z-20 max-w-4xl mx-auto">
+            <span class="text-green-400 font-bold tracking-widest uppercase text-sm mb-4 block" data-aos="fade-down">E-commerce Success Story</span>
+            <h1 class="text-3xl md:text-6xl font-extrabold mb-6 leading-tight" data-aos="fade-up">
+                Jak zmieniliśmy 5 zamówień dziennie w <span class="text-blue-500">60 zamówień</span>?
+            </h1>
+            <p class="text-lg md:text-xl text-gray-300 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="100">
+                Historia polskiego producenta obuwia, który postawił na kompleksową obsługę wizualną i techniczną.
+            </p>
+        </div>
+    </header>
+
+    <section class="pt-16 pb-32 bg-white relative -mt-10 z-30 rounded-t-3xl rounded-b-[3rem] shadow-xl mb-12">
+        <div class="max-w-6xl mx-auto px-4">
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-20">
+                <div class="bg-white p-8 rounded-2xl shadow-lg border border-gray-100 text-center transform hover:-translate-y-1 transition duration-300" data-aos="fade-up">
+                    <p class="text-gray-400 text-xs uppercase font-bold mb-2 tracking-widest">Wzrost Sprzedaży</p>
+                    <p class="text-5xl font-black text-slate-900">180%</p>
+                    <!-- <p class="text-green-600 text-xs mt-2 font-bold bg-green-50 inline-block px-2 py-1 rounded">↗ Skok w 12 miesięcy</p> -->
+                </div>
+                <div class="bg-white p-8 rounded-2xl shadow-lg border border-gray-100 text-center transform hover:-translate-y-1 transition duration-300" data-aos="fade-up" data-aos-delay="100">
+                    <p class="text-gray-400 text-xs uppercase font-bold mb-2 tracking-widest">Zamówienia Dziennie</p>
+                    <div class="flex justify-center items-baseline gap-2">
+                        <span class="text-3xl text-gray-300 line-through decoration-red-400">10</span>
+                        <span class="text-xl text-gray-400">→</span>
+                        <span class="text-5xl font-black text-blue-600">60+</span>
+                    </div>
+                </div>
+                <div class="bg-white p-8 rounded-2xl shadow-lg border border-gray-100 text-center transform hover:-translate-y-1 transition duration-300" data-aos="fade-up" data-aos-delay="200">
+                    <p class="text-gray-400 text-xs uppercase font-bold mb-2 tracking-widest">Koszt Reklamy (CPA)</p>
+                    <p class="text-5xl font-black text-slate-900">-40%</p>
+                    <p class="text-gray-500 text-xs mt-2">Wyższa klikalność zdjęć</p>
+                </div>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                
+                <div data-aos="fade-right">
+                    
+                    <div class="mb-8">
+                        <h3 class="text-2xl font-bold text-black mb-4">Problem Klienta</h3>
+                        <p class="text-gray-600 leading-relaxed">
+                            Klient posiadał fantastyczny produkt – ręcznie robione obuwie skórzane. Niestety, sklep internetowy nie sprzedawał. 
+                            Zdjęcia były robione "domowym sposobem", a opisy produktów nie zawierały słów kluczowych ani języka korzyści.
+                        </p>
+                    </div>
+                    
+                    <h3 class="text-2xl font-bold text-black mb-6">Nasze Rozwiązanie (Obsługa 360°)</h3>
+                    
+                    <div class="space-y-4">
+                        
+                        <div class="flex gap-4 items-start bg-blue-50 p-4 rounded-xl border border-blue-100 transition hover:shadow-md">
+                            <div class="shrink-0 w-8 h-8 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold text-sm shadow-sm">1</div>
+                            <div>
+                                <h4 class="font-bold text-gray-900 text-base mb-1">Produkcja Wizualna & AI</h4>
+                                <p class="text-sm text-gray-600 leading-snug">
+                                    Wykonaliśmy sterylne packshoty (baza) oraz lifestyle'owe sesje z modelkami wygenerowanymi przez AI (oszczędność budżetu na sesji zdjęciowej).
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="flex gap-4 items-start bg-purple-50 p-4 rounded-xl border border-purple-100 transition hover:shadow-md">
+                            <div class="shrink-0 w-8 h-8 bg-purple-600 text-white rounded-full flex items-center justify-center font-bold text-sm shadow-sm">2</div>
+                            <div>
+                                <h4 class="font-bold text-gray-900 text-base mb-1">Copywriting & SEO</h4>
+                                <p class="text-sm text-gray-600 leading-snug">
+                                    Stworzyliśmy unikalne opisy produktów zoptymalizowane pod Google, które podkreślają jakość obuwia i zachęcają do zakupu.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="flex gap-4 items-start bg-green-50 p-4 rounded-xl border border-green-100 transition hover:shadow-md">
+                            <div class="shrink-0 w-8 h-8 bg-green-600 text-white rounded-full flex items-center justify-center font-bold text-sm shadow-sm">3</div>
+                            <div>
+                                <h4 class="font-bold text-gray-900 text-base mb-1">Administracja & Visual Merchandising</h4>
+                                <p class="text-sm text-gray-600 leading-snug">
+                                    Przejęliśmy obsługę sklepu: od dodawania produktów po ich aranżację na siatce (grid), dbając o to, by produkty obok siebie tworzyły spójną kompozycję kolorystyczną.
+                                </p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                
+                <div class="bg-slate-50 p-8 rounded-3xl border border-slate-100 shadow-lg" data-aos="fade-left">
+                    <h4 class="font-bold text-center mb-8 text-slate-800">Historia Zamówień (Dziennie)</h4>
+                    <div class="flex items-end justify-between h-64 gap-4 px-4">
+                        <div class="w-full bg-slate-200 rounded-t-lg relative group transition-all hover:bg-slate-300" style="height: 10%">
+                            <span class="absolute -top-8 left-1/2 -translate-x-1/2 text-sm font-bold text-slate-400">5</span>
+                            <span class="absolute bottom-2 left-1/2 -translate-x-1/2 text-[10px] text-slate-500 font-bold uppercase tracking-wider">Start</span>
+                        </div>
+                        <div class="w-full bg-blue-300 rounded-t-lg relative opacity-50" style="height: 25%"></div>
+                        <div class="w-full bg-blue-400 rounded-t-lg relative opacity-50" style="height: 45%"></div>
+                        <div class="w-full bg-blue-500 rounded-t-lg relative opacity-50" style="height: 70%"></div>
+                        <div class="w-full bg-blue-600 rounded-t-lg relative group shadow-xl shadow-blue-200" style="height: 100%">
+                            <span class="absolute -top-10 left-1/2 -translate-x-1/2 text-2xl font-black text-blue-600">60</span>
+                            <span class="absolute bottom-4 left-1/2 -translate-x-1/2 text-xs text-white font-bold rotate-90 tracking-widest">TERAZ</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <section class="py-24 bg-slate-50 border-t border-slate-200">
+        <div class="max-w-4xl mx-auto px-4 text-center">
+            <span class="text-blue-600 font-bold tracking-wider text-xs uppercase mb-2 block">Transformacja</span>
+            <h2 class="text-3xl md:text-5xl font-bold mb-8 text-slate-900" data-aos="fade-up">Tak zmieniliśmy postrzeganie marki</h2>
+            
+            <div class="bg-white p-3 rounded-3xl shadow-2xl border border-gray-200" data-aos="zoom-in">
+                <BeforeAfter 
+                    beforeSrc="/images/przed.png" 
+                    afterSrc="/images/po.png" 
+                    beforeLabel="Zdjęcie Klienta"
+                    afterLabel="Nasza Kreacja AI"
+                />
+            </div>
+            <p class="text-sm text-gray-500 mt-6 font-medium">Przesuń suwak, aby zobaczyć różnicę w jakości.</p>
+        </div>
+    </section>
+
+    <section class="py-24 bg-white border-t border-slate-100">
+        <div class="max-w-6xl mx-auto px-4">
+
+            <div class="mb-32">
+                <div class="text-center mb-12">
+                    <span class="text-purple-600 font-bold tracking-wider text-xs uppercase mb-2 block">Copywriting & SEO</span>
+                    <h2 class="text-3xl md:text-4xl font-bold mb-4 text-slate-900">Słowa, które sprzedają</h2>
+                    <p class="text-gray-600 max-w-2xl mx-auto">
+                        Zdjęcie przyciąga wzrok, ale to tekst domyka sprzedaż i pozycjonuje sklep w Google. Zobacz różnicę.
+                    </p>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-8">
+                    
+                    <div class="bg-gray-50 p-8 rounded-2xl border border-gray-200 opacity-80" data-aos="fade-right">
+                        <div class="flex items-center gap-3 mb-6 border-b border-gray-200 pb-4">
+                            <span class="bg-red-100 text-red-600 text-xs font-bold px-3 py-1 rounded-full uppercase">Przed</span>
+                            <span class="text-sm font-bold text-gray-500">Standardowy opis</span>
+                        </div>
+                        <div class="font-mono text-sm text-gray-600 leading-relaxed">
+                            <p class="mb-4">
+                                Botki damskie czarne. Wykonane ze skóry. Mają zamek z boku i obcas 5 cm. Dobre na jesień. Producent polski.
+                            </p>
+                            <p class="text-xs text-red-400 mt-4 flex items-center gap-2">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                Brak słów kluczowych SEO<br/>
+                                Brak języka korzyści
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="bg-white p-8 rounded-2xl border border-purple-100 shadow-xl relative overflow-hidden" data-aos="fade-left">
+                        <div class="absolute top-0 left-0 w-1 h-full bg-purple-600"></div>
+                        <div class="flex items-center gap-3 mb-6 border-b border-gray-100 pb-4">
+                            <span class="bg-purple-100 text-purple-600 text-xs font-bold px-3 py-1 rounded-full uppercase">Po zmianie</span>
+                            <span class="text-sm font-bold text-gray-900">Nasz opis sprzedażowy</span>
+                        </div>
+                        <div class="text-sm text-slate-700 leading-relaxed">
+                            <h4 class="font-bold text-lg mb-2">Elegancja i Komfort na co dzień</h4>
+                            <p>
+                                Odkryj <span class="bg-yellow-100 px-1 font-semibold text-slate-900">skórzane botki damskie</span>, które łączą włoski styl z polską jakością wykonania. Stworzone z <span class="text-purple-700 font-bold">naturalnej skóry licowej</span>, zapewniają oddychalność i dopasowanie do stopy.
+                            </p>
+                            <ul class="mt-4 space-y-1 text-xs md:text-sm">
+                                <li class="flex items-center gap-2"><span class="text-green-500">✓</span> <strong>Stabilny obcas (5cm)</strong> – wygoda przez 8h w pracy.</li>
+                                <li class="flex items-center gap-2"><span class="text-green-500">✓</span> <strong>Antypoślizgowa podeszwa</strong> – bezpieczeństwo na jesiennych chodnikach.</li>
+                            </ul>
+                            <p class="text-xs text-green-600 mt-6 flex items-center gap-2 font-bold">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                SEO Optimized & Perswazja
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+
+            <div>
+                <div class="text-center mb-8 md:mb-12">
+                    <span class="text-blue-600 font-bold tracking-wider text-xs uppercase mb-2 block">Visual Merchandising</span>
+                    <h2 class="text-2xl md:text-4xl font-bold mb-4 text-slate-900">Chaos vs Harmonia</h2>
+                    <p class="text-sm md:text-base text-gray-600 max-w-2xl mx-auto">
+                        Klient kupuje oczami. Zobacz, jak porządkujemy chaos.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-2 gap-2 md:gap-12 items-start">
+                    
+                    <div class="flex flex-col items-center" data-aos="fade-right">
+                        <h4 class="text-[10px] md:text-sm font-bold text-gray-400 uppercase tracking-widest mb-2 md:mb-4 text-center">Przypadkowe</h4>
+                        
+                        <div class="w-full bg-gray-100 rounded-lg md:rounded-xl p-2 md:p-4 opacity-70 grayscale-[50%]">
+                            <div class="grid grid-cols-3 gap-1 md:gap-2">
+                                <div class="aspect-[3/4] bg-slate-800 rounded-sm"></div>
+                                <div class="aspect-[3/4] bg-orange-300 rounded-sm"></div>
+                                <div class="aspect-[3/4] bg-slate-800 rounded-sm"></div>
+                                <div class="aspect-[3/4] bg-red-700 rounded-sm"></div>
+                                <div class="aspect-[3/4] bg-white border border-gray-300 rounded-sm"></div>
+                                <div class="aspect-[3/4] bg-orange-300 rounded-sm"></div>
+                                <div class="aspect-[3/4] bg-red-700 rounded-sm"></div>
+                                <div class="aspect-[3/4] bg-slate-800 rounded-sm"></div>
+                                <div class="aspect-[3/4] bg-white border border-gray-300 rounded-sm"></div>
+                            </div>
+                        </div>
+
+                        <p class="text-[9px] md:text-xs text-red-400 mt-2 md:mt-4 font-bold flex items-center justify-center gap-1 md:gap-2 text-center leading-tight">
+                            <span class="hidden md:inline"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg></span>
+                            Chaos męczy wzrok
+                        </p>
+                    </div>
+
+                    <div class="flex flex-col items-center" data-aos="fade-left" data-aos-delay="100">
+                        <h4 class="text-[10px] md:text-sm font-bold text-blue-600 uppercase tracking-widest mb-2 md:mb-4 text-center">Nasza Kompozycja</h4>
+                        
+                        <div class="w-full bg-white border border-gray-200 shadow-xl rounded-lg md:rounded-xl p-2 md:p-4 ring-2 md:ring-4 ring-blue-50">
+                            <div class="grid grid-cols-3 gap-1 md:gap-2">
+                                <div class="aspect-[3/4] bg-slate-900 rounded-sm shadow-sm"></div>
+                                <div class="aspect-[3/4] bg-slate-800 rounded-sm shadow-sm"></div>
+                                <div class="aspect-[3/4] bg-slate-700 rounded-sm shadow-sm"></div>
+                                <div class="aspect-[3/4] bg-orange-900 rounded-sm shadow-sm"></div>
+                                <div class="aspect-[3/4] bg-orange-800 rounded-sm shadow-sm"></div>
+                                <div class="aspect-[3/4] bg-orange-300 rounded-sm shadow-sm"></div>
+                                <div class="aspect-[3/4] bg-red-800 rounded-sm shadow-sm"></div>
+                                <div class="aspect-[3/4] bg-red-700 rounded-sm shadow-sm"></div>
+                                <div class="aspect-[3/4] bg-red-600 rounded-sm shadow-sm"></div>
+                            </div>
+                        </div>
+
+                        <p class="text-[9px] md:text-xs text-green-600 mt-2 md:mt-4 font-bold flex items-center justify-center gap-1 md:gap-2 text-center leading-tight">
+                            <span class="hidden md:inline"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg></span>
+                            Harmonia sprzedaje
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="py-24 bg-white text-center">
+        <div class="max-w-2xl mx-auto px-4">
+            <h2 class="text-3xl md:text-4xl font-bold mb-6">Chcesz powtórzyć ten wynik?</h2>
+            <p class="text-gray-600 mb-10 text-lg">
+                Twoje produkty też mogą tak wyglądać. Przejmiemy obsługę wizualną i techniczną, a Ty zajmiesz się realizacją zamówień.
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <a href="/kontakt" class="px-8 py-4 bg-black text-white font-bold rounded-full hover:bg-gray-800 transition shadow-lg hover:shadow-xl transform hover:-translate-y-1">
+                    Darmowa wycena
+                </a>
+                <a href="/portfolio" class="px-8 py-4 border border-gray-300 text-gray-700 font-bold rounded-full hover:border-black hover:text-black transition">
+                    Zobacz portfolio
+                </a>
+            </div>
+        </div>
+    </section>
+
+</MainLayout>
+
+<style is:inline>
+    /* Animacja rośnięcia słupków */
+    .bar-anim {
+        height: 0%; 
+        width: 100%;
+        transition: height 1s cubic-bezier(0.17, 0.67, 0.83, 0.67);
+        animation: growBar 1.2s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+    }
+
+    @keyframes growBar {
+        0% { height: 0%; opacity: 0; }
+        100% { height: var(--final-height); opacity: 1; }
+    }
+
+    /* Animacja pojawiania się tekstu "TERAZ" */
+    .animate-fade-in {
+        animation: fadeIn 0.5s ease-out forwards;
+    }
+
+    @keyframes fadeIn {
+        to {
+            opacity: 1;
+        }
+    }
+</style>

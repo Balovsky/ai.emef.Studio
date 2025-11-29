@@ -1,0 +1,756 @@
+<!-- ---
+// Plik: src/layouts/MainLayout.astro
+import 'aos/dist/aos.css';
+// import '../styles/global.css'; // Opcjonalnie, jeśli masz globalne style
+
+const { title = 'Studio Fotograficzne' } = Astro.props;
+---
+
+<html lang="pl">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>{title}</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/img-comparison-slider@8/dist/styles.css"/>
+    <script defer src="https://cdn.jsdelivr.net/npm/img-comparison-slider@8/dist/index.js"></script>
+</head>
+<body class="bg-white text-slate-900 font-sans">
+    <body class="bg-white text-slate-900 font-sans flex flex-col min-h-screen overflow-hidden">
+
+    <div id="preloader" class="fixed inset-0 z-[9999] bg-black flex flex-col items-center justify-center transition-opacity duration-700 ease-in-out">
+        
+        <svg class="w-full max-w-3xl h-auto px-4" viewBox="0 0 800 200" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+                <linearGradient id="textGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" style="stop-color:#3b82f6;stop-opacity:1" /> <stop offset="100%" style="stop-color:#a855f7;stop-opacity:1" /> </linearGradient>
+            </defs>
+
+            <text x="50%" y="45%" text-anchor="middle" dominant-baseline="middle" class="text-draw title-main">
+                K&M
+            </text>
+            
+            <text x="50%" y="75%" text-anchor="middle" dominant-baseline="middle" class="text-draw title-sub">
+                STUDIO
+            </text>
+        </svg>
+
+    </div>
+
+    ```
+
+**KROK 2: Podmień Style CSS (Animacja Rysowania)**
+W sekcji `<style is:inline>` na dole pliku, usuń stare style preloadera i wklej te nowe.
+
+```css
+<style is:inline>
+    /* Stylizacja tekstu w SVG */
+    .text-draw {
+        font-family: 'Montserrat', sans-serif; /* Lub Twój domyślny font */
+        font-weight: 900; /* Gruby font dla lepszego efektu */
+        fill: transparent; /* Środek przezroczysty */
+        stroke-width: 2px;
+        stroke-linejoin: round;
+        stroke-dasharray: 800; /* Długość kreski */
+        stroke-dashoffset: 800; /* Przesunięcie (ukrycie) */
+        animation: drawStroke 2.5s ease-out forwards, fillText 1s 2.2s forwards;
+    }
+
+    /* K&M - Duże */
+    .title-main {
+        font-size: 100px;
+        stroke: white; /* Obrys biały */
+    }
+
+    /* STUDIO - Mniejsze, kolorowe */
+    .title-sub {
+        font-size: 50px;
+        stroke: url(#textGradient); /* Obrys gradientowy */
+        letter-spacing: 10px;
+        animation-delay: 0.5s, 2.7s; /* Startuje trochę później */
+    }
+
+    /* 1. Animacja rysowania linii */
+    @keyframes drawStroke {
+        to {
+            stroke-dashoffset: 0; /* Linia "zjeżdża" do 0, czyli się rysuje */
+        }
+    }
+
+    /* 2. Animacja wypełniania kolorem na koniec */
+    @keyframes fillText {
+        to {
+            fill: white; /* K&M wypełnia się na biało */
+            stroke: transparent; /* Obrys znika */
+        }
+    }
+    
+    /* Nadpisanie koloru wypełnienia dla "Studio" */
+    .title-sub {
+        animation-name: drawStroke, fillGradient;
+    }
+
+    @keyframes fillGradient {
+        to {
+            fill: url(#textGradient); /* Studio wypełnia się gradientem */
+            stroke: transparent;
+        }
+    }
+</style>
+
+    <nav class="fixed top-0 w-full z-50 bg-white/90 backdrop-blur-md border-b border-gray-100 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 h-16 flex justify-between items-center relative">
+            
+            <a href="/" class="font-bold text-xl tracking-tighter flex items-center gap-2 z-50 relative">
+                K&M<span class="text-blue-600">-Studio</span>
+            </a>
+
+            <div class="hidden md:flex items-center space-x-6 text-sm font-medium text-gray-600">
+                <a href="/portfolio" class="hover:text-black transition">Portfolio</a>
+                
+                <a href="/#technologia" class="hover:text-black transition">Technologia</a>
+                <a href="/#oferta" class="hover:text-black transition">Oferta</a>
+                
+                <a href="/case-study" class="hover:text-black transition">Case Study</a>
+                
+                <a href="/kontakt" class="hover:text-black transition">Kontakt</a>
+            </div>
+
+            <div class="hidden md:flex items-center gap-4">
+                <a href="/kontakt" class="px-5 py-2 bg-black text-white text-sm font-bold rounded hover:bg-gray-800 transition shadow-lg hover:shadow-xl transform hover:-translate-y-0.5">
+                    Wycena
+                </a>
+            </div>
+            
+            <button id="menu-btn" class="md:hidden z-50 focus:outline-none p-2 text-2xl leading-none">
+                ☰
+            </button>
+        </div>
+
+         <div id="mobile-menu" class="hidden absolute top-0 left-0 w-full h-screen bg-white flex flex-col items-center justify-center space-y-8 text-xl font-bold z-40 md:hidden opacity-0 transition-opacity duration-300">
+            <a href="/" class="mobile-link hover:text-blue-600">Start</a>
+            <a href="/portfolio" class="mobile-link hover:text-blue-600">Portfolio</a>
+            <a href="/#oferta" class="mobile-link hover:text-blue-600">Oferta</a>
+            <a href="/#technologia" class="mobile-link hover:text-blue-600">Technologia</a>
+            <a href="/case-study" class="mobile-link hover:text-blue-600">Case Study</a>
+            <a href="/kontakt" class="mobile-link hover:text-blue-600">Kontakt</a>
+         </div>
+    </nav>
+
+    <main>
+        <slot /> 
+    </main>
+
+    <footer class="bg-gray-900 text-white py-8 text-center text-sm">
+        <p>&copy; 2025 K&M Studio. Wszelkie prawa zastrzeżone.</p>
+    </footer>
+    <button id="to-top-btn" aria-label="Wróć na górę" class="fixed bottom-8 right-8 z-50 p-4 bg-black text-white rounded-full shadow-2xl transition-all duration-500 opacity-0 translate-y-10 pointer-events-none hover:bg-blue-600 hover:scale-110 group">
+        <svg class="w-6 h-6 transform transition-transform duration-300 group-hover:-translate-y-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"></path>
+        </svg>
+    </button>
+
+    <div id="exit-popup" class="fixed inset-0 z-[200] hidden flex justify-center items-center opacity-0 transition-opacity duration-500">
+        
+        <div id="exit-popup-backdrop" class="absolute inset-0 bg-black/60 backdrop-blur-sm transition-opacity"></div>
+
+        <div class="relative bg-white rounded-3xl shadow-2xl max-w-lg w-full mx-4 overflow-hidden transform scale-90 transition-transform duration-300" id="exit-popup-content">
+            
+            <div class="h-2 w-full bg-gradient-to-r from-blue-600 to-purple-600"></div>
+
+            <button id="exit-popup-close" class="absolute top-4 right-4 text-gray-400 hover:text-black transition p-2 bg-white/50 rounded-full">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+            </button>
+
+            <div class="p-8 text-center">
+                <div class="w-16 h-16 bg-blue-50 text-blue-600 rounded-full flex items-center justify-center text-3xl mx-auto mb-6 shadow-sm border border-blue-100 animate-bounce">
+                    🎁
+                </div>
+
+                <h3 class="text-2xl md:text-3xl font-extrabold text-slate-900 mb-2">
+                    Zaczekaj chwilę!
+                </h3>
+                <p class="text-gray-600 mb-6">
+                    Nie kupuj kota w worku. Przetestuj naszą jakość całkowicie za darmo.
+                </p>
+
+                <div class="bg-slate-50 border border-slate-200 rounded-xl p-4 mb-8 text-left">
+                    <p class="font-bold text-slate-800 mb-2 flex items-center gap-2">
+                        <span class="text-green-500">✓</span>
+                        Darmowa Sesja Próbna
+                    </p>
+                    <p class="text-sm text-gray-500">
+                        Wyślij nam 1 produkt. Zrobimy mu profesjonalny packshot + aranżację AI. Bez żadnych zobowiązań.
+                    </p>
+                </div>
+
+                <div class="flex flex-col gap-3">
+                    <a href="/kontakt" id="exit-popup-cta" class="w-full py-3 bg-black text-white font-bold rounded-xl hover:bg-gray-800 transition shadow-lg transform hover:-translate-y-0.5">
+                        Odbierz darmowe zdjęcie
+                    </a>
+                    <button id="exit-popup-dismiss" class="text-xs text-gray-400 hover:text-gray-600 underline">
+                        Nie, dziękuję, wolę płacić w ciemno
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        import Lenis from '@studio-freight/lenis'
+        import AOS from 'aos';
+
+        window.addEventListener('load', () => {
+        const preloader = document.getElementById('preloader');
+        
+        // Czekamy 3500ms (3.5 sekundy), żeby animacja "K&M Studio" wybrzmiała
+        setTimeout(() => {
+            if (preloader) {
+                preloader.style.opacity = '0';
+                setTimeout(() => {
+                    preloader.style.display = 'none';
+                    document.body.classList.remove('overflow-hidden');
+                }, 700);
+            }
+        }, 3500); 
+    });
+
+        // Inicjalizacja Lenis i AOS (to pewnie masz)
+        const lenis = new Lenis({ duration: 1.2, easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), orientation: 'vertical', smoothWheel: true })
+        function raf(time) { lenis.raf(time); requestAnimationFrame(raf) }
+        requestAnimationFrame(raf)
+        AOS.init({ duration: 800, offset: 100, once: true, easing: 'ease-out-cubic' });
+
+        // --- TU JEST KOD KTÓREGO BRAKUJE ---
+        
+        // 1. Znajdź przyciski
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+        let isMenuOpen = false;
+        
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const popup = document.getElementById('exit-popup');
+            const popupContent = document.getElementById('exit-popup-content');
+            const closeBtn = document.getElementById('exit-popup-close');
+            const dismissBtn = document.getElementById('exit-popup-dismiss');
+            const ctaBtn = document.getElementById('exit-popup-cta');
+            const backdrop = document.getElementById('exit-popup-backdrop');
+
+            // Sprawdź czy użytkownik już widział popup w ciągu ostatnich 24h
+            const now = new Date().getTime();
+            const lastSeen = localStorage.getItem('exitPopupSeen');
+            const oneDay = 24 * 60 * 60 * 1000;
+
+            // Jeśli widział dawno temu (lub wcale), pozwól pokazać
+            let canShow = !lastSeen || (now - parseInt(lastSeen) > oneDay);
+
+            function showPopup() {
+                if (!canShow || !popup || !popupContent) return;
+                
+                popup.classList.remove('hidden');
+                // Małe opóźnienie dla animacji wejścia
+                setTimeout(() => {
+                    popup.classList.remove('opacity-0');
+                    popupContent.classList.remove('scale-90');
+                    popupContent.classList.add('scale-100');
+                }, 10);
+
+                canShow = false; // Żeby nie wyskoczył drugi raz w tej sesji
+                localStorage.setItem('exitPopupSeen', now.toString()); // Zapamiętaj czas
+            }
+
+            function hidePopup() {
+                if(!popup || !popupContent) return;
+                popup.classList.add('opacity-0');
+                popupContent.classList.remove('scale-100');
+                popupContent.classList.add('scale-90');
+                setTimeout(() => {
+                    popup.classList.add('hidden');
+                }, 500);
+            }
+
+            // 1. TRIGGER DESKTOP: Wyjazd myszką poza górną krawędź
+            document.addEventListener('mouseleave', (e) => {
+                if (e.clientY <= 0) {
+                    showPopup();
+                }
+            });
+
+            // 2. TRIGGER MOBILE: Po 20 sekundach (bo nie ma myszki)
+            // Lub po przewinięciu 80% strony (opcjonalnie)
+            setTimeout(() => {
+                if (window.innerWidth < 1024) { // Tylko na mniejszych ekranach
+                    showPopup();
+                }
+            }, 20000); // 20 sekund
+
+            // Obsługa zamykania
+            closeBtn?.addEventListener('click', hidePopup);
+            dismissBtn?.addEventListener('click', hidePopup);
+            backdrop?.addEventListener('click', hidePopup);
+            ctaBtn?.addEventListener('click', hidePopup); // Po kliknięciu w ofertę też zamknij
+        });
+
+        // 2. Funkcja przełączania
+        if (menuBtn && mobileMenu) { // Sprawdzamy czy elementy istnieją, żeby nie było błędów
+            menuBtn.addEventListener('click', () => {
+                isMenuOpen = !isMenuOpen;
+                if (isMenuOpen) {
+                    mobileMenu.classList.remove('hidden');
+                    setTimeout(() => mobileMenu.classList.remove('opacity-0'), 10);
+                    menuBtn.innerText = '✕'; // Zmiana ikony na X
+                } else {
+                    mobileMenu.classList.add('opacity-0');
+                    setTimeout(() => mobileMenu.classList.add('hidden'), 300);
+                    menuBtn.innerText = '☰'; // Zmiana ikony na Hamburger
+                }
+            });
+        }
+
+        // 3. Zamykanie po kliknięciu w link
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                isMenuOpen = false;
+                mobileMenu.classList.add('opacity-0');
+                setTimeout(() => mobileMenu.classList.add('hidden'), 300);
+                if(menuBtn) menuBtn.innerText = '☰';
+            });
+        });
+
+        const toTopBtn = document.getElementById('to-top-btn');
+
+        if (toTopBtn) {
+            // A. Pokazywanie/Ukrywanie przycisku przy scrollowaniu
+            window.addEventListener('scroll', () => {
+                // Jeśli przewinięto więcej niż 500px w dół
+                if (window.scrollY > 500) {
+                    toTopBtn.classList.remove('opacity-0', 'translate-y-10', 'pointer-events-none');
+                } else {
+                    // Jesteśmy na górze - ukryj
+                    toTopBtn.classList.add('opacity-0', 'translate-y-10', 'pointer-events-none');
+                }
+            });
+
+            // B. Kliknięcie - powrót na górę z użyciem Lenis (płynnie)
+            toTopBtn.addEventListener('click', () => {
+                lenis.scrollTo(0); 
+            });
+        }
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault(); // Zatrzymaj brzydki "skok" przeglądarki
+                
+                const targetId = this.getAttribute('href');
+                
+                // Jeśli link to tylko "#", nic nie rób (np. puste linki)
+                if (targetId === '#') return;
+
+                const targetElement = document.querySelector(targetId);
+
+                if (targetElement) {
+                    // Używamy Lenis do przewinięcia
+                    lenis.scrollTo(targetId, {
+                        offset: -80, // WAŻNE: Zatrzymuje się 80px wcześniej (miejsce na Twój pasek menu)
+                        duration: 1.2, // Czas trwania (możesz zwiększyć, np. do 2.0 dla bardzo wolnego efektu)
+                        easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // Ta sama funkcja co w głównym Lenis
+                    });
+
+                    // DODATEK: Jeśli kliknięto w menu mobilnym -> zamknij je automatycznie
+                    if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
+                        isMenuOpen = false;
+                        mobileMenu.classList.add('opacity-0');
+                        setTimeout(() => mobileMenu.classList.add('hidden'), 300);
+                        if(menuBtn) menuBtn.innerText = '☰';
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html> -->
+
+
+---
+// Plik: src/layouts/MainLayout.astro
+import 'aos/dist/aos.css';
+
+const { title = 'Studio Fotograficzne' } = Astro.props;
+---
+
+<html lang="pl">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>{title}</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/img-comparison-slider@8/dist/styles.css"/>
+    <script defer src="https://cdn.jsdelivr.net/npm/img-comparison-slider@8/dist/index.js"></script>
+    
+    </head>
+
+<body class="bg-white text-slate-900 font-sans flex flex-col min-h-screen overflow-hidden">
+
+    <div id="preloader" class="fixed inset-0 z-[9999] bg-black flex flex-col items-center justify-center transition-opacity duration-700 ease-in-out">
+        <svg class="w-full max-w-3xl h-auto px-4" viewBox="0 0 800 300" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+                <linearGradient id="textGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" style="stop-color:#3b82f6;stop-opacity:1" />
+                    <stop offset="100%" style="stop-color:#a855f7;stop-opacity:1" />
+                </linearGradient>
+            </defs>
+
+            <text x="50%" y="40%" text-anchor="middle" dominant-baseline="middle" 
+                  class="title-main stroke-anim">
+                K&M
+            </text>
+            
+            <text x="50%" y="75%" text-anchor="middle" dominant-baseline="middle" 
+                  class="title-sub stroke-anim">
+                STUDIO
+            </text>
+        </svg>
+    </div>
+
+    <style is:global>
+        /* Styl bazowy tekstu */
+        .title-main, .title-sub {
+            /* Używamy fontu systemowego (tego samego co reszta strony) */
+            font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            font-weight: 600; /* Gruby, żeby było widać obrys */
+            fill: transparent; /* Środek przezroczysty na start */
+            stroke-width: 3.5px; /* Nieco cieńsza kreska dla elegancji */
+            stroke-linejoin: round;
+            letter-spacing: -25px;
+        }
+
+        .title-main {
+            font-size: 120px;
+            stroke: white;
+        }
+
+        .title-sub {
+            font-size: 70px;
+            stroke: url(#textGradient);
+            letter-spacing: 10px; /* Nieco mniejszy spacing */
+        }
+
+        /* Klasa uruchamiająca animację */
+        .stroke-anim {
+            stroke-dasharray: 1000; /* Długość kreski */
+            stroke-dashoffset: 1000; /* Przesunięcie (ukrycie) */
+            animation: drawStroke 2.5s ease-out forwards, fillText 1s 2s forwards;
+        }
+
+        /* 1. Rysowanie linii */
+        @keyframes drawStroke {
+            to {
+                stroke-dashoffset: 0;
+            }
+        }
+
+        /* 2. Wypełnianie kolorem */
+        @keyframes fillText {
+            to {
+                fill-opacity: 1;
+                stroke: transparent;
+            }
+        }
+        
+        /* Specjalne wypełnienie dla K&M (Białe) */
+        .title-main {
+            fill: white;
+            fill-opacity: 0;
+        }
+
+        /* Specjalne wypełnienie dla STUDIO (Gradient) */
+        .title-sub {
+            fill: url(#textGradient);
+            fill-opacity: 0;
+            animation-delay: 0.5s; /* STUDIO startuje później */
+        }
+        
+        /* Responsywność dla mobile (zmniejszamy tekst) */
+        @media (max-width: 768px) {
+            .title-main { font-size: 80px; }
+            .title-sub { font-size: 40px; letter-spacing: 5px; }
+        }
+    </style>
+
+
+    <nav class="fixed top-0 w-full z-50 bg-white/90 backdrop-blur-md border-b border-gray-100 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 h-16 flex justify-between items-center relative">
+            <a href="/" class="font-bold text-xl tracking-tighter flex items-center gap-2 z-50 relative">
+                K&M<span class="text-blue-600">-Studio</span>
+            </a>
+
+            <div class="hidden md:flex items-center space-x-6 text-sm font-medium text-gray-600">
+                <a href="/portfolio" class="hover:text-black transition">Portfolio</a>
+                <a href="/#technologia" class="hover:text-black transition">Technologia</a>
+                <a href="/#oferta" class="hover:text-black transition">Oferta</a>
+                <a href="/case-study" class="hover:text-black transition">Case Study</a>
+                <a href="/kontakt" class="hover:text-black transition">Kontakt</a>
+            </div>
+
+            <div class="hidden md:flex items-center gap-4">
+                <a href="/kontakt" class="px-5 py-2 bg-black text-white text-sm font-bold rounded hover:bg-gray-800 transition shadow-lg hover:shadow-xl transform hover:-translate-y-0.5">
+                    Wycena
+                </a>
+            </div>
+            
+            <button id="menu-btn" class="md:hidden z-50 focus:outline-none p-2 text-2xl leading-none">☰</button>
+        </div>
+
+         <div id="mobile-menu" class="hidden absolute top-0 left-0 w-full h-screen bg-white flex flex-col items-center justify-center space-y-8 text-xl font-bold z-40 md:hidden opacity-0 transition-opacity duration-300">
+            <a href="/" class="mobile-link hover:text-blue-600">Start</a>
+            <a href="/portfolio" class="mobile-link hover:text-blue-600">Portfolio</a>
+            <a href="/#oferta" class="mobile-link hover:text-blue-600">Oferta</a>
+            <a href="/#technologia" class="mobile-link hover:text-blue-600">Technologia</a>
+            <a href="/case-study" class="mobile-link hover:text-blue-600">Case Study</a>
+            <a href="/kontakt" class="mobile-link hover:text-blue-600">Kontakt</a>
+         </div>
+    </nav>
+
+    <main class="flex-grow">
+        <slot /> 
+    </main>
+
+    <footer class="bg-gray-900 text-white py-8 text-center text-sm mt-auto">
+        <p>&copy; 2025 K&M Studio. Wszelkie prawa zastrzeżone.</p>
+        <div class="flex justify-center space-x-4 mt-4">
+        <a href="/polityka-prywatnosci" class="hover:text-white transition">Polityka Prywatności</a>
+        <a href="/kontakt" class="hover:text-white transition">Kontakt</a>
+    </div>
+    </footer>
+
+    <button id="to-top-btn" class="fixed bottom-8 right-8 z-50 p-4 bg-black text-white rounded-full shadow-2xl transition-all duration-500 opacity-0 translate-y-10 pointer-events-none hover:bg-blue-600 hover:scale-110 group">
+        <svg class="w-6 h-6 transform transition-transform duration-300 group-hover:-translate-y-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"></path></svg>
+    </button>
+
+    <div id="exit-popup" class="fixed inset-0 z-[200] hidden flex justify-center items-center opacity-0 transition-opacity duration-500">
+        <div id="exit-popup-backdrop" class="absolute inset-0 bg-black/60 backdrop-blur-sm transition-opacity"></div>
+        <div class="relative bg-white rounded-3xl shadow-2xl max-w-lg w-full mx-4 overflow-hidden transform scale-90 transition-transform duration-300" id="exit-popup-content">
+            <div class="h-2 w-full bg-gradient-to-r from-blue-600 to-purple-600"></div>
+            <button id="exit-popup-close" class="absolute top-4 right-4 text-gray-400 hover:text-black transition p-2 bg-white/50 rounded-full">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+            </button>
+            <div class="p-8 text-center">
+                <div class="w-16 h-16 bg-blue-50 text-blue-600 rounded-full flex items-center justify-center text-3xl mx-auto mb-6 shadow-sm border border-blue-100 animate-bounce">🎁</div>
+                <h3 class="text-2xl md:text-3xl font-extrabold text-slate-900 mb-2">Zaczekaj chwilę!</h3>
+                <p class="text-gray-600 mb-6">Nie kupuj kota w worku. Przetestuj naszą jakość całkowicie za darmo.</p>
+                <div class="bg-slate-50 border border-slate-200 rounded-xl p-4 mb-8 text-left">
+                    <p class="font-bold text-slate-800 mb-2 flex items-center gap-2"><span class="text-green-500">✓</span> Darmowa Sesja Próbna</p>
+                    <p class="text-sm text-gray-500">Wyślij nam 1 produkt. Zrobimy mu profesjonalny packshot + aranżację AI. Bez żadnych zobowiązań.</p>
+                </div>
+                <div class="flex flex-col gap-3">
+                    <a href="/kontakt" id="exit-popup-cta" class="w-full py-3 bg-black text-white font-bold rounded-xl hover:bg-gray-800 transition shadow-lg transform hover:-translate-y-0.5">Odbierz darmowe zdjęcie</a>
+                    <button id="exit-popup-dismiss" class="text-xs text-gray-400 hover:text-gray-600 underline">Nie, dziękuję, wolę płacić w ciemno</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="cookie-banner" class="fixed bottom-0 left-0 w-full bg-white border-t border-gray-200 shadow-[0_-4px_20px_rgba(0,0,0,0.1)] z-[150] p-4 transform translate-y-full transition-transform duration-500 flex flex-col md:flex-row items-center justify-between gap-4">
+        
+        <div class="text-xs text-gray-500 max-w-3xl">
+            <span class="font-bold text-gray-900">🍪 Szanujemy Twoją prywatność.</span>
+            Strona używa plików cookies tylko do celów technicznych (zapamiętanie ustawień). Nie śledzimy Cię reklamami.
+            <a href="/polityka-prywatnosci" class="underline hover:text-black">Czytaj więcej</a>.
+        </div>
+
+        <div class="flex gap-3 shrink-0">
+            <button id="cookie-accept" class="px-6 py-2 bg-black text-white text-xs font-bold rounded-full hover:bg-gray-800 transition">
+                OK, Rozumiem
+            </button>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const cookieBanner = document.getElementById('cookie-banner');
+            const acceptBtn = document.getElementById('cookie-accept');
+
+            // Sprawdź czy użytkownik już zaakceptował
+            if (!localStorage.getItem('cookieConsent')) {
+                // Jeśli nie, pokaż pasek po 1 sekundzie
+                setTimeout(() => {
+                    cookieBanner?.classList.remove('translate-y-full');
+                }, 1000);
+            }
+
+            // Obsługa kliknięcia
+            acceptBtn?.addEventListener('click', () => {
+                // Zapamiętaj decyzję
+                localStorage.setItem('cookieConsent', 'true');
+                // Ukryj pasek
+                cookieBanner?.classList.add('translate-y-full');
+            });
+        });
+    </script>
+
+    <script>
+        import Lenis from '@studio-freight/lenis';
+        import AOS from 'aos';
+
+        // --- PRELOADER (LOGIKA JEDNORAZOWA) ---
+        // Ten kod musi się wykonać jak najszybciej
+        const preloader = document.getElementById('preloader');
+        const hasSeenIntro = sessionStorage.getItem('hasSeenIntro');
+
+        if (hasSeenIntro) {
+            // SCENARIUSZ A: Użytkownik już był (nawiguje po podstronach)
+            // Natychmiast ukrywamy preloader i odblokowujemy scroll
+            if (preloader) {
+                preloader.style.display = 'none';
+                document.body.classList.remove('overflow-hidden');
+            }
+        } else {
+            // SCENARIUSZ B: Pierwsza wizyta w sesji
+            // Pozwalamy animacji CSS działać i czekamy na załadowanie
+            window.addEventListener('load', () => {
+                // Czekamy 3.5s aż animacja SVG się skończy
+                setTimeout(() => {
+                    if (preloader) {
+                        preloader.style.opacity = '0';
+                        setTimeout(() => {
+                            preloader.style.display = 'none';
+                            document.body.classList.remove('overflow-hidden');
+                            
+                            // Zapisujemy w pamięci sesji, że intro zostało wyświetlone
+                            sessionStorage.setItem('hasSeenIntro', 'true');
+                        }, 400);
+                    }
+                }, 3000); 
+            });
+        }
+
+        // --- LENIS & AOS ---
+        const lenis = new Lenis({ duration: 1.2, easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), orientation: 'vertical', smoothWheel: true })
+        function raf(time) { lenis.raf(time); requestAnimationFrame(raf) }
+        requestAnimationFrame(raf)
+        AOS.init({ duration: 800, offset: 100, once: true, easing: 'ease-out-cubic' });
+
+        // --- MENU MOBILNE ---
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+        let isMenuOpen = false;
+
+        if (menuBtn && mobileMenu) {
+            menuBtn.addEventListener('click', () => {
+                isMenuOpen = !isMenuOpen;
+                if (isMenuOpen) {
+                    mobileMenu.classList.remove('hidden');
+                    setTimeout(() => mobileMenu.classList.remove('opacity-0'), 10);
+                    menuBtn.innerText = '✕'; 
+                } else {
+                    mobileMenu.classList.add('opacity-0');
+                    setTimeout(() => mobileMenu.classList.add('hidden'), 300);
+                    menuBtn.innerText = '☰';
+                }
+            });
+        }
+
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                isMenuOpen = false;
+                mobileMenu.classList.add('opacity-0');
+                setTimeout(() => mobileMenu.classList.add('hidden'), 300);
+                if(menuBtn) menuBtn.innerText = '☰';
+            });
+        });
+
+        // --- SCROLL TO TOP ---
+        const toTopBtn = document.getElementById('to-top-btn');
+        if (toTopBtn) {
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 500) {
+                    toTopBtn.classList.remove('opacity-0', 'translate-y-10', 'pointer-events-none');
+                } else {
+                    toTopBtn.classList.add('opacity-0', 'translate-y-10', 'pointer-events-none');
+                }
+            });
+            toTopBtn.addEventListener('click', () => {
+                lenis.scrollTo(0); 
+            });
+        }
+
+        // --- PŁYNNE LINKI ---
+        document.querySelectorAll('a[href^="/#"], a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const href = this.getAttribute('href');
+                const targetId = href.replace('/', '');
+                const isOnHomePage = window.location.pathname === '/' || window.location.pathname === '/index.html';
+
+                if (isOnHomePage && targetId.startsWith('#')) {
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        e.preventDefault();
+                        lenis.scrollTo(targetId, { offset: -80, duration: 1.2 });
+                        if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
+                            isMenuOpen = false;
+                            mobileMenu.classList.add('opacity-0');
+                            setTimeout(() => mobileMenu.classList.add('hidden'), 300);
+                            if(menuBtn) menuBtn.innerText = '☰';
+                        }
+                    }
+                }
+            });
+        });
+
+        // --- EXIT POPUP ---
+        document.addEventListener('DOMContentLoaded', () => {
+            const popup = document.getElementById('exit-popup');
+            const popupContent = document.getElementById('exit-popup-content');
+            const closeBtn = document.getElementById('exit-popup-close');
+            const dismissBtn = document.getElementById('exit-popup-dismiss');
+            const ctaBtn = document.getElementById('exit-popup-cta');
+            const backdrop = document.getElementById('exit-popup-backdrop');
+
+            const now = new Date().getTime();
+            const lastSeen = localStorage.getItem('exitPopupSeen');
+            const oneDay = 24 * 60 * 60 * 1000;
+            let canShow = !lastSeen || (now - parseInt(lastSeen) > oneDay);
+
+            function showPopup() {
+                if (!canShow || !popup || !popupContent) return;
+                popup.classList.remove('hidden');
+                setTimeout(() => {
+                    popup.classList.remove('opacity-0');
+                    popupContent.classList.remove('scale-90');
+                    popupContent.classList.add('scale-100');
+                }, 10);
+                canShow = false;
+                localStorage.setItem('exitPopupSeen', now.toString());
+            }
+
+            function hidePopup() {
+                if(!popup || !popupContent) return;
+                popup.classList.add('opacity-0');
+                popupContent.classList.remove('scale-100');
+                popupContent.classList.add('scale-90');
+                setTimeout(() => {
+                    popup.classList.add('hidden');
+                }, 500);
+            }
+
+            document.addEventListener('mouseleave', (e) => {
+                if (e.clientY <= 0) showPopup();
+            });
+
+            setTimeout(() => {
+                if (window.innerWidth < 1024) showPopup();
+            }, 20000);
+
+            closeBtn?.addEventListener('click', hidePopup);
+            dismissBtn?.addEventListener('click', hidePopup);
+            backdrop?.addEventListener('click', hidePopup);
+            ctaBtn?.addEventListener('click', hidePopup);
+        });
+    </script>
+</body>
+</html>

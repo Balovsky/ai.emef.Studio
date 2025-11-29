@@ -1,0 +1,399 @@
+---
+// Plik: src/components/MagicShowcase.astro
+---
+
+<div id="magic-showcase-root" class="max-w-7xl mx-auto relative px-2">
+
+    <div class="w-full h-1.5 bg-gray-200 rounded-full mb-6 overflow-hidden" data-aos="fade-down">
+        <div id="progress-bar" class="h-full bg-blue-600 w-0 transition-all duration-300 ease-linear shadow-[0_0_10px_rgba(37,99,235,0.5)]"></div>
+    </div>
+
+    <div class="flex flex-col lg:flex-row items-center justify-center gap-4 lg:gap-8 lg:h-[500px]">
+
+        <div class="w-full lg:flex-1 h-[300px] lg:h-full bg-white rounded-3xl p-2 shadow-xl border border-gray-100 relative overflow-hidden group order-1" data-aos="fade-right">
+            
+            <div class="absolute top-4 left-4 z-20 bg-white/90 backdrop-blur px-3 py-1 rounded-full text-xs font-bold text-gray-800 shadow-sm flex items-center gap-2">
+                <span class="w-2 h-2 bg-blue-600 rounded-full animate-pulse"></span>
+                Sceneria AI
+            </div>
+
+            <div class="relative w-full h-full rounded-2xl overflow-hidden bg-gray-200" id="image-stack">
+                <div class="absolute bottom-4 left-1/2 -translate-x-1/2 z-20">
+                    <span id="current-label" class="bg-black/60 backdrop-blur-md text-white px-4 py-1 rounded-full text-[10px] md:text-xs font-bold uppercase tracking-widest shadow-lg border border-white/20 whitespace-nowrap">
+                        Ładowanie...
+                    </span>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="shrink-0 z-30 order-2 w-full lg:w-auto">
+            <div class="flex flex-wrap lg:flex-col gap-2 justify-center p-2" id="unified-buttons">
+                </div>
+        </div>
+
+
+        <div class="w-full lg:flex-1 h-[300px] lg:h-full bg-black rounded-3xl p-2 shadow-xl border border-gray-800 relative overflow-hidden group order-3" data-aos="fade-left">
+            
+            <div class="absolute top-4 left-4 z-20 bg-black/50 backdrop-blur px-3 py-1 rounded-full text-xs font-bold text-white shadow-sm flex items-center gap-2 border border-white/10">
+                <svg class="w-3 h-3 text-purple-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
+                Motion AI
+            </div>
+
+            <div class="relative w-full h-full rounded-2xl overflow-hidden bg-gray-900 border border-gray-800">
+                <video 
+                    id="main-video" 
+                    class="absolute inset-0 w-full h-full object-cover transition-opacity duration-500" 
+                    autoplay loop muted playsinline webkit-playsinline preload="auto"
+                >
+                    <source src="" type="video/mp4">
+                </video>
+                
+                <div id="video-loader" class="absolute inset-0 flex items-center justify-center bg-black/50 opacity-0 transition-opacity pointer-events-none">
+                    <div class="w-8 h-8 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        
+        // --- KONFIGURACJA ---
+        const scenarios = [
+            { id: 0, label: 'Studio Light', imgSrc: '/images/przed.png', videoSrc: '/video/home4.mp4' },
+            { id: 1, label: 'Paryż - Ulica', imgSrc: '/images/po.png', videoSrc: '/video/home2.mp4' },
+            { id: 2, label: 'Zimowy Las', imgSrc: '/images/przed.png', videoSrc: '/video/home3.mp4' },
+            { id: 3, label: 'Słoneczna Plaża', imgSrc: '/images/po.png', videoSrc: '/video/home6.mp4' }
+        ];
+
+        // --- ZMIENNE ---
+        let currentIndex = 0;
+        let autoPlayTimer;
+        const displayTime = 3000;
+        let isUserInteracted = false;
+        
+        const rootElement = document.getElementById('magic-showcase-root');
+        const stackContainer = document.getElementById('image-stack');
+        const mainVideo = document.getElementById('main-video');
+        const buttonsContainer = document.getElementById('unified-buttons');
+        const labelText = document.getElementById('current-label');
+        const progressBar = document.getElementById('progress-bar');
+        const videoLoader = document.getElementById('video-loader');
+
+        // Set initial poster
+        mainVideo.poster = scenarios[0].imgSrc;
+
+        // --- INICJALIZACJA ZDJĘĆ ---
+        scenarios.forEach((item, index) => {
+            const img = document.createElement('img');
+            img.src = item.imgSrc;
+            img.className = `absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ease-in-out ${index === 0 ? 'opacity-100 z-10' : 'opacity-0 z-0'}`;
+            img.id = `slide-${index}`;
+            stackContainer.insertBefore(img, stackContainer.firstChild);
+        });
+
+        // --- SWITCHER ---
+        function switchScenario(newIndex) {
+            const data = scenarios[newIndex];
+
+            // FOTO
+            const oldImg = document.getElementById(`slide-${currentIndex}`);
+            const newImg = document.getElementById(`slide-${newIndex}`);
+            if (oldImg) { oldImg.classList.remove('opacity-100', 'z-10'); oldImg.classList.add('opacity-0', 'z-0'); }
+            if (newImg) { newImg.classList.remove('opacity-0', 'z-0'); newImg.classList.add('opacity-100', 'z-10'); }
+
+            // LABEL
+            if(labelText) labelText.innerText = data.label;
+
+            // VIDEO
+            changeVideoSource(data.videoSrc, data.imgSrc);
+
+            updateButtons(newIndex);
+            
+            // Reset timer only if auto-play is active
+            if(autoPlayTimer) resetProgressBar();
+            
+            currentIndex = newIndex;
+        }
+
+        // --- VIDEO ---
+        function changeVideoSource(src, posterSrc) {
+            // Avoid reloading if source is same (unless it's empty start)
+            if (mainVideo.src.includes(src) && mainVideo.src !== '' && !mainVideo.paused) return;
+            
+            videoLoader.classList.remove('opacity-0');
+            mainVideo.poster = posterSrc;
+
+            setTimeout(() => {
+                mainVideo.src = src;
+                mainVideo.load();
+                var playPromise = mainVideo.play();
+                if (playPromise !== undefined) {
+                    playPromise.then(_ => videoLoader.classList.add('opacity-0'))
+                    .catch(_ => {
+                        console.log('Autoplay blocked'); 
+                        videoLoader.classList.add('opacity-0');
+                    });
+                }
+            }, 300);
+        }
+
+        // --- PRZYCISKI ---
+        scenarios.forEach((item, idx) => {
+            const btn = document.createElement('button');
+            btn.className = `whitespace-nowrap px-3 py-2 lg:py-3 lg:px-6 rounded-full text-xs md:text-sm font-bold transition-all border shadow-sm ${idx === 0 ? 'bg-black text-white border-black scale-105' : 'bg-white text-gray-500 border-gray-200 hover:border-gray-400'}`;
+            btn.innerText = item.label;
+            
+            btn.addEventListener('click', () => {
+                isUserInteracted = true;
+                stopAutoPlay();
+                switchScenario(idx);
+            });
+            
+            buttonsContainer.appendChild(btn);
+        });
+
+        function updateButtons(activeIdx) {
+            const btns = buttonsContainer.children;
+            for (let i = 0; i < btns.length; i++) {
+                if (i === activeIdx) {
+                    btns[i].className = 'whitespace-nowrap px-3 py-2 lg:py-3 lg:px-6 rounded-full text-xs md:text-sm font-bold transition-all border shadow-md bg-black text-white border-black transform scale-105';
+                } else {
+                    btns[i].className = 'whitespace-nowrap px-3 py-2 lg:py-3 lg:px-6 rounded-full text-xs md:text-sm font-bold transition-all border shadow-sm bg-white text-gray-500 border-gray-200 hover:border-gray-400';
+                }
+            }
+        }
+
+        // --- AUTO PLAY ---
+        function startAutoPlay() {
+            if (isUserInteracted) return;
+
+            // Start bar immediately
+            setTimeout(() => { 
+                progressBar.style.transition = `width ${displayTime}ms linear`;
+                progressBar.style.width = '100%'; 
+            }, 10);
+            
+            if (!autoPlayTimer) {
+                autoPlayTimer = setInterval(() => {
+                    let next = currentIndex + 1;
+                    if (next >= scenarios.length) next = 0;
+                    switchScenario(next);
+                }, displayTime);
+            }
+        }
+
+        function resetProgressBar() {
+            progressBar.style.transition = 'none';
+            progressBar.style.width = '0%';
+            
+            if (autoPlayTimer) {
+                setTimeout(() => {
+                    progressBar.style.transition = `width ${displayTime}ms linear`;
+                    progressBar.style.width = '100%';
+                }, 50);
+            }
+        }
+
+        function stopAutoPlay() {
+            clearInterval(autoPlayTimer);
+            autoPlayTimer = null;
+            progressBar.style.width = '0%';
+        }
+
+        // ==========================================
+        // OBSERVER
+        // ==========================================
+        const observerOptions = {
+            root: null, 
+            rootMargin: '0px',
+            threshold: 0.1 
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    startAutoPlay();
+                } else {
+                    stopAutoPlay();
+                }
+            });
+        }, observerOptions);
+
+        if (rootElement) {
+            observer.observe(rootElement);
+        }
+
+        // ==========================================
+        // FORCE INIT (This fixes the issue)
+        // ==========================================
+        switchScenario(0); 
+
+    });
+</script>
+
+<!-- <script>
+ 
+    document.addEventListener('DOMContentLoaded', () => {
+        
+        // --- KONFIGURACJA ---
+        const scenarios = [
+            { id: 0, label: 'Studio Light', imgSrc: '/images/przed.png', videoSrc: '/video/home4.mp4' },
+            { id: 1, label: 'Paryż - Ulica', imgSrc: '/images/po.png', videoSrc: '/video/home2.mp4' },
+            { id: 2, label: 'Zimowy Las', imgSrc: '/images/przed.png', videoSrc: '/video/home3.mp4' },
+            { id: 3, label: 'Słoneczna Plaża', imgSrc: '/images/po.png', videoSrc: '/video/home6.mp4' }
+        ];
+
+        // --- ZMIENNE ---
+        let currentIndex = 0;
+        let autoPlayTimer;
+        const displayTime = 3000; // ZMIANA: Skrócono czas do 3 sekund (było 4000)
+        let isUserInteracted = false;
+        
+        const rootElement = document.getElementById('magic-showcase-root');
+        const stackContainer = document.getElementById('image-stack');
+        const mainVideo = document.getElementById('main-video');
+        const buttonsContainer = document.getElementById('unified-buttons');
+        const labelText = document.getElementById('current-label');
+        const progressBar = document.getElementById('progress-bar');
+        const videoLoader = document.getElementById('video-loader');
+
+        mainVideo.poster = scenarios[0].imgSrc;
+
+        // --- INICJALIZACJA ZDJĘĆ ---
+        scenarios.forEach((item, index) => {
+            const img = document.createElement('img');
+            img.src = item.imgSrc;
+            img.className = `absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ease-in-out ${index === 0 ? 'opacity-100 z-10' : 'opacity-0 z-0'}`;
+            img.id = `slide-${index}`;
+            stackContainer.insertBefore(img, stackContainer.firstChild);
+        });
+
+        // --- SWITCHER ---
+        function switchScenario(newIndex) {
+            const data = scenarios[newIndex];
+
+            const oldImg = document.getElementById(`slide-${currentIndex}`);
+            const newImg = document.getElementById(`slide-${newIndex}`);
+            if (oldImg) { oldImg.classList.remove('opacity-100', 'z-10'); oldImg.classList.add('opacity-0', 'z-0'); }
+            if (newImg) { newImg.classList.remove('opacity-0', 'z-0'); newImg.classList.add('opacity-100', 'z-10'); }
+
+            labelText.innerText = data.label;
+            changeVideoSource(data.videoSrc, data.imgSrc);
+            updateButtons(newIndex);
+            
+            // Reset paska i start nowej animacji
+            resetProgressBar();
+            
+            currentIndex = newIndex;
+        }
+
+        // --- VIDEO ---
+        function changeVideoSource(src, posterSrc) {
+            if (mainVideo.src.includes(src) && !mainVideo.paused) return;
+            videoLoader.classList.remove('opacity-0');
+            mainVideo.poster = posterSrc;
+
+            setTimeout(() => {
+                mainVideo.src = src;
+                mainVideo.load();
+                var playPromise = mainVideo.play();
+                if (playPromise !== undefined) {
+                    playPromise.then(_ => videoLoader.classList.add('opacity-0'))
+                    .catch(_ => videoLoader.classList.add('opacity-0'));
+                }
+            }, 300);
+        }
+
+        // --- PRZYCISKI ---
+        scenarios.forEach((item, idx) => {
+            const btn = document.createElement('button');
+            btn.className = `whitespace-nowrap px-3 py-2 lg:py-3 lg:px-6 rounded-full text-xs md:text-sm font-bold transition-all border shadow-sm ${idx === 0 ? 'bg-black text-white border-black scale-105' : 'bg-white text-gray-500 border-gray-200 hover:border-gray-400'}`;
+            btn.innerText = item.label;
+            
+            btn.addEventListener('click', () => {
+                isUserInteracted = true;
+                stopAutoPlay();
+                switchScenario(idx);
+            });
+            
+            buttonsContainer.appendChild(btn);
+        });
+
+        function updateButtons(activeIdx) {
+            const btns = buttonsContainer.children;
+            for (let i = 0; i < btns.length; i++) {
+                if (i === activeIdx) {
+                    btns[i].className = 'whitespace-nowrap px-3 py-2 lg:py-3 lg:px-6 rounded-full text-xs md:text-sm font-bold transition-all border shadow-md bg-black text-white border-black transform scale-105';
+                } else {
+                    btns[i].className = 'whitespace-nowrap px-3 py-2 lg:py-3 lg:px-6 rounded-full text-xs md:text-sm font-bold transition-all border shadow-sm bg-white text-gray-500 border-gray-200 hover:border-gray-400';
+                }
+            }
+        }
+
+        // --- AUTO PLAY ---
+        function startAutoPlay() {
+            if (isUserInteracted) return;
+
+            // ZMIANA: Pasek startuje natychmiast (10ms)
+            setTimeout(() => { 
+                progressBar.style.transition = `width ${displayTime}ms linear`;
+                progressBar.style.width = '100%'; 
+            }, 10);
+            
+            if (!autoPlayTimer) {
+                autoPlayTimer = setInterval(() => {
+                    let next = currentIndex + 1;
+                    if (next >= scenarios.length) next = 0;
+                    switchScenario(next);
+                }, displayTime);
+            }
+        }
+
+        function resetProgressBar() {
+            progressBar.style.transition = 'none';
+            progressBar.style.width = '0%';
+            
+            if (autoPlayTimer) {
+                // Szybki restart paska dla kolejnego slajdu
+                setTimeout(() => {
+                    progressBar.style.transition = `width ${displayTime}ms linear`;
+                    progressBar.style.width = '100%';
+                }, 50);
+            }
+        }
+
+        function stopAutoPlay() {
+            clearInterval(autoPlayTimer);
+            autoPlayTimer = null;
+            progressBar.style.width = '0%';
+        }
+
+        // ==========================================
+        // OBSERVER (SZYBSZA REAKCJA)
+        // ==========================================
+        const observerOptions = {
+            root: null, 
+            rootMargin: '0px',
+            threshold: 0.1 // ZMIANA: Reaguj już przy 10% widoczności (było 0.3)
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    startAutoPlay();
+                } else {
+                    stopAutoPlay();
+                }
+            });
+        }, observerOptions);
+
+        if (rootElement) {
+            observer.observe(rootElement);
+        }
+    });
+</script> -->

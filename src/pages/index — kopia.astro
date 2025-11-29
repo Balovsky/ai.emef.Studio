@@ -1,0 +1,66 @@
+---
+// Plik: src/pages/index.astro
+import MainLayout from '../layouts/MainLayout.astro';
+import BeforeAfter from '../components/BeforeAfter.astro';
+---
+
+<MainLayout title="Strona Główna | Studio AI">
+    
+    <header class="pt-32 pb-20 px-4 text-center bg-slate-50">
+        <h1 class="text-5xl md:text-7xl font-extrabold tracking-tight mb-6 text-slate-900">
+            Sprzedawaj wizją.<br/><span class="text-blue-600">Oszczędzaj budżet.</span>
+        </h1>
+        <div class="px-4" data-aos-delay="200">
+             <BeforeAfter />
+        </div>
+    </header>
+    <section data-aos="fade-up" class="py-12 bg-black text-white">
+        <div class="max-w-7xl mx-auto px-4 grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+            <div><div class="text-4xl font-bold text-blue-500">15 000+</div><div class="text-gray-400">Packshotów</div></div>
+            <div><div class="text-4xl font-bold text-purple-500">1200%</div><div class="text-gray-400">Wzrost sprzedaży</div></div>
+            <div><div class="text-4xl font-bold text-green-500">AI</div><div class="text-gray-400">Technologia</div></div>
+            <div><div class="text-4xl font-bold text-orange-500">20+</div><div class="text-gray-400">Kampanii</div></div>
+        </div>
+    </section>
+
+    <section class="py-20 px-4 max-w-5xl mx-auto">
+        <h2 data-aos="fade-up" class="text-3xl font-bold text-center mb-12">Ile realnie oszczędzasz?</h2>
+        <div class="grid md:grid-cols-2 gap-8 mb-12">
+            <div data-aos="fade-up" class="p-8 bg-gray-50 rounded-2xl border border-gray-200">
+                <h3 class="text-xl font-bold text-gray-500 mb-4">Tradycyjna Sesja</h3>
+                <div class="space-y-2 text-gray-500">
+                    <p>❌ Wynajem studia i lokacji</p>
+                    <p>❌ Modelki i wizaż</p>
+                    <p>❌ Transport i logistyka</p>
+                    <p class="text-2xl font-bold text-red-400 mt-4">$$$$ Wysoki koszt</p>
+                </div>
+            </div>
+            <div data-aos="fade-up" class="p-8 bg-slate-900 text-white rounded-2xl shadow-xl transform md:-translate-y-4">
+                <h3 class="text-xl font-bold text-white mb-4">Metoda Hybrid AI</h3>
+                <div class="space-y-2 text-gray-300">
+                    <p>✅ 0 zł za lokację (Generujemy cyfrowo)</p>
+                    <p>✅ Tylko wysyłka produktów</p>
+                    <p>✅ Nieograniczone zmiany tła</p>
+                    <p class="text-3xl font-bold text-green-400 mt-4">Oszczędność 60%</p>
+                </div>
+            </div>
+        </div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-4 h-96">
+    
+    <div class="relative group overflow-hidden rounded-lg h-full">
+        <img src="../../public/images/po.png" class="object-cover w-full h-full transition duration-500 group-hover:scale-110" alt="Packshot" />
+        <div class="absolute bottom-0 left-0 bg-black/70 text-white p-2 text-sm w-full opacity-0 group-hover:opacity-100 transition">Packshot Premium</div>
+    </div>
+
+    <div class="relative group overflow-hidden rounded-lg h-full">
+        <img src="../../public/images/po.png" class="object-cover w-full h-full transition duration-500 group-hover:scale-110" alt="AI Creative" />
+        <div class="absolute bottom-0 left-0 bg-black/70 text-white p-2 text-sm w-full opacity-0 group-hover:opacity-100 transition">AI Creative</div>
+    </div>
+
+    <div class="relative group overflow-hidden rounded-lg h-full">
+        <img src="../../public/images/po.png" class="object-cover w-full h-full transition duration-500 group-hover:scale-110" alt="Fashion" />
+        <div class="absolute bottom-0 left-0 bg-black/70 text-white p-2 text-sm w-full opacity-0 group-hover:opacity-100 transition">Fashion</div>
+    </div>
+    </section>
+    </MainLayout>

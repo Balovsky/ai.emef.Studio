@@ -1,0 +1,250 @@
+---
+// Plik: src/pages/oferta.astro
+import MainLayout from '../layouts/MainLayout.astro';
+---
+
+<MainLayout title="Oferta i Cennik | Studio.AI">
+
+    <header class="pt-32 pb-20 bg-slate-900 text-white text-center px-4 relative overflow-hidden">
+        <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=2000&auto=format&fit=crop')] bg-cover bg-center opacity-10"></div>
+        <div class="relative z-10 max-w-4xl mx-auto">
+            <span class="text-blue-400 font-bold tracking-widest uppercase text-sm mb-4 block" data-aos="fade-down">Kompleksowa Obsługa E-commerce</span>
+            <h1 class="text-4xl md:text-6xl font-extrabold mb-6 leading-tight" data-aos="fade-up">
+                Inwestycja, która <br/><span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500">zarabia na siebie.</span>
+            </h1>
+            <p class="text-xl text-gray-300 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="100">
+                Nie sprzedajemy tylko zdjęć. Sprzedajemy wyższą konwersję w Twoim sklepie. Wybierz rozwiązanie dopasowane do Twojej skali.
+            </p>
+        </div>
+    </header>
+
+    <section class="py-24 bg-white overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 space-y-32">
+            
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <div data-aos="fade-right">
+                    <div class="w-16 h-16 bg-blue-100 rounded-2xl flex items-center justify-center text-3xl mb-6">📸</div>
+                    <h2 class="text-3xl font-bold mb-4">Packshoty Premium</h2>
+                    <p class="text-gray-600 mb-6 text-lg">
+                        Fundament każdego sklepu. Wykonujemy zdjęcia zgodne z rygorystycznymi wymogami Amazon, Allegro i Zalando. Czysta biel, idealne krawędzie, wierne kolory.
+                    </p>
+                    <ul class="space-y-3 text-gray-700">
+                        <li class="flex items-center gap-3"><span class="text-green-500 font-bold">✓</span> Szparowanie (wycięte tło PNG/JPG)</li>
+                        <li class="flex items-center gap-3"><span class="text-green-500 font-bold">✓</span> Retusz kurzu i niedoskonałości</li>
+                        <li class="flex items-center gap-3"><span class="text-green-500 font-bold">✓</span> Opcja Ghost Mannequin (Duch) dla odzieży</li>
+                        <li class="flex items-center gap-3"><span class="text-green-500 font-bold">✓</span> Zdjęcia 360° (obrotowe)</li>
+                    </ul>
+                </div>
+                <div class="relative h-[400px] bg-gray-100 rounded-3xl overflow-hidden shadow-2xl group" data-aos="fade-left">
+                    <img src="/images/po.png" class="absolute inset-0 w-full h-full object-cover transition duration-700 group-hover:scale-105" alt="Packshot">
+                </div>
+            </div>
+
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <div class="relative h-[400px] bg-gray-100 rounded-3xl overflow-hidden shadow-2xl group order-2 lg:order-1" data-aos="fade-right">
+                    <img src="/images/po.png" class="absolute inset-0 w-full h-full object-cover transition duration-700 group-hover:scale-105" alt="AI Campaign">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                    <div class="absolute bottom-6 left-6 text-white font-bold">Sceneria wygenerowana cyfrowo</div>
+                </div>
+                <div data-aos="fade-left" class="order-1 lg:order-2">
+                    <div class="w-16 h-16 bg-purple-100 rounded-2xl flex items-center justify-center text-3xl mb-6">✨</div>
+                    <h2 class="text-3xl font-bold mb-4">Kampanie & Lifestyle AI</h2>
+                    <p class="text-gray-600 mb-6 text-lg">
+                        Zapomnij o drogich wyjazdach na sesje plenerowe. Dzięki technologii Hybrid AI przeniesiemy Twój produkt w dowolne miejsce na świecie – od paryskiej ulicy po księżyc.
+                    </p>
+                    <ul class="space-y-3 text-gray-700">
+                        <li class="flex items-center gap-3"><span class="text-green-500 font-bold">✓</span> Fotorealistyczne tła bez wynajmu lokacji</li>
+                        <li class="flex items-center gap-3"><span class="text-green-500 font-bold">✓</span> Modelki i modele generowani cyfrowo</li>
+                        <li class="flex items-center gap-3"><span class="text-green-500 font-bold">✓</span> Szybka zmiana kolekcji (Zima -> Lato w 1 dzień)</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <div data-aos="fade-right">
+                    <div class="w-16 h-16 bg-green-100 rounded-2xl flex items-center justify-center text-3xl mb-6">🎬</div>
+                    <h2 class="text-3xl font-bold mb-4">Wideo & Social Media</h2>
+                    <p class="text-gray-600 mb-6 text-lg">
+                        Ruch sprzedaje lepiej niż statyczny obraz. Tworzymy angażujące rolki (Reels/TikTok) oraz wideo produktowe, które zatrzymują kciuk klienta podczas scrollowania.
+                    </p>
+                    <ul class="space-y-3 text-gray-700">
+                        <li class="flex items-center gap-3"><span class="text-green-500 font-bold">✓</span> Ożywianie zdjęć (Motion AI)</li>
+                        <li class="flex items-center gap-3"><span class="text-green-500 font-bold">✓</span> Montaż i postprodukcja</li>
+                        <li class="flex items-center gap-3"><span class="text-green-500 font-bold">✓</span> Gotowe paczki postów na Instagram/FB</li>
+                    </ul>
+                </div>
+                <div class="relative h-[400px] bg-gray-100 rounded-3xl overflow-hidden shadow-2xl group" data-aos="fade-left">
+                    <div class="relative h-[400px] bg-black rounded-3xl overflow-hidden shadow-2xl group border border-gray-800" data-aos="fade-left">
+                
+                <video 
+                    class="absolute inset-0 w-full h-full object-cover opacity-90 transition duration-700 group-hover:scale-105 group-hover:opacity-100" 
+                    autoplay 
+                    loop 
+                    muted 
+                    playsinline
+                >
+                    <source src="/video/home4.mp4" type="video/mp4">
+                </video>
+
+                <div class="absolute inset-0 bg-black/20 group-hover:bg-transparent transition duration-500"></div>
+
+                <div class="absolute inset-0 flex items-center justify-center pointer-events-none group-hover:opacity-0 transition duration-300">
+                    <div class="w-16 h-16 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center border border-white/40 shadow-lg">
+                        <span class="ml-1 text-white text-2xl">▶</span>
+                    </div>
+                </div>
+
+                <div class="absolute bottom-6 right-6 bg-black/60 backdrop-blur text-white text-xs font-bold px-3 py-1 rounded-full border border-white/10">
+                    Reels / TikTok Style
+                </div>
+            </div>
+                    <div class="absolute inset-0 flex items-center justify-center">
+                        <div class="w-16 h-16 bg-white/20 backdrop-blur rounded-full flex items-center justify-center border border-white/50">
+                            <span class="ml-1 text-white text-2xl">▶</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+             <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <div class="relative h-[400px] bg-slate-50 rounded-3xl overflow-hidden shadow-xl group border border-slate-200 order-2 lg:order-1" data-aos="fade-right">
+                    <div class="grid grid-cols-2 gap-4 p-8 opacity-50 grayscale transition duration-500 group-hover:grayscale-0 group-hover:opacity-100">
+                        <div class="aspect-square bg-slate-200 rounded-lg"></div>
+                        <div class="aspect-square bg-slate-300 rounded-lg"></div>
+                        <div class="aspect-square bg-slate-300 rounded-lg"></div>
+                        <div class="aspect-square bg-slate-200 rounded-lg"></div>
+                    </div>
+                    <div class="absolute inset-0 flex items-center justify-center">
+                        <span class="bg-white px-4 py-2 rounded-full font-bold shadow-lg text-sm">Panel Administratora</span>
+                    </div>
+                </div>
+                <div data-aos="fade-left" class="order-1 lg:order-2">
+                    <div class="w-16 h-16 bg-orange-100 rounded-2xl flex items-center justify-center text-3xl mb-6">🛍️</div>
+                    <h2 class="text-3xl font-bold mb-4">Administracja & Content</h2>
+                    <p class="text-gray-600 mb-6 text-lg">
+                        Nie masz czasu na wprowadzanie produktów? Zrobimy to za Ciebie. Działamy jak Twój zewnętrzny dział e-commerce.
+                    </p>
+                    <ul class="space-y-3 text-gray-700">
+                        <li class="flex items-center gap-3"><span class="text-green-500 font-bold">✓</span> Copywriting SEO (unikalne opisy)</li>
+                        <li class="flex items-center gap-3"><span class="text-green-500 font-bold">✓</span> Wprowadzanie produktów na sklep</li>
+                        <li class="flex items-center gap-3"><span class="text-green-500 font-bold">✓</span> Visual Merchandising (układanie siatki)</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <div data-aos="fade-right">
+                    <div class="w-16 h-16 bg-pink-100 rounded-2xl flex items-center justify-center text-3xl mb-6">🎨</div>
+                    <h2 class="text-3xl font-bold mb-4">Grafika & Branding</h2>
+                    <p class="text-gray-600 mb-6 text-lg">
+                        Zdjęcie to dopiero początek. Zamieniamy je w gotowe materiały reklamowe. 
+                        Projektujemy spójną identyfikację wizualną – od wizytówki w portfelu klienta po baner na stronie głównej.
+                    </p>
+                    <ul class="space-y-3 text-gray-700">
+                        <li class="flex items-center gap-3">
+                            <span class="text-green-500 font-bold">✓</span> 
+                            <strong>Materiały do druku (DTP):</strong> Ulotki, wizytówki, kalendarze, banery wielkoformatowe, katalogi.
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <span class="text-green-500 font-bold">✓</span> 
+                            <strong>Grafika Digital:</strong> Banery na stronę www (hero), Pop-upy, grafiki do newsletterów.
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <span class="text-green-500 font-bold">✓</span> 
+                            <strong>Social Media:</strong> Spójne szablony postów i relacji (InstaStories).
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <span class="text-green-500 font-bold">✓</span> 
+                            Przygotowanie plików (CMYK do druku, kompresja do sieci).
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="relative h-[400px] bg-gray-100 rounded-3xl overflow-hidden shadow-2xl group" data-aos="fade-left">
+                    <img src="/images/po.png" class="absolute inset-0 w-full h-full object-cover transition duration-700 group-hover:scale-105" alt="Graphic Design">
+                    
+                    <div class="absolute top-6 right-6 bg-white px-4 py-2 rounded-lg shadow-md text-xs font-bold transform rotate-3 text-pink-600">
+                        Wizytówka
+                    </div>
+                    <div class="absolute bottom-12 right-12 bg-white px-4 py-2 rounded-lg shadow-md text-xs font-bold transform -rotate-2 text-blue-600">
+                        Baner WWW
+                    </div>
+                    <div class="absolute bottom-6 left-6 bg-black/80 text-white px-4 py-2 rounded-lg shadow-md text-xs font-bold backdrop-blur-md">
+                        Print & Digital
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="py-24 bg-slate-50 border-t border-slate-200">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-5xl font-bold mb-4">Przykładowe Pakiety</h2>
+                <p class="text-gray-600">Każdy projekt wyceniamy indywidualnie, ale to da Ci obraz sytuacji.</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8 items-start">
+                
+                <div class="bg-white p-8 rounded-3xl border border-gray-100 shadow-sm hover:shadow-xl transition duration-300" data-aos="fade-up" data-aos-delay="0">
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">Packshot Basic</h3>
+                    <p class="text-sm text-gray-500 mb-6">Idealne dla startujących sklepów i Allegro.</p>
+                    <div class="text-4xl font-black text-slate-900 mb-6">Indywidualna<span class="text-lg font-normal text-gray-400"> / szt.</span></div>
+                    
+                    <ul class="space-y-4 mb-8 text-sm text-gray-600">
+                        <li class="flex items-center gap-2"><span class="text-blue-500">✓</span> Zdjęcie na białym tle</li>
+                        <li class="flex items-center gap-2"><span class="text-blue-500">✓</span> Podstawowy retusz</li>
+                        <li class="flex items-center gap-2"><span class="text-blue-500">✓</span> Format Web & Print</li>
+                        <li class="flex items-center gap-2"><span class="text-blue-500">✓</span> Czas: 3-5 dni</li>
+                    </ul>
+                    <a href="/kontakt" class="block text-center py-3 border border-slate-200 rounded-xl font-bold hover:bg-slate-50 transition">Zapytaj o wycenę</a>
+                </div>
+
+                <div class="bg-slate-900 text-white p-8 rounded-3xl border border-slate-800 shadow-2xl relative transform md:-translate-y-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="absolute top-0 right-0 bg-blue-600 text-xs font-bold px-3 py-1 rounded-bl-xl text-white">POLECANY</div>
+                    <h3 class="text-xl font-bold text-white mb-2">Hybrid AI Campaign</h3>
+                    <p class="text-sm text-gray-400 mb-6">Kompletna wizualizacja dla Twojej marki.</p>
+                    <div class="text-4xl font-black text-white mb-6">Wycena<span class="text-lg font-normal text-gray-500"> / projekt</span></div>
+                    
+                    <ul class="space-y-4 mb-8 text-sm text-gray-300">
+                        <li class="flex items-center gap-2"><span class="text-green-400">✓</span> Packshoty (Baza)</li>
+                        <li class="flex items-center gap-2"><span class="text-green-400">✓</span> <strong>Scenerie AI (Lifestyle)</strong></li>
+                        <li class="flex items-center gap-3"><span class="text-green-400">✓</span> Retusz Premium</li>
+                        <li class="flex items-center gap-2"><span class="text-green-400">✓</span> Licencja komercyjna</li>
+                    </ul>
+                    <a href="/kontakt" class="block text-center py-4 bg-blue-600 rounded-xl font-bold hover:bg-blue-700 transition shadow-lg shadow-blue-900/50">Darmowa konsultacja</a>
+                </div>
+
+                <div class="bg-white p-8 rounded-3xl border border-gray-100 shadow-sm hover:shadow-xl transition duration-300" data-aos="fade-up" data-aos-delay="200">
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">Full E-commerce</h3>
+                    <p class="text-sm text-gray-500 mb-6">Obsługa 360° - zdjęcia, filmy i wdrożenie.</p>
+                    <div class="text-4xl font-black text-slate-900 mb-6">Abonament<span class="text-lg font-normal text-gray-400"> / msc</span></div>
+                    
+                    <ul class="space-y-4 mb-8 text-sm text-gray-600">
+                        <li class="flex items-center gap-2"><span class="text-purple-500">✓</span> Wszystko z Hybrid AI</li>
+                        <li class="flex items-center gap-2"><span class="text-purple-500">✓</span> <strong>Wideo produktowe (Reels)</strong></li>
+                        <li class="flex items-center gap-2"><span class="text-purple-500">✓</span> Opisy SEO</li>
+                        <li class="flex items-center gap-2"><span class="text-purple-500">✓</span> Administracja sklepem</li>
+                    </ul>
+                    <a href="/kontakt" class="block text-center py-3 border border-slate-200 rounded-xl font-bold hover:bg-slate-50 transition">Porozmawiajmy</a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="py-16 bg-white text-center">
+        <div class="max-w-3xl mx-auto px-4">
+            <h3 class="text-2xl font-bold mb-4">Jak dostarczyć produkty?</h3>
+            <p class="text-gray-600 mb-8">
+                To proste. Pakujesz, zamawiasz kuriera, wysyłasz. <br/>
+                My zajmujemy się magią, a po sesji odsyłamy wszystko bezpiecznie do Ciebie.
+            </p>
+            <div class="inline-flex items-center gap-2 text-sm font-bold bg-gray-100 px-4 py-2 rounded-full text-gray-600">
+                <span>📍</span> Kalwaria Zebrzydowska / Wadowice (Lokalnie)
+            </div>
+        </div>
+    </section>
+
+</MainLayout>

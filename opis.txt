@@ -1,0 +1,325 @@
++-----------------------------------------------------------------------+
+|  [LOGO: TWOJA MARKA]       Portfolio  |  Technologia  |  O Nas        |
+|                            [ PRZYCISK: DARMOWA WYCENA (Gradient) ]    |
++-----------------------------------------------------------------------+
++-----------------------------------------------------------------------+
+|                                                                       |
+|             TWOJE PRODUKTY. NOWY WYMIAR. NIŻSZE KOSZTY.               |
+|      (H1: Wielki, biały, pogrubiony font bezszeryfowy)                |
+|                                                                       |
+|      > Generujemy content e-commerce, który sprzedaje. <              |
+|      > Od packshotu po AI Video. Bez drogich sesji.    <              |
+|                                                                       |
+|               [ ZOBACZ REALIZACJE ]    [ SPRAWDŹ CASE STUDY ]         |
+|             (Przycisk Pełny Kolor)      (Przycisk Obramowany)         |
+|                                                                       |
+|   (W dolnym rogu ikona myszki "Scroll Down" z animacją podskakiwania) |
++-----------------------------------------------------------------------+
++-----------------------------------------------------------------------+
+|    15,000+       |      1,200%       |      AI TECH      |    20+     |
+|   Packshotów     | Wzrost Sprzedaży  |   Hybrid Photo    | Kampanii   |
++-----------------------------------------------------------------------+
++-----------------------------------------------------------------------+
+|  NAGŁÓWEK: "Zmień białe tło w światową kampanię"                      |
+|                                                                       |
+|  +-----------------------------+-----------------------------+        |
+|  | ZDJĘCIE SUROWE (Białe tło)  |  ZDJĘCIE AI (Plener/Góry)   |        |
+|  |                             |                             |        |
+|  |          But na stole       |   <<<<  SUWAK  >>>>         |        |
+|  |                             |     Ten sam but na skale    |        |
+|  |                             |                             |        |
+|  +-----------------------------+-----------------------------+        |
+|                                                                       |
+|  Podpis: "Oszczędność czasu: 90%. Koszt: -60% względem sesji."        |
++-----------------------------------------------------------------------+
+
++-----------------------------------------------------------------------+
+|  NAGŁÓWEK: "Dlaczego przepłacasz za tradycyjne sesje?"                |
+|                                                                       |
+|       TRADYCYJNA SESJA                  WASZA METODA (HYBRID AI)      |
+|     (Czerwony akcent)                    (Zielony/Neon akcent)        |
+|                                                                       |
+|      [$$$$$$$$$$$$$$$$]                   [$$$$$]                     |
+|      [$$$$$$$$$$$$$$$$]                   [$$$$$]                     |
+|      [$$$$$$$$$$$$$$$$]                   [$$$$$]                     |
+|      [$$$$$$$$$$$$$$$$]                   [$$$$$]                     |
+|           |                                    |                      |
+|   Lokacje, Modelki, Hotele,            Tylko wysyłka produktu         |
+|   Catering, Transport.                 + nasza praca.                 |
+|                                                                       |
+|   WERDYKT: Wolno i Drogo.              WERDYKT: Szybko i Skalowalnie. |
++-----------------------------------------------------------------------+
+
++---------------------------------------+-------------------------------+
+|                                       |                               |
+|  OBRAZ:                               |  TEKST:                       |
+|  Piękne zdjęcie buta                  |  CASE STUDY: BUTY DAMSKIE     |
+|  z dopiskiem "Bestseller"             |                               |
+|                                       |  "Jak zwiększyliśmy sprzedaż  |
+|                                       |   z 5 do 60 zamówień/dzień?"  |
+|                                       |                               |
+|                                       |  Problem: Słabe zdjęcia.      |
+|                                       |  Rozwiązanie: Totalna zmiana. |
+|                                       |  Wynik: Sklep wystrzelił.     |
+|                                       |                               |
+|                                       |  [ CZYTAJ CAŁĄ HISTORIĘ -> ]  |
+|                                       |                               |
++---------------------------------------+-------------------------------+
++---------------------+  +---------------------+  +---------------------+
+|                     |  |                     |  |                     |
+|   PACKSHOT (BUT)    |  |    MODA (MODELKA)   |  |   AI (PERFUMY)      |
+|   (Kwadrat)         |  |    (Pionowy - duży) |  |   (Kwadrat)         |
+|                     |  |                     |  |                     |
++---------------------+  |                     |  +---------------------+
+                         |                     |
++---------------------+  |                     |  +---------------------+
+|   WIDEO (PLAY)      |  |                     |  |                     |
+|   (Poziomy)         |  +---------------------+  |   PACKSHOT (TORBA)  |
++---------------------+                           |   (Pionowy)         |
+                         +---------------------+  |                     |
+                         |   AI (KOSMETYK)     |  +---------------------+
+                         |   (Poziomy)         |
+                         +---------------------+
+
+
+Jako AI tekstowe nie wygeneruję pliku graficznego (jak JPG czy PDF), ale mogę stworzyć dla Ciebie szczegółową wizualną makietę (wireframe) przy użyciu kodu i tekstu.
+
+Możesz przekazać ten schemat grafikowi lub web developerowi, a on będzie dokładnie wiedział, jak rozmieścić elementy.
+
+Zastosowałem styl „Dark & Clean”: Ciemne tła dla sekcji technologicznych (AI, Wideo), jasne tła dla sekcji produktowych (Packshoty), żeby zachować czystość.
+
+🎨 PROJEKT GRAFICZNY STRONY (WIREFRAME)
+1. STRONA GŁÓWNA (LANDING PAGE)
+GÓRA (HEADER) - STICKY (Przyklejony)
+
+Plaintext
+
++-----------------------------------------------------------------------+
+|  [LOGO: TWOJA MARKA]       Portfolio  |  Technologia  |  O Nas        |
+|                            [ PRZYCISK: DARMOWA WYCENA (Gradient) ]    |
++-----------------------------------------------------------------------+
+SEKCJA 1: HERO (PIERWSZE WRAŻENIE) Styl: Tło to pełnoekranowe wideo (przyciemnione).
+
+Plaintext
+
++-----------------------------------------------------------------------+
+|                                                                       |
+|             TWOJE PRODUKTY. NOWY WYMIAR. NIŻSZE KOSZTY.               |
+|      (H1: Wielki, biały, pogrubiony font bezszeryfowy)                |
+|                                                                       |
+|      > Generujemy content e-commerce, który sprzedaje. <              |
+|      > Od packshotu po AI Video. Bez drogich sesji.    <              |
+|                                                                       |
+|               [ ZOBACZ REALIZACJE ]    [ SPRAWDŹ CASE STUDY ]         |
+|             (Przycisk Pełny Kolor)      (Przycisk Obramowany)         |
+|                                                                       |
+|   (W dolnym rogu ikona myszki "Scroll Down" z animacją podskakiwania) |
++-----------------------------------------------------------------------+
+SEKCJA 2: SOCIAL PROOF (LICZBY) Styl: Czarne tło, białe liczby, cienkie pionowe linie oddzielające.
+
+Plaintext
+
++-----------------------------------------------------------------------+
+|    15,000+       |      1,200%       |      AI TECH      |    20+     |
+|   Packshotów     | Wzrost Sprzedaży  |   Hybrid Photo    | Kampanii   |
++-----------------------------------------------------------------------+
+SEKCJA 3: TWOJA SUPERMOC (SLIDER PRZED/PO) Styl: Interaktywny element. Użytkownik przesuwa suwak.
+
+Plaintext
+
++-----------------------------------------------------------------------+
+|  NAGŁÓWEK: "Zmień białe tło w światową kampanię"                      |
+|                                                                       |
+|  +-----------------------------+-----------------------------+        |
+|  | ZDJĘCIE SUROWE (Białe tło)  |  ZDJĘCIE AI (Plener/Góry)   |        |
+|  |                             |                             |        |
+|  |          But na stole       |   <<<<  SUWAK  >>>>         |        |
+|  |                             |     Ten sam but na skale    |        |
+|  |                             |                             |        |
+|  +-----------------------------+-----------------------------+        |
+|                                                                       |
+|  Podpis: "Oszczędność czasu: 90%. Koszt: -60% względem sesji."        |
++-----------------------------------------------------------------------+
+SEKCJA 4: PORÓWNANIE KOSZTÓW (WYKRES) Styl: Jasne tło. Nowoczesny wykres słupkowy.
+
+Plaintext
+
++-----------------------------------------------------------------------+
+|  NAGŁÓWEK: "Dlaczego przepłacasz za tradycyjne sesje?"                |
+|                                                                       |
+|       TRADYCYJNA SESJA                  WASZA METODA (HYBRID AI)      |
+|     (Czerwony akcent)                    (Zielony/Neon akcent)        |
+|                                                                       |
+|      [$$$$$$$$$$$$$$$$]                   [$$$$$]                     |
+|      [$$$$$$$$$$$$$$$$]                   [$$$$$]                     |
+|      [$$$$$$$$$$$$$$$$]                   [$$$$$]                     |
+|      [$$$$$$$$$$$$$$$$]                   [$$$$$]                     |
+|           |                                    |                      |
+|   Lokacje, Modelki, Hotele,            Tylko wysyłka produktu         |
+|   Catering, Transport.                 + nasza praca.                 |
+|                                                                       |
+|   WERDYKT: Wolno i Drogo.              WERDYKT: Szybko i Skalowalnie. |
++-----------------------------------------------------------------------+
+SEKCJA 5: CASE STUDY (ZAJAWKA) Styl: Split screen (Pół na pół).
+
+Plaintext
+
++---------------------------------------+-------------------------------+
+|                                       |                               |
+|  OBRAZ:                               |  TEKST:                       |
+|  Piękne zdjęcie buta                  |  CASE STUDY: BUTY DAMSKIE     |
+|  z dopiskiem "Bestseller"             |                               |
+|                                       |  "Jak zwiększyliśmy sprzedaż  |
+|                                       |   z 5 do 60 zamówień/dzień?"  |
+|                                       |                               |
+|                                       |  Problem: Słabe zdjęcia.      |
+|                                       |  Rozwiązanie: Totalna zmiana. |
+|                                       |  Wynik: Sklep wystrzelił.     |
+|                                       |                               |
+|                                       |  [ CZYTAJ CAŁĄ HISTORIĘ -> ]  |
+|                                       |                               |
++---------------------------------------+-------------------------------+
+2. ZAKŁADKA PORTFOLIO (UKŁAD GALERII)
+Styl: Minimalizm. Białe tło, czarny tekst. Zdjęcia grają główną rolę.
+
+FILTRY (MENU KATEGORII)
+
+Plaintext
+
+[ WSZYSTKIE ]  [ PACKSHOTY (Białe tło) ]  [ MODA ]  [ AI & KREACJA ]  [ WIDEO ]
+SIATKA ZDJĘĆ (MASONRY LAYOUT) To nie jest nudna tabela. Zdjęcia są różnej wielkości, dopasowane do siebie.
+
+Plaintext
+
++---------------------+  +---------------------+  +---------------------+
+|                     |  |                     |  |                     |
+|   PACKSHOT (BUT)    |  |    MODA (MODELKA)   |  |   AI (PERFUMY)      |
+|   (Kwadrat)         |  |    (Pionowy - duży) |  |   (Kwadrat)         |
+|                     |  |                     |  |                     |
++---------------------+  |                     |  +---------------------+
+                         |                     |
++---------------------+  |                     |  +---------------------+
+|   WIDEO (PLAY)      |  |                     |  |                     |
+|   (Poziomy)         |  +---------------------+  |   PACKSHOT (TORBA)  |
++---------------------+                           |   (Pionowy)         |
+                         +---------------------+  |                     |
+                         |   AI (KOSMETYK)     |  +---------------------+
+                         |   (Poziomy)         |
+                         +---------------------+
+Efekt (Hover): Po najechaniu myszką na zdjęcie, lekko się ono powiększa (zoom), a na wierzchu pojawia się nazwa marki/klienta.
+
+3. PALETA KOLORYSTYCZNA I TYPOGRAFIA (DLA GRAFIKA)
+Aby strona wyglądała profesjonalnie, przekaż te wytyczne:
+
+1. Kolory:
+
+Dominujący: #0F0F0F (Prawie czarny, "Rich Black") – Tło sekcji głównych.
+
+Drugoplanowy: #FFFFFF (Czysta biel) – Tło sekcji Packshot (musi być sterylnie) i tekst.
+
+Akcent (CTA/Tech): #CCFF00 (Limonkowy Neon) LUB #3366FF (Elektryczny błękit). Wybierz jeden. Ten kolor służy do przycisków i podkreślania "AI".
+
+2. Fonty (Typografia):
+
+Nagłówki: Montserrat lub Syne (Bold/ExtraBold). Nowoczesne, szerokie.
+
+Tekst ciągły: Inter lub Roboto. Bardzo czytelne, techniczne.
+
+3. Styl przycisków:
+
+Ostre krawędzie lub lekko zaokrąglone (radius 4px). Bez dużych zaokrągleń (to nie przedszkole, to biznes).
+
+
+TRUKTURA ZAKŁADKI "PORTFOLIO"
+Zamiast jednej długiej rzeki zdjęć, podziel to na sekcje (lub zakładki/filtry na górze strony).
+
+1. Sekcja: PACKSHOTY PREMIUM (Tu liczy się technika)
+Cel: Pokazać, że potraficie idealnie odwzorować kolor, fakturę i zrobić szparowanie (wycięcie tła).
+
+Ile zdjęć: Max 20-30 sztuk.
+
+Co pokazać: Różnorodność materiałów.
+
+5x Obuwie (Skóra, zamsz - trudne faktury).
+
+5x Biżuteria/Zegarki (Pokazanie, jak radzicie sobie z odbiciami/refleksami).
+
+5x Odzież (Duch - ghost mannequin).
+
+5x Kosmetyki/Szkło (Przezroczystość).
+
+Tip: Zdjęcia muszą być w idealnej siatce (grid), równe, czyste. To ma wyglądać jak półka w ekskluzywnym sklepie.
+
+2. Sekcja: FASHION & LOOKBOOK (Tu liczy się klimat)
+Cel: Pokazać, że macie zmysł artystyczny (wkład Twojej koleżanki).
+
+Ile zdjęć: 4-5 najlepszych sesji (po 5-8 zdjęć z każdej).
+
+Układ: Tutaj nie rób równej siatki. Użyj układu Masonry (cegiełki – zdjęcia pionowe i poziome mieszają się dynamicznie, jak na Pintereście). To wygląda bardziej nowocześnie i artystycznie.
+
+Podpis: Przy każdej sesji krótki podpis: "Klient: Marka X, Cel: Kampania Lato 2024".
+
+3. Sekcja: AI & KREACJA (Tu jest efekt WOW)
+Cel: Pokazać oszczędność i kreatywność.
+
+Forma: Tutaj nie wrzucaj zwykłych zdjęć. Tutaj użyj sliderów "Przed i Po".
+
+Ile: 5-10 mocnych przykładów.
+
+Przykład 1: But na białym tle -> But na kamieniu w górskim potoku.
+
+Przykład 2: Modelka w studio -> Modelka na ulicy w Nowym Jorku.
+
+Przykład 3: Kosmetyk na stole -> Kosmetyk w otoczeniu leśnym/kwiatowym.
+
+Opis: Pod każdym przykładem mały dopisek: "Czas realizacji: 2h (zamiast 2 dni sesji wyjazdowej)".
+
+4. Sekcja: WIDEO & MOTION (Dla E-commerce)
+Cel: Pokazać, że robicie też Reelsy/TikToki/Reklamy, bo tego teraz wszyscy szukają.
+
+Ile: 4-6 najlepszych filmów.
+
+Forma: Miniatury, które po kliknięciu otwierają player (lub autoplay bez dźwięku po najechaniu myszką).
+
+OSOBNE ZAKŁADKI (Podstrony)
+Tutaj kierujesz klienta, który już został "złowiony" na stronie głównej i chce zobaczyć dowody.
+
+1. Zakładka: PORTFOLIO (Absolutnie konieczna osobno)
+
+Dlaczego? Masz ogromny dorobek. Tu klient musi mieć filtry: Packshoty / Moda / AI / Wideo.
+
+Tu możesz wrzucić więcej zdjęć w wysokiej jakości bez obawy, że zamulisz stronę główną.
+
+2. Zakładka: CASE STUDY (Historia Sukcesu)
+
+Dlaczego? Na głównej dajesz tylko wynik (liczby). Tutaj opisujesz cały proces, problemy klienta i Wasze rozwiązanie. To czytają prezesi i managerowie e-commerce przed podpisaniem umowy.
+
+3. Zakładka: OFERTA / CENNIK (Opcjonalnie)
+
+Możesz tu przenieść bardziej szczegółowe tabele kosztów, jeśli na głównej masz tylko prosty wykres. Możesz tu opisać pakiety (np. "Pakiet Start", "Pakiet Skalowanie").
+
+4. Zakładka: KONTAKT
+
+Mimo że formularz jest na dole strony głównej, osobna zakładka z pełnymi danymi, mapką czy danymi do faktury jest standardem biznesowym.
+
+
+STRONA GŁÓWNA (To jest Twoja wizytówka sprzedażowa)
+Tutaj umieszczasz skrót najważniejszych informacji (haczyki), żeby zachęcić klienta do głębszego poznania oferty.
+
+Na Stronie Głównej muszą znaleźć się te punkty (w formie skróconej):
+
+Hero Section (Nagłówek + Wideo) – Musi być tu, to pierwsze wrażenie.
+
+Sekcja Zaufania (Liczby) – Buduje autorytet od razu.
+
+Technologia i Proces (Animacje) – To Twój wyróżnik, musi być na froncie, ale tylko 1-2 przykłady.
+
+Porównanie Kosztów (Wykres) – To Twój główny argument sprzedażowy ("Killer Feature"). Musi być na głównej.
+
+Zajawka Portfolio – Tylko "The Best of" (np. 6 najlepszych kafelków) z przyciskiem "Zobacz pełne portfolio".
+
+Skrót Case Study – Nagłówek "Jak zrobiliśmy 1200% wzrostu" + przycisk "Czytaj historię".
+
+Krótko o Was – Dwa zdania i zdjęcie.
+
+Formularz Kontaktowy (CTA).

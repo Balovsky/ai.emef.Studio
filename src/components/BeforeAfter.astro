@@ -1,0 +1,54 @@
+---
+// Plik: src/components/BeforeAfter.astro
+const { 
+  beforeSrc, 
+  afterSrc, 
+  beforeLabel = "Przed", 
+  afterLabel = "Po"
+} = Astro.props;
+---
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/img-comparison-slider@8/dist/styles.css"/>
+<script is:inline src="https://cdn.jsdelivr.net/npm/img-comparison-slider@8/dist/index.js"></script>
+
+<style>
+  img-comparison-slider {
+    visibility: visible !important;
+    opacity: 1 !important;
+    width: 100%;
+    outline: none;
+    cursor: col-resize;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+  }
+
+  img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+    max-width: 100%;
+  }
+</style>
+
+<div class="relative w-full my-6 group">
+  
+  <img-comparison-slider>
+    
+    <img slot="first" src={beforeSrc} alt="Przed" />
+    
+    <img slot="second" src={afterSrc} alt="Po" />
+
+    <svg slot="handle" class="custom-animated-handle" xmlns="http://www.w3.org/2000/svg" width="100" viewBox="-8 -3 16 6">
+        <path stroke="#fff" d="M -5 -2 L -7 0 L -5 2 M -5 -2 L -5 2 M 5 -2 L 7 0 L 5 2 M 5 -2 L 5 2" stroke-width="1" fill="#fff" vector-effect="non-scaling-stroke"></path>
+    </svg>
+
+  </img-comparison-slider>
+
+  <div class="flex justify-between mt-3 text-xs font-bold uppercase tracking-widest text-gray-400 px-1">
+    <span>{beforeLabel}</span>
+    <span class="text-blue-600">{afterLabel}</span>
+  </div>
+
+</div>
