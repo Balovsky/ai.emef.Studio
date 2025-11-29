@@ -747,21 +747,28 @@ import MagicShowcase from '../components/MagicShowcase.astro';
     document.addEventListener('DOMContentLoaded', () => {
         const form = document.getElementById('home-contact-form');
         const toast = document.getElementById('home-toast');
-        const btn = document.getElementById('home-submit-btn');
+        // Szukamy przycisku wewnątrz tego konkretnego formularza
+        const btn = form ? form.querySelector('button[type="submit"]') : null;
 
         if (form) {
             form.addEventListener('submit', (e) => {
                 e.preventDefault(); // Stop przeładowania
 
-                const myForm = e.target as HTMLFormElement;
+                const myForm = e.target;
                 const formData = new FormData(myForm);
 
+                // --- KLUCZOWA POPRAWKA DLA NETLIFY ---
+                // Ręcznie dodajemy nazwę formularza, jeśli jej brakuje
+                if (!formData.has('form-name')) {
+                    formData.append('form-name', myForm.getAttribute('name'));
+                }
+
                 // Zmieniamy przycisk
+                let originalText = "Wyślij zapytanie";
                 if(btn) {
-                    var originalText = btn.innerText;
+                    originalText = btn.innerText;
                     btn.innerText = "Wysyłanie...";
                     btn.style.opacity = "0.7";
-                    // @ts-ignore
                     btn.disabled = true;
                 }
 
@@ -769,7 +776,6 @@ import MagicShowcase from '../components/MagicShowcase.astro';
                 fetch('/', {
                     method: 'POST',
                     headers: { "Content-Type": "application/x-www-form-urlencoded" },
-                    // @ts-ignore
                     body: new URLSearchParams(formData).toString()
                 })
                 .then(() => {
@@ -791,17 +797,16 @@ import MagicShowcase from '../components/MagicShowcase.astro';
                         setTimeout(() => {
                             btn.innerText = originalText;
                             btn.style.opacity = "1";
-                            // @ts-ignore
                             btn.disabled = false;
                         }, 3000);
                     }
                 })
-                .catch(() => {
+                .catch((error) => {
+                    console.error("Błąd wysyłania:", error);
                     alert('Błąd wysyłania. Spróbuj ponownie.');
                     if(btn) {
                         btn.innerText = originalText;
                         btn.style.opacity = "1";
-                        // @ts-ignore
                         btn.disabled = false;
                     }
                 });

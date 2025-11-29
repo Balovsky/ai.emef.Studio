@@ -1,4 +1,4 @@
----
+<!-- ---
 // Plik: src/pages/kontakt.astro
 import MainLayout from '../layouts/MainLayout.astro';
 ---
@@ -162,73 +162,271 @@ import MainLayout from '../layouts/MainLayout.astro';
 </MainLayout>
 
 <script>
-    // Czekamy na załadowanie DOM
     document.addEventListener('DOMContentLoaded', () => {
         
         const form = document.getElementById('contact-form');
         const toast = document.getElementById('toast');
-        const btn = document.querySelector('button[type="submit"]');
+        const btn = form ? form.querySelector('button[type="submit"]') : null;
 
         if (form) {
             form.addEventListener('submit', (e) => {
-                e.preventDefault(); // 1. Zatrzymujemy przeładowanie strony
+                e.preventDefault(); 
 
-                const myForm = e.target as HTMLFormElement;
+                const myForm = e.target;
                 const formData = new FormData(myForm);
 
-                // Zmieniamy przycisk na stan "Wysyłanie..."
+                if (!formData.has('form-name')) {
+                    formData.append('form-name', myForm.getAttribute('name'));
+                }
+
+                // Definiujemy tekst poza if-em, żeby był dostępny wszędzie
+                let originalBtnText = "Wyślij zapytanie";
+
                 if(btn) {
-                    var originalText = btn.innerText;
+                    originalBtnText = btn.innerText;
                     btn.innerText = "Wysyłanie...";
                     btn.style.opacity = "0.7";
-                    // @ts-ignore
                     btn.disabled = true;
                 }
 
-                // 2. Wysyłamy dane do Netlify (AJAX)
                 fetch('/', {
                     method: 'POST',
                     headers: { "Content-Type": "application/x-www-form-urlencoded" },
-                    // @ts-ignore
                     body: new URLSearchParams(formData).toString()
                 })
                 .then(() => {
-                    // SUKCES!
-                    
-                    // 3. Wyczyść formularz
                     myForm.reset();
                     
-                    // 4. Pokaż Toast (Pop-up)
                     if(toast) {
-                        // Usuwamy klasy ukrywające
                         toast.classList.remove('translate-y-32', 'opacity-0', 'pointer-events-none');
-                        
-                        // Ukryj dymek automatycznie po 5 sekundach
                         setTimeout(() => {
                             toast.classList.add('translate-y-32', 'opacity-0', 'pointer-events-none');
-                        }, 3000);
+                        }, 5000);
                     }
 
-                    // Przywróć przycisk
                     if(btn) {
                         btn.innerText = "Wysłano pomyślnie!";
-                        btn.style.backgroundColor = "#10B981"; // Zielony
+                        btn.style.backgroundColor = "#10B981"; 
+                        
                         setTimeout(() => {
-                            btn.innerText = originalText;
-                            btn.style.backgroundColor = ""; // Reset koloru
+                            btn.innerText = originalBtnText;
+                            btn.style.backgroundColor = ""; 
                             btn.style.opacity = "1";
-                            // @ts-ignore
                             btn.disabled = false;
                         }, 3000);
                     }
                 })
                 .catch((error) => {
-                    // BŁĄD
+                    console.error("Błąd formularza:", error);
                     alert('Wystąpił błąd połączenia. Spróbuj ponownie.');
+                    
                     if(btn) {
-                        btn.innerText = originalText;
+                        btn.innerText = originalBtnText; // Tu teraz zadziała poprawnie
                         btn.style.opacity = "1";
-                        // @ts-ignore
+                        btn.disabled = false;
+                    }
+                });
+            });
+        }
+    });
+</script> -->
+
+
+---
+// Plik: src/pages/kontakt.astro
+import MainLayout from '../layouts/MainLayout.astro';
+---
+
+<MainLayout title="Kontakt & Wycena | Studio.AI">
+
+    <header class="pt-32 pb-16 bg-white text-center px-4">
+        <h1 class="text-4xl md:text-6xl font-extrabold mb-6" data-aos="fade-up">
+            Rozpocznijmy projekt.
+        </h1>
+        <p class="text-xl text-gray-600 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="100">
+            Masz produkty? My mamy technologię. <br/>
+            Napisz, zadzwoń do Kasi lub Mariusza, albo wyślij paczkę.
+        </p>
+    </header>
+
+    <section class="pb-24 px-4">
+        <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 lg:gap-24 items-start">
+            
+            <div data-aos="fade-right">
+                
+                <div class="grid grid-cols-2 gap-4 mb-4">
+                    <div class="bg-purple-50 p-5 rounded-2xl border border-purple-100 hover:border-purple-300 transition group text-center">
+                        <div class="w-10 h-10 bg-white rounded-full flex items-center justify-center shadow-sm text-purple-600 mb-3 text-xl mx-auto group-hover:scale-110 transition">👩‍🎨</div>
+                        <h3 class="font-bold text-gray-900">Kasia</h3>
+                        <p class="text-[10px] uppercase font-bold text-purple-600 tracking-wider mb-3">Art Director</p>
+                        <a href="tel:+48987654321" class="text-sm md:text-base font-bold text-gray-800 hover:text-purple-600 transition block">+48 987 654 321</a>
+                    </div>
+                    <div class="bg-blue-50 p-5 rounded-2xl border border-blue-100 hover:border-blue-300 transition group text-center">
+                        <div class="w-10 h-10 bg-white rounded-full flex items-center justify-center shadow-sm text-blue-600 mb-3 text-xl mx-auto group-hover:scale-110 transition">👨‍💻</div>
+                        <h3 class="font-bold text-gray-900">Mariusz</h3>
+                        <p class="text-[10px] uppercase font-bold text-blue-600 tracking-wider mb-3">Tech & AI</p>
+                        <a href="tel:+48123456789" class="text-sm md:text-base font-bold text-gray-800 hover:text-blue-600 transition block">+48 123 456 789</a>
+                    </div>
+                </div>
+
+                <div class="bg-gray-50 p-5 rounded-2xl border border-gray-100 hover:border-gray-300 transition flex items-center gap-4 mb-12 group">
+                    <div class="w-10 h-10 bg-white rounded-full flex items-center justify-center shadow-sm text-gray-600 text-xl group-hover:scale-110 transition">✉️</div>
+                    <div>
+                        <p class="text-xs text-gray-500 font-bold uppercase">Napisz do nas</p>
+                        <a href="mailto:kontakt@studio.ai" class="text-lg font-bold text-gray-900 hover:text-blue-600 transition">kontakt@studio.ai</a>
+                    </div>
+                </div>
+
+                <div class="bg-slate-900 text-white p-8 rounded-3xl relative overflow-hidden shadow-xl">
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-blue-600 rounded-full blur-[60px] opacity-20 -mr-10 -mt-10"></div>
+                    <h3 class="text-xl font-bold mb-6 flex items-center gap-2">
+                        <svg class="w-6 h-6 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"></path></svg>
+                        Adres do wysyłki
+                    </h3>
+                    <div class="space-y-4 text-gray-300 text-sm">
+                        <p>Wyślij produkty kurierem na adres naszego studia:</p>
+                        <div class="bg-white/10 p-4 rounded-xl border border-white/10 font-mono text-white">
+                            <strong>Studio.AI</strong><br/>
+                            ul. Przykładowa 123<br/>
+                            34-130 Kalwaria Zebrzydowska<br/>
+                            tel: 123 456 789
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-white p-8 md:p-10 rounded-3xl shadow-2xl border border-gray-100 relative min-h-[500px]" data-aos="fade-left">
+                <h3 class="text-2xl font-bold mb-6">Darmowa Wycena</h3>
+                
+                <form id="contact-form" name="kontakt-strona" method="POST" data-netlify="true" enctype="multipart/form-data" class="space-y-5">
+                    <input type="hidden" name="form-name" value="kontakt-strona" />
+                    
+                    <div class="grid md:grid-cols-2 gap-5">
+                        <div>
+                            <label class="block text-sm font-bold text-gray-700 mb-2">Imię i Nazwisko</label>
+                            <input type="text" name="imie" placeholder="Jan Kowalski" class="w-full bg-gray-50 border border-gray-200 rounded-xl p-3 focus:outline-none focus:border-blue-500 transition" required />
+                        </div>
+                        <div>
+                            <label class="block text-sm font-bold text-gray-700 mb-2">Firma (Opcjonalnie)</label>
+                            <input type="text" name="firma" placeholder="Nazwa Sklepu" class="w-full bg-gray-50 border border-gray-200 rounded-xl p-3 focus:outline-none focus:border-blue-500 transition" />
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-bold text-gray-700 mb-2">Adres Email</label>
+                        <input type="email" name="email" placeholder="jan@firma.pl" class="w-full bg-gray-50 border border-gray-200 rounded-xl p-3 focus:outline-none focus:border-blue-500 transition" required />
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-bold text-gray-700 mb-2">Wybierz temat</label>
+                        <div class="relative">
+                            <select name="temat" class="w-full bg-gray-50 border border-gray-200 rounded-xl p-3 appearance-none focus:outline-none focus:border-blue-500 transition text-gray-700" required>
+                                <option value="" disabled selected>-- Kliknij, aby wybrać --</option>
+                                <option value="Packshoty">Packshoty (Białe tło)</option>
+                                <option value="Kampania AI">Kampania AI & Lifestyle</option>
+                                <option value="Wideo">Wideo Produktowe</option>
+                                <option value="Obsługa Sklepu">Obsługa Sklepu</option>
+                                <option value="Inne">Inne</option>
+                            </select>
+                            <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-gray-500">▼</div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-bold text-gray-700 mb-2">Wiadomość</label>
+                        <textarea name="wiadomosc" rows="4" placeholder="Opisz krótko produkty..." class="w-full bg-gray-50 border border-gray-200 rounded-xl p-3 focus:outline-none focus:border-blue-500 transition" required></textarea>
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-bold text-gray-700 mb-2">Załącznik (np. zdjęcie produktu)</label>
+                        <input type="file" name="zalacznik" class="w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100 transition cursor-pointer"/>
+                        <p class="text-[10px] text-gray-400 mt-1">Max 10MB. Format: JPG, PNG, PDF.</p>
+                    </div>
+
+                    <button type="submit" id="submit-btn" class="w-full bg-blue-600 text-white font-bold py-4 rounded-xl hover:bg-blue-700 transition shadow-lg transform hover:-translate-y-1">
+                        Wyślij zapytanie
+                    </button>
+                </form>
+            </div>
+
+        </div>
+    </section>
+
+    <div id="toast" class="fixed bottom-10 left-1/2 transform -translate-x-1/2 translate-y-32 opacity-0 z-50 max-w-[90vw] w-auto bg-white border border-green-100 shadow-2xl rounded-2xl p-4 md:p-6 flex items-center gap-4 transition-all duration-500 pointer-events-none">
+        <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center shrink-0">
+            <svg class="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
+        </div>
+        <div>
+            <h4 class="font-bold text-gray-900 text-sm md:text-base">Wiadomość wysłana!</h4>
+            <p class="text-xs md:text-sm text-gray-500 mt-1">Dziękujemy. Wrócimy z wyceną w 24h.</p>
+        </div>
+    </div>
+
+</MainLayout>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        
+        const form = document.getElementById('contact-form');
+        const toast = document.getElementById('toast');
+        const btn = form ? form.querySelector('button[type="submit"]') : null;
+
+        if (form) {
+            form.addEventListener('submit', (e) => {
+                e.preventDefault(); 
+
+                const myForm = e.target;
+                const formData = new FormData(myForm); // To automatycznie pobierze plik!
+
+                if (!formData.has('form-name')) {
+                    formData.append('form-name', myForm.getAttribute('name'));
+                }
+
+                let originalBtnText = "Wyślij zapytanie";
+
+                if(btn) {
+                    originalBtnText = btn.innerText;
+                    btn.innerText = "Wysyłanie...";
+                    btn.style.opacity = "0.7";
+                    btn.disabled = true;
+                }
+
+                // ZMIANA 3: WAŻNE DLA PLIKÓW!
+                // Usuwamy 'headers' i nie używamy URLSearchParams.
+                // Wysyłamy czysty obiekt FormData. Przeglądarka sama ustawi nagłówek Multipart.
+                fetch('/', {
+                    method: 'POST',
+                    body: formData 
+                })
+                .then(() => {
+                    myForm.reset();
+                    
+                    if(toast) {
+                        toast.classList.remove('translate-y-32', 'opacity-0', 'pointer-events-none');
+                        setTimeout(() => {
+                            toast.classList.add('translate-y-32', 'opacity-0', 'pointer-events-none');
+                        }, 5000);
+                    }
+
+                    if(btn) {
+                        btn.innerText = "Wysłano pomyślnie!";
+                        btn.style.backgroundColor = "#10B981"; 
+                        
+                        setTimeout(() => {
+                            btn.innerText = originalBtnText;
+                            btn.style.backgroundColor = ""; 
+                            btn.style.opacity = "1";
+                            btn.disabled = false;
+                        }, 3000);
+                    }
+                })
+                .catch((error) => {
+                    console.error("Błąd formularza:", error);
+                    alert('Wystąpił błąd połączenia. Spróbuj ponownie.');
+                    
+                    if(btn) {
+                        btn.innerText = originalBtnText;
+                        btn.style.opacity = "1";
                         btn.disabled = false;
                     }
                 });
