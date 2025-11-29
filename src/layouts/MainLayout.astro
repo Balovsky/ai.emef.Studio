@@ -417,6 +417,13 @@ const { title = 'Studio Fotograficzne' } = Astro.props;
     </div>
 
     <style is:global>
+        html, body {
+            overflow-x: hidden; /* To jest kluczowe - ucina wystające elementy */
+            width: 100%;
+            max-width: 100vw;   /* Zabezpieczenie szerokości */
+            margin: 0;
+            padding: 0;
+        }
         /* Styl bazowy tekstu */
         .title-main, .title-sub {
             /* Używamy fontu systemowego (tego samego co reszta strony) */
