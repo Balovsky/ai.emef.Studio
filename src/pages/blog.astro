@@ -1,0 +1,285 @@
+---
+// Plik: src/pages/blog.astro
+import MainLayout from '../layouts/MainLayout.astro';
+
+// ========================================================================
+// BAZA DANYCH (Twoje wpisy)
+// ========================================================================
+const blogPosts = [
+    {
+        id: 'myjnia-vouchery',
+        date: '12 Grudnia 2024',
+        category: 'Social Media',
+        result: '+30% Sprzedaży', // NOWOŚĆ: Wynik na kafelku
+        title: 'Świąteczna kampania myjni',
+        coverImage: 'https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?q=80&w=800&auto=format&fit=crop',
+        
+        details: {
+            fullChallenge: 'Klient potrzebował grafik na FB promujących vouchery, mając jedynie słabe zdjęcie zrobione telefonem.',
+            fullSolution: 'Generowanie tła AI oraz korekcja kolorystyczna, aby nadać zdjęciu klimat premium.',
+            
+            // Proces w stylu "System Log"
+            process: [
+                { step: '01', title: 'Input Data', desc: 'Otrzymanie surowego zdjęcia vouchera.' },
+                { step: '02', title: 'AI Processing', desc: 'Generowanie zimowej scenerii (Snow/Lights).' },
+                { step: '03', title: 'Light Match', desc: 'Dopasowanie cieni i światła.' },
+                { step: '04', title: 'Output', desc: 'Eksport 10 formatów Social Media.' }
+            ],
+
+            clientImage: '/images/przed.png', 
+            finalImage: '/images/po.png',     
+            chatImage: '/images/chat-screen.jpg' // Opcjonalne
+        }
+    },
+    {
+        id: 'pies-kubek',
+        date: '20 Stycznia 2025',
+        category: 'Grafika & Druk',
+        result: 'Unikalny Prezent',
+        title: 'Pupil jako dzieło sztuki',
+        coverImage: 'https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?q=80&w=800&auto=format&fit=crop',
+        
+        details: {
+            fullChallenge: 'Klientka chciała kubek z psem, ale zwykłe zdjęcie było słabej jakości i nudne.',
+            fullSolution: 'Transformacja zdjęcia w styl malarski (Oil Painting) przy użyciu sieci neuronowych.',
+            
+            process: [
+                { step: '01', title: 'Upscaling', desc: 'Powiększenie zdjęcia x4 (AI Enhance).' },
+                { step: '02', title: 'Style Transfer', desc: 'Nałożenie filtru malarskiego Van Gogh.' },
+                { step: '03', title: 'Print Prep', desc: 'Konwersja do CMYK i makieta kubka.' }
+            ],
+
+            clientImage: '/images/przed.png',
+            finalImage: '/images/po.png',    
+            chatImage: ''
+        }
+    },
+    {
+        id: 'myjnia-vouchery',
+        date: '12 Grudnia 2024',
+        category: 'Social Media',
+        result: '+30% Sprzedaży', // NOWOŚĆ: Wynik na kafelku
+        title: 'Świąteczna kampania myjni',
+        coverImage: 'https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?q=80&w=800&auto=format&fit=crop',
+        
+        details: {
+            fullChallenge: 'Klient potrzebował grafik na FB promujących vouchery, mając jedynie słabe zdjęcie zrobione telefonem.',
+            fullSolution: 'Generowanie tła AI oraz korekcja kolorystyczna, aby nadać zdjęciu klimat premium.',
+            
+            // Proces w stylu "System Log"
+            process: [
+                { step: '01', title: 'Input Data', desc: 'Otrzymanie surowego zdjęcia vouchera.' },
+                { step: '02', title: 'AI Processing', desc: 'Generowanie zimowej scenerii (Snow/Lights).' },
+                { step: '03', title: 'Light Match', desc: 'Dopasowanie cieni i światła.' },
+                { step: '04', title: 'Output', desc: 'Eksport 10 formatów Social Media.' }
+            ],
+
+            clientImage: '/images/przed.png', 
+            finalImage: '/images/po.png',     
+            chatImage: '/images/chat-screen.jpg' // Opcjonalne
+        }
+    }
+];
+---
+
+<MainLayout title="Realizacje | Studio.AI">
+
+    <header class="pt-32 pb-20 px-4 text-center bg-white">
+        <span class="text-blue-600 font-bold tracking-widest text-xs uppercase mb-4 block" data-aos="fade-down">Case Studies</span>
+        <h1 class="text-4xl md:text-7xl font-black text-slate-900 mb-6 tracking-tight" data-aos="fade-up">
+            Nie obiecujemy.<br/>Dowozimy.
+        </h1>
+        <p class="text-xl text-gray-500 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="100">
+            Zobacz wybrane projekty, w których technologia rozwiązała realne problemy biznesowe.
+        </p>
+    </header>
+
+    <section class="pb-32 px-4">
+        <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-8">
+            
+            {blogPosts.slice().reverse().map((post, index) => (
+                <article class="group relative aspect-[4/3] rounded-[2rem] overflow-hidden cursor-pointer shadow-lg hover:shadow-2xl transition-all duration-500 open-modal-btn" data-id={post.id} data-aos="fade-up" data-aos-delay={index * 100}>
+                    
+                    <img src={post.coverImage} class="absolute inset-0 w-full h-full object-cover transition duration-700 group-hover:scale-110 group-hover:rotate-1" alt={post.title} />
+                    
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-80 group-hover:opacity-90 transition"></div>
+
+                    <div class="absolute bottom-0 left-0 w-full p-8 md:p-10 flex flex-col items-start">
+                        
+                        <div class="mb-4 flex gap-2">
+                            <span class="bg-white/20 backdrop-blur-md text-white text-xs font-bold px-3 py-1 rounded-full border border-white/30">
+                                {post.category}
+                            </span>
+                            {post.result && (
+                                <span class="bg-green-500 text-white text-xs font-bold px-3 py-1 rounded-full shadow-lg shadow-green-900/20">
+                                    {post.result}
+                                </span>
+                            )}
+                        </div>
+
+                        <h2 class="text-2xl md:text-4xl font-bold text-white mb-2 leading-tight group-hover:translate-x-2 transition duration-300">
+                            {post.title}
+                        </h2>
+                        
+                        <div class="h-0 overflow-hidden group-hover:h-8 transition-all duration-300">
+                            <span class="text-gray-300 text-sm font-mono flex items-center gap-2 mt-2">
+                                Zobacz proces <span class="text-xl">→</span>
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="absolute top-6 right-6 bg-black/50 backdrop-blur text-white text-xs font-mono px-3 py-1 rounded-lg border border-white/10">
+                        {post.date}
+                    </div>
+                </article>
+            ))}
+
+        </div>
+    </section>
+
+    <div id="blog-modal" class="fixed inset-0 z-[100] hidden opacity-0 transition-opacity duration-300 overflow-y-auto bg-slate-50/90 backdrop-blur-sm">
+        
+        <button id="modal-close" class="fixed top-4 right-4 z-[110] bg-white text-black p-3 rounded-full hover:scale-110 transition shadow-xl border border-gray-100">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+        </button>
+
+        <div class="min-h-screen flex items-center justify-center p-4 md:p-8">
+            <div class="bg-white w-full max-w-6xl rounded-[2.5rem] shadow-2xl overflow-hidden relative transform scale-95 transition-all duration-300" id="modal-content">
+                
+                <div class="grid lg:grid-cols-3 gap-0">
+                    
+                    <div class="lg:col-span-1 bg-slate-50 p-8 md:p-12 border-r border-gray-100 flex flex-col gap-10">
+                        <div>
+                            <h4 class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-3">Wyzwanie</h4>
+                            <p id="modal-challenge" class="text-slate-800 text-lg font-medium leading-relaxed">...</p>
+                        </div>
+                        
+                        <div>
+                            <h4 class="text-xs font-bold text-blue-600 uppercase tracking-widest mb-3">Rozwiązanie AI</h4>
+                            <p id="modal-solution" class="text-slate-600 leading-relaxed">...</p>
+                        </div>
+
+                        <div class="bg-white rounded-2xl p-5 border border-gray-200 shadow-sm">
+                            <h4 class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-4 border-b border-gray-100 pb-2">Process Log</h4>
+                            <div id="modal-process-list" class="space-y-4">
+                                </div>
+                        </div>
+                    </div>
+
+                    <div class="lg:col-span-2 bg-white p-8 md:p-12">
+                        
+                        <h2 id="modal-title" class="text-3xl md:text-4xl font-black text-slate-900 mb-10">...</h2>
+
+                        <div class="relative w-full aspect-video rounded-2xl overflow-hidden bg-gray-100 mb-10 border border-gray-200 shadow-lg">
+                            <div class="absolute inset-0 flex">
+                                <div class="w-1/2 h-full relative border-r-2 border-white">
+                                    <img id="modal-img-before" src="" class="absolute inset-0 w-full h-full object-cover" alt="Przed">
+                                    <span class="absolute top-4 left-4 bg-black/70 text-white text-xs font-bold px-2 py-1 rounded">BEFORE</span>
+                                </div>
+                                <div class="w-1/2 h-full relative">
+                                    <img id="modal-img-after" src="" class="absolute inset-0 w-full h-full object-cover" alt="Po">
+                                    <span class="absolute top-4 right-4 bg-blue-600 text-white text-xs font-bold px-2 py-1 rounded">AFTER (AI)</span>
+                                </div>
+                            </div>
+                            </div>
+
+                        <div id="chat-section" class="hidden">
+                             <h4 class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-4">Feedback Klienta</h4>
+                             <img id="modal-chat-img" src="" class="w-full rounded-xl border border-gray-200 shadow-sm" alt="Chat">
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</MainLayout>
+
+<script define:vars={{ blogPosts }}>
+    document.addEventListener('DOMContentLoaded', () => {
+        const modal = document.getElementById('blog-modal');
+        const modalContent = document.getElementById('modal-content');
+        const closeBtn = document.getElementById('modal-close');
+        
+        // Elementy
+        const titleEl = document.getElementById('modal-title');
+        const challengeEl = document.getElementById('modal-challenge');
+        const solutionEl = document.getElementById('modal-solution');
+        const processListEl = document.getElementById('modal-process-list');
+        const imgBefore = document.getElementById('modal-img-before');
+        const imgAfter = document.getElementById('modal-img-after');
+        const chatSection = document.getElementById('chat-section');
+        const chatImg = document.getElementById('modal-chat-img');
+
+        const openBtns = document.querySelectorAll('.open-modal-btn');
+
+        function openModal(postId) {
+            const post = blogPosts.find(p => p.id === postId);
+            if (!post) return;
+
+            // Teksty
+            titleEl.innerText = post.title;
+            challengeEl.innerText = post.details.fullChallenge;
+            solutionEl.innerText = post.details.fullSolution;
+            
+            // Zdjęcia
+            imgBefore.src = post.details.clientImage;
+            imgAfter.src = post.details.finalImage;
+
+            // Proces (Stylizowany)
+            processListEl.innerHTML = '';
+            if (post.details.process) {
+                post.details.process.forEach(step => {
+                    const div = document.createElement('div');
+                    div.className = "flex gap-3 items-start";
+                    div.innerHTML = `
+                        <span class="font-mono text-blue-600 text-xs font-bold mt-0.5">${step.step}</span>
+                        <div>
+                            <p class="text-sm font-bold text-slate-800 leading-none mb-1">${step.title}</p>
+                            <p class="text-xs text-gray-500 leading-snug">${step.desc}</p>
+                        </div>
+                    `;
+                    processListEl.appendChild(div);
+                });
+            }
+
+            // Chat
+            if (post.details.chatImage) {
+                chatSection.classList.remove('hidden');
+                chatImg.src = post.details.chatImage;
+            } else {
+                chatSection.classList.add('hidden');
+            }
+
+            // Animacja wejścia
+            modal.classList.remove('hidden');
+            setTimeout(() => {
+                modal.classList.remove('opacity-0');
+                modalContent.classList.remove('scale-95');
+                modalContent.classList.add('scale-100');
+            }, 10);
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            modal.classList.add('opacity-0');
+            modalContent.classList.remove('scale-100');
+            modalContent.classList.add('scale-95');
+            setTimeout(() => {
+                modal.classList.add('hidden');
+                document.body.style.overflow = '';
+            }, 300);
+        }
+
+        openBtns.forEach(btn => btn.addEventListener('click', () => openModal(btn.getAttribute('data-id'))));
+        closeBtn.addEventListener('click', closeModal);
+        document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeModal(); });
+        
+        // Kliknięcie w tło zamyka
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal || e.target.id === 'modal-backdrop') closeModal();
+        });
+    });
+</script>
