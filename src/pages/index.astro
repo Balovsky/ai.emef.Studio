@@ -1,11 +1,10 @@
 ---
-// Importujemy główny szablon i komponent suwaka
+// Importujemy główny szablon i komponenty
 import MainLayout from '../layouts/MainLayout.astro';
-import BeforeAfter from '../components/BeforeAfter.astro';
 import MagicShowcase from '../components/MagicShowcase.astro';
 ---
 
-<MainLayout title="Studio.AI | Fotografia E-commerce Nowej Generacji">
+<MainLayout title="K&M Studio | Fotografia E-commerce i Obsługa Sprzedaży">
 
     <header class="relative pt-32 pb-20 lg:pt-32 lg:pb-32 px-4 overflow-hidden bg-slate-900 text-white min-h-[85vh] flex items-center justify-center">
         
@@ -20,9 +19,7 @@ import MagicShowcase from '../components/MagicShowcase.astro';
                 <source src="/video/home4.mp4" type="video/mp4" />
                 Twoja przeglądarka nie obsługuje wideo.
             </video>
-
             <div class="absolute inset-0 bg-black/60"></div>
-            
             <div class="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-black to-transparent"></div>
         </div>
 
@@ -33,7 +30,7 @@ import MagicShowcase from '../components/MagicShowcase.astro';
             </h1>
             
             <p class="text-xl text-gray-200 max-w-2xl mx-auto mb-10 font-light" data-aos="fade-up" data-aos-delay="100">
-                Od packshotu, przez AI, aż po skalowanie sprzedaży. Łączymy precyzję fotografii z technologią, oszczędzając Twój czas i budżet.
+                Od packshotu, przez AI i sesje z modelkami, aż po obsługę Twojego sklepu. Oszczędzamy Twój czas i budżet.
             </p>
             
             <div class="flex flex-col sm:flex-row gap-4 justify-center" data-aos="fade-up" data-aos-delay="200">
@@ -46,27 +43,6 @@ import MagicShowcase from '../components/MagicShowcase.astro';
             </div>
         </div>
     </header>
-
-    <!-- <section class="py-12 bg-black text-white border-b border-gray-800">
-        <div class="max-w-7xl mx-auto px-4 grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-            <div data-aos="fade-up" data-aos-delay="1">
-                <div class="text-4xl font-bold text-blue-500">15k+</div>
-                <div class="text-sm text-gray-400 uppercase tracking-wider mt-1">Packshotów</div>
-            </div>
-            <div data-aos="fade-up" data-aos-delay="100">
-                <div class="text-4xl font-bold text-purple-500">1200%</div>
-                <div class="text-sm text-gray-400 uppercase tracking-wider mt-1">Wzrost sprzedaży</div>
-            </div>
-            <div data-aos="fade-up" data-aos-delay="200">
-                <div class="text-4xl font-bold text-green-500">20+</div>
-                <div class="text-sm text-gray-400 uppercase tracking-wider mt-1">Sesji Modowych</div>
-            </div>
-            <div data-aos="fade-up" data-aos-delay="300">
-                <div class="text-4xl font-bold text-orange-500">AI</div>
-                <div class="text-sm text-gray-400 uppercase tracking-wider mt-1">Technologia</div>
-            </div>
-        </div>
-    </section> -->
 
     <section class="py-12 bg-black text-white border-b border-gray-800">
         <div class="max-w-7xl mx-auto px-4 grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
@@ -95,417 +71,890 @@ import MagicShowcase from '../components/MagicShowcase.astro';
     </section>
 
     <style>
-        /* Definicja animacji: wjazd od dołu i pojawienie się */
         @keyframes customFadeUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
-
-        /* Klasa uruchamiająca animację */
         .auto-fade-up {
             animation-name: customFadeUp;
-            animation-duration: 0.8s;      /* Czas trwania ruchu */
-            animation-fill-mode: forwards; /* Zostaw element widoczny po zakończeniu */
+            animation-duration: 0.8s;
+            animation-fill-mode: forwards;
             animation-timing-function: ease-out;
         }
     </style>
 
-    <!-- <section id="technologia" class="py-24 bg-white overflow-hidden">
-        <div class="max-w-7xl mx-auto px-4 text-center mb-12">
-            <h2 class="text-3xl md:text-5xl font-bold mb-4" data-aos="fade-up">Magia czy Technologia?</h2>
-            <p class="text-gray-600 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="100">
-                Zobacz, jak zamieniamy zwykłe zdjęcie na białym tle w kampanię reklamową, bez wychodzenia ze studia.
-            </p>
-        </div>
-
-        <div class="px-4" data-aos="zoom-in" data-aos-duration="1000">
-             <BeforeAfter />
-        </div>
-    </section> -->
-
-    <!-- <section id="technologia" class="py-24 bg-white overflow-hidden">
-        <div class="max-w-7xl mx-auto px-4 text-center mb-16">
-            <h2 class="text-3xl md:text-5xl font-bold mb-4" data-aos="fade-up">Magia czy Technologia?</h2>
-            <p class="text-gray-600 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="100">
-                Zobacz dwa wymiary naszej pracy. Po lewej: generowanie tła. Po prawej: ożywianie fotografii.
-            </p>
-        </div>
-
-        <div class="max-w-7xl mx-auto px-4 grid md:grid-cols-2 gap-12 items-start">
+    <section id="technologia" class="py-24 bg-white overflow-hidden relative">
+        <div class="max-w-7xl mx-auto px-4">
             
-            <div data-aos="fade-right" data-aos-duration="1000">
-                <div class="mb-4 text-left">
-                    <h3 class="text-xl font-bold">1. Generowanie Scenerii</h3>
-                    <p class="text-sm text-gray-500">Białe tło zamieniamy w dowolny plener.</p>
-                </div>
-                
-                <BeforeAfter 
-    beforeSrc="/images/przed.png" 
-    afterSrc="/images/po.png" 
-    beforeLabel="Packshot"
-    afterLabel="AI Photo"
-/>
-            </div>
-
-            <div data-aos="fade-left" data-aos-duration="1000" data-aos-delay="200">
-                <div class="mb-4 text-left">
-                    <h3 class="text-xl font-bold">2. Motion AI</h3>
-                    <p class="text-sm text-gray-500">Statyczne zdjęcie ożywiamy ruchem.</p>
-                </div>
-
-                <BeforeAfter 
-                    
-                    beforeSrc="/images/po.png" 
-                    afterSrc="/images/przed.png" 
-                    beforeLabel="Zdjęcie"
-                    afterLabel="AI Wideo"
-                />
-            </div>
-
-        </div>
-    </section> -->
-
-<section id="technologia" class="py-24 bg-white overflow-hidden">
-    <div class="max-w-7xl mx-auto px-4 text-center mb-16">
-        <h2 class="text-3xl md:text-5xl font-bold mb-4" data-aos="fade-up">
-            Magia czy Technologia?
-        </h2>
-        <p class="text-gray-600 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="100">
-            Jeden produkt, nieskończone możliwości. Zobacz, jak zmieniamy scenerię jednym kliknięciem.
-        </p>
-    </div>
-
-    <div class="px-4" data-aos="fade-up" data-aos-duration="1000">
-         <MagicShowcase />
-    </div>
-</section>
-
-    <!-- <section id="koszty" class="py-24 bg-slate-50">
-        <div class="max-w-6xl mx-auto px-4">
-            <h2 class="text-3xl font-bold text-center mb-16" data-aos="fade-up">Matematyka Twojego Zysku</h2>
-            
-            <div class="grid md:grid-cols-2 gap-8 items-center">
-                <div class="p-10 bg-white rounded-3xl shadow-sm border border-gray-100 opacity-70 hover:opacity-100 transition duration-300" data-aos="fade-right">
-                    <h3 class="text-xl font-bold text-gray-500 mb-6 uppercase tracking-widest">Tradycyjna Sesja</h3>
-                    <ul class="space-y-4 text-gray-500 mb-8">
-                        <li class="flex items-center"><span class="mr-3 text-red-400">✕</span> Wynajem lokacji / studia</li>
-                        <li class="flex items-center"><span class="mr-3 text-red-400">✕</span> Transport całej kolekcji</li>
-                        <li class="flex items-center"><span class="mr-3 text-red-400">✕</span> Hotele, catering, ekipa</li>
-                        <li class="flex items-center"><span class="mr-3 text-red-400">✕</span> Ryzyko złej pogody</li>
-                    </ul>
-                    <div class="pt-6 border-t border-gray-100">
-                        <div class="text-sm text-gray-400">Koszt i czas:</div>
-                        <div class="text-3xl font-bold text-red-400">Wysoki</div>
-                    </div>
-                </div>
-
-                <div class="p-10 bg-slate-900 text-white rounded-3xl shadow-2xl transform md:scale-105 border border-slate-700 relative overflow-hidden" data-aos="fade-left">
-                    <div class="absolute top-0 right-0 bg-gradient-to-l from-blue-600 to-purple-600 text-white text-xs font-bold px-4 py-2 rounded-bl-xl">REKOMENDOWANE</div>
-                    
-                    <h3 class="text-xl font-bold text-white mb-6 uppercase tracking-widest flex items-center gap-2">
-                        Hybrid AI <span class="text-green-400 text-xs border border-green-400 px-2 py-0.5 rounded-full">NOWOŚĆ</span>
-                    </h3>
-                    
-                    <ul class="space-y-4 text-gray-300 mb-8">
-                        <li class="flex items-center"><span class="text-green-400 mr-3">✓</span> 0 zł za lokację (Generujemy cyfrowo)</li>
-                        <li class="flex items-center"><span class="text-green-400 mr-3">✓</span> Tylko wysyłka produktów</li>
-                        <li class="flex items-center"><span class="text-green-400 mr-3">✓</span> Nieograniczone warianty tła</li>
-                        <li class="flex items-center"><span class="text-green-400 mr-3">✓</span> Skalowalność (10 -> 1000 zdjęć)</li>
-                    </ul>
-                    
-                    <div class="pt-6 border-t border-gray-700">
-                        <div class="text-sm text-gray-400">Oszczędność budżetu:</div>
-                        <div class="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-blue-500">do 60%</div>
-                        <p class="text-xs text-gray-500 mt-2">Zaoszczędzone środki przeznacz na reklamy (Ads).</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section> -->
-
-
-    <section id="koszty" class="py-24 bg-white">
-        <div class="max-w-6xl mx-auto px-4">
-            
-            <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-5xl font-bold mb-6" data-aos="fade-up">Policzmy to uczciwie.</h2>
-                <p class="text-xl text-gray-600 max-w-3xl mx-auto" data-aos="fade-up" data-aos-delay="100">
-                    Zobacz, ile składowych musisz opłacić przy klasycznej sesji, a ile zostaje w Twojej kieszeni, gdy wybierasz AI.
+            <div class="text-center mb-12">
+                <span class="text-blue-600 font-bold tracking-wider text-sm uppercase">Przewaga technologiczna</span>
+                <h2 class="text-3xl md:text-5xl font-bold mt-2 mb-4" data-aos="fade-up">
+                    Zobacz, co dla Ciebie zrobimy
+                </h2>
+                <p class="text-gray-600 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="100">
+                    Oszczędź czas i pieniądze. Poznaj nasze podejście, które zmienia zwykłe zdjęcia w maszynkę do sprzedaży.
                 </p>
             </div>
 
-            <div class="grid md:grid-cols-2 gap-8 items-stretch">
+            <div class="flex justify-center mb-12 w-full" data-aos="fade-up" data-aos-delay="200">
+                <div class="flex flex-col md:flex-row bg-gray-100 p-1.5 rounded-2xl md:rounded-full shadow-inner w-full md:w-auto gap-1 md:gap-0">
+                    <button id="tab-btn-1" class="w-full md:w-auto relative z-10 px-4 md:px-6 py-3 rounded-xl md:rounded-full font-bold text-sm transition-all duration-300 bg-white shadow-md text-slate-900 tab-btn" data-target="tab-content-1">
+                        1. Magia AI (Wiele Światów)
+                    </button>
+                    <button id="tab-btn-2" class="w-full md:w-auto relative z-10 px-4 md:px-6 py-3 rounded-xl md:rounded-full font-bold text-sm transition-all duration-300 text-gray-500 hover:text-slate-900 tab-btn bg-transparent shadow-none" data-target="tab-content-2">
+                        2. Anatomia Oferty (Obsługa)
+                    </button>
+                    <button id="tab-btn-3" class="w-full md:w-auto relative z-10 px-4 md:px-6 py-3 rounded-xl md:rounded-full font-bold text-sm transition-all duration-300 text-gray-500 hover:text-slate-900 tab-btn bg-transparent shadow-none" data-target="tab-content-3">
+                        3. Kalkulator Oszczędności
+                    </button>
+                </div>
+            </div>
+
+            <div id="interactive-container" class="relative max-w-5xl mx-auto h-auto min-h-[500px]">
                 
-                <div class="bg-gray-50 p-8 rounded-3xl border border-gray-200 relative" data-aos="fade-right">
-                    <div class="absolute top-0 left-1/2 -translate-x-1/2 -mt-4 bg-red-100 text-red-600 px-4 py-1 rounded-full text-xs font-bold uppercase tracking-widest border border-red-200">
-                        Stary Model
-                    </div>
-                    
-                    <h3 class="text-xl font-bold text-gray-400 mb-8 text-center mt-4">Sesja z modelką w studio</h3>
-
-                    <div class="space-y-4 font-mono text-sm text-gray-600">
-                        <div class="flex justify-between items-center border-b border-gray-200 pb-2">
-                            <span>Fotograf (Dniówka)</span>
-                            <span class="font-bold">$$$</span>
+                <!-- <div id="tab-content-1" class="tab-content animate-fade-in block w-full">
+                    <div class="flex flex-col md:flex-row gap-4 md:gap-6 h-full">
+                        <div class="w-full md:w-3/4 relative rounded-2xl md:rounded-3xl overflow-hidden shadow-xl md:shadow-2xl aspect-square md:aspect-auto md:h-[500px] border border-gray-100">
+                            <img id="ai-main-img" src="/images/b_b_6747-197424322488-int-2.jpg" class="w-full h-full object-cover transition-opacity duration-500" alt="Produkt główny">
+                            <div class="absolute bottom-4 left-4 md:bottom-6 md:left-6 bg-white/90 backdrop-blur px-3 py-1.5 md:px-4 md:py-2 rounded-xl shadow-lg">
+                                <span class="font-bold text-slate-900 text-xs md:text-sm" id="ai-main-title">Białe tło (Packshot)</span>
+                            </div>
                         </div>
-                        <div class="flex justify-between items-center border-b border-gray-200 pb-2">
-                            <span>Wynajem Studia (8h)</span>
-                            <span class="font-bold text-red-500">$$$</span>
-                        </div>
-                        <div class="flex justify-between items-center border-b border-gray-200 pb-2">
-                            <span>Modelka / Model</span>
-                            <span class="font-bold text-red-500">$$$</span>
-                        </div>
-                        <div class="flex justify-between items-center border-b border-gray-200 pb-2">
-                            <span>Wizażystka & Stylista</span>
-                            <span class="font-bold text-red-500">$$</span>
-                        </div>
-                        <div class="flex justify-between items-center border-b border-gray-200 pb-2">
-                            <span>Transport & Catering</span>
-                            <span class="font-bold text-red-500">$$</span>
-                        </div>
-                        <div class="flex justify-between items-center border-b border-gray-200 pb-2 opacity-50">
-                            <span>Obróbka zdjęć</span>
-                            <span class="font-bold">$</span>
+                        
+                        <div class="w-full md:w-1/4 grid grid-cols-4 md:flex md:flex-col gap-2 md:gap-4">
+                            <div class="ai-thumb cursor-pointer border-2 md:border-4 border-blue-500 rounded-xl md:rounded-2xl overflow-hidden relative group aspect-square md:aspect-auto md:h-[110px]" data-title="Białe tło (Packshot)" data-src="/images/b_b_6747-197424322488-int-2.jpg">
+                                <img src="/images/b_b_6747-197424322488-int-2.jpg" class="w-full h-full object-cover group-hover:scale-110 transition duration-300" alt="Packshot">
+                            </div>
+                            <div class="ai-thumb cursor-pointer border-2 md:border-4 border-transparent hover:border-blue-300 rounded-xl md:rounded-2xl overflow-hidden relative group aspect-square md:aspect-auto md:h-[110px]" data-title="Sceneria AI: Piękny Paryż" data-src="/images/paryz.png">
+                                <img src="/images/paryz.png" class="w-full h-full object-cover group-hover:scale-110 transition duration-300" alt="Miasto">
+                                <div class="absolute inset-0 bg-blue-600/20 group-hover:bg-transparent transition"></div>
+                            </div>
+                            <div class="ai-thumb cursor-pointer border-2 md:border-4 border-transparent hover:border-blue-300 rounded-xl md:rounded-2xl overflow-hidden relative group aspect-square md:aspect-auto md:h-[110px]" data-title="Sceneria AI: Studio fotograficzne" data-src="/images/studio.png">
+                                <img src="/images/studio.png" class="w-full h-full object-cover group-hover:scale-110 transition duration-300" alt="Natura">
+                                <div class="absolute inset-0 bg-blue-600/20 group-hover:bg-transparent transition"></div>
+                            </div>
+                            <div class="ai-thumb cursor-pointer border-2 md:border-4 border-transparent hover:border-blue-300 rounded-xl md:rounded-2xl overflow-hidden relative group aspect-square md:aspect-auto md:h-[110px]" data-title="Sceneria AI: Na słonecznej plaży" data-src="/images/morze.png">
+                                <img src="/images/morze.png" class="w-full h-full object-cover group-hover:scale-110 transition duration-300" alt="Modelka">
+                                <div class="absolute inset-0 bg-blue-600/20 group-hover:bg-transparent transition"></div>
+                            </div>
                         </div>
                     </div>
+                </div> -->
 
-                    <div class="mt-8 pt-6 border-t-2 border-gray-300 text-center">
-                        <p class="text-xs uppercase text-gray-400 font-bold">Wynik</p>
-                        <p class="text-2xl font-bold text-gray-500">Ogromne koszty stałe</p>
-                        <p class="text-xs text-red-500 mt-2">Płacisz nawet, jeśli zdjęcie nie wyjdzie.</p>
+<!-- <div id="tab-content-1" class="tab-content animate-fade-in block w-full">
+    <div class="flex flex-col md:flex-row gap-4 md:gap-6 h-full md:justify-center">
+
+        <div class="w-full md:w-auto relative rounded-2xl md:rounded-3xl overflow-hidden shadow-xl md:shadow-2xl border border-gray-100 aspect-[4/5] md:h-[600px]">
+            <img id="ai-main-img" src="/images/b_b_6747-197424322488-int-2.jpg" class="absolute inset-0 w-full h-full object-cover transition-opacity duration-500" alt="Produkt główny">
+            <div class="absolute bottom-4 left-4 md:bottom-6 md:left-6 bg-white/90 backdrop-blur px-3 py-1.5 md:px-4 md:py-2 rounded-xl shadow-lg z-10">
+                <span class="font-bold text-slate-900 text-xs md:text-sm" id="ai-main-title">Białe tło (Packshot)</span>
+            </div>
+        </div>
+
+        <div class="w-full md:w-auto grid grid-cols-4 md:flex md:flex-col gap-2 md:gap-4">
+
+            <div class="ai-thumb cursor-pointer border-2 md:border-4 border-blue-500 rounded-xl md:rounded-2xl overflow-hidden relative group aspect-[4/5] md:h-[135px] md:w-auto" data-title="Białe tło (Packshot)" data-src="/images/b_b_6747-197424322488-int-2.jpg">
+                <img src="/images/b_b_6747-197424322488-int-2.jpg" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition duration-300" alt="Packshot">
+            </div>
+
+            <div class="ai-thumb cursor-pointer border-2 md:border-4 border-transparent hover:border-blue-300 rounded-xl md:rounded-2xl overflow-hidden relative group aspect-[4/5] md:h-[135px] md:w-auto" data-title="Sceneria AI: Piękny Paryż" data-src="/images/paryz.png">
+                <img src="/images/paryz.png" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition duration-300" alt="Miasto">
+                <div class="absolute inset-0 bg-blue-600/20 group-hover:bg-transparent transition"></div>
+            </div>
+
+            <div class="ai-thumb cursor-pointer border-2 md:border-4 border-transparent hover:border-blue-300 rounded-xl md:rounded-2xl overflow-hidden relative group aspect-[4/5] md:h-[135px] md:w-auto" data-title="Sceneria AI: Studio fotograficzne" data-src="/images/studio.png">
+                <img src="/images/studio.png" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition duration-300" alt="Studio">
+                <div class="absolute inset-0 bg-blue-600/20 group-hover:bg-transparent transition"></div>
+            </div>
+
+            <div class="ai-thumb cursor-pointer border-2 md:border-4 border-transparent hover:border-blue-300 rounded-xl md:rounded-2xl overflow-hidden relative group aspect-[4/5] md:h-[135px] md:w-auto" data-title="Sceneria AI: Na słonecznej plaży" data-src="/images/morze.png">
+                <img src="/images/morze.png" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition duration-300" alt="Plaża">
+                <div class="absolute inset-0 bg-blue-600/20 group-hover:bg-transparent transition"></div>
+            </div>
+
+        </div>
+    </div>
+</div> -->
+
+
+<!-- <div id="tab-content-1" class="tab-content animate-fade-in block w-full">
+    <div class="flex flex-col md:flex-row gap-4 md:gap-6 h-full md:justify-center">
+
+        <div class="w-full md:w-auto relative rounded-2xl md:rounded-3xl overflow-hidden shadow-xl md:shadow-2xl border border-gray-100 aspect-square md:h-[500px]">
+            <img id="ai-main-img" src="/images/b_b_6747-197424322488-int-2.jpg" class="absolute inset-0 w-full h-full object-cover transition-opacity duration-500" alt="Produkt główny">
+            <div class="absolute bottom-4 left-4 md:bottom-6 md:left-6 bg-white/90 backdrop-blur px-3 py-1.5 md:px-4 md:py-2 rounded-xl shadow-lg z-10">
+                <span class="font-bold text-slate-900 text-xs md:text-sm" id="ai-main-title">Białe tło (Packshot)</span>
+            </div>
+        </div>
+
+        <div class="w-full md:w-auto grid grid-cols-4 md:flex md:flex-col gap-2 md:gap-4">
+
+            <div class="ai-thumb cursor-pointer border-2 md:border-4 border-blue-500 rounded-xl md:rounded-2xl overflow-hidden relative group aspect-square md:h-[113px] md:w-auto" data-title="Białe tło (Packshot)" data-src="/images/b_b_6747-197424322488-int-2.jpg">
+                <img src="/images/b_b_6747-197424322488-int-2.jpg" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition duration-300" alt="Packshot">
+            </div>
+
+            <div class="ai-thumb cursor-pointer border-2 md:border-4 border-transparent hover:border-blue-300 rounded-xl md:rounded-2xl overflow-hidden relative group aspect-square md:h-[113px] md:w-auto" data-title="Sceneria AI: Piękny Paryż" data-src="/images/paryz.png">
+                <img src="/images/paryz.png" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition duration-300" alt="Miasto">
+                <div class="absolute inset-0 bg-blue-600/20 group-hover:bg-transparent transition"></div>
+            </div>
+
+            <div class="ai-thumb cursor-pointer border-2 md:border-4 border-transparent hover:border-blue-300 rounded-xl md:rounded-2xl overflow-hidden relative group aspect-square md:h-[113px] md:w-auto" data-title="Sceneria AI: Studio fotograficzne" data-src="/images/studio.png">
+                <img src="/images/studio.png" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition duration-300" alt="Studio">
+                <div class="absolute inset-0 bg-blue-600/20 group-hover:bg-transparent transition"></div>
+            </div>
+
+            <div class="ai-thumb cursor-pointer border-2 md:border-4 border-transparent hover:border-blue-300 rounded-xl md:rounded-2xl overflow-hidden relative group aspect-square md:h-[113px] md:w-auto" data-title="Sceneria AI: Na słonecznej plaży" data-src="/images/morze.png">
+                <img src="/images/morze.png" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition duration-300" alt="Plaża">
+                <div class="absolute inset-0 bg-blue-600/20 group-hover:bg-transparent transition"></div>
+            </div>
+
+        </div>
+    </div>
+</div> -->
+
+
+<div id="tab-content-1" class="tab-content animate-fade-in block w-full">
+    <div class="flex flex-col md:flex-row gap-4 md:gap-6 h-full md:justify-center">
+
+        <div class="w-full md:w-[500px] md:h-[500px] relative rounded-2xl md:rounded-3xl overflow-hidden shadow-xl md:shadow-2xl border border-gray-100 aspect-square shrink-0">
+            <img id="ai-main-img" src="/images/packshot.webp" class="w-full h-full object-cover transition-opacity duration-500" alt="Produkt główny">
+            <div class="absolute bottom-4 left-4 md:bottom-6 md:left-6 bg-white/90 backdrop-blur px-3 py-1.5 md:px-4 md:py-2 rounded-xl shadow-lg z-10">
+                <span class="font-bold text-slate-900 text-xs md:text-sm" id="ai-main-title">Białe tło (Packshot)</span>
+            </div>
+        </div>
+
+        <div class="w-full md:w-[113px] grid grid-cols-4 md:flex md:flex-col gap-2 md:gap-4 shrink-0">
+
+            <div class="ai-thumb cursor-pointer border-2 md:border-4 border-blue-500 rounded-xl md:rounded-2xl overflow-hidden relative group aspect-square md:h-[113px]" data-title="Białe tło (Packshot)" data-src="/images/packshot.jpg">
+                <img src="/images/packshot.jpg" class="w-full h-full object-cover group-hover:scale-110 transition duration-300" alt="Packshot">
+            </div>
+
+            <div class="ai-thumb cursor-pointer border-2 md:border-4 border-transparent hover:border-blue-300 rounded-xl md:rounded-2xl overflow-hidden relative group aspect-square md:h-[113px]" data-title="Sceneria AI: Piękny Paryż" data-src="/images/paryz.png">
+                <img src="/images/paryz.png" class="w-full h-full object-cover group-hover:scale-110 transition duration-300" alt="Miasto">
+                <div class="absolute inset-0 bg-blue-600/20 group-hover:bg-transparent transition"></div>
+            </div>
+
+            <div class="ai-thumb cursor-pointer border-2 md:border-4 border-transparent hover:border-blue-300 rounded-xl md:rounded-2xl overflow-hidden relative group aspect-square md:h-[113px]" data-title="Sceneria AI: Studio fotograficzne" data-src="/images/studio.png">
+                <img src="/images/studio.png" class="w-full h-full object-cover group-hover:scale-110 transition duration-300" alt="Studio">
+                <div class="absolute inset-0 bg-blue-600/20 group-hover:bg-transparent transition"></div>
+            </div>
+
+            <div class="ai-thumb cursor-pointer border-2 md:border-4 border-transparent hover:border-blue-300 rounded-xl md:rounded-2xl overflow-hidden relative group aspect-square md:h-[113px]" data-title="Sceneria AI: Na słonecznej plaży" data-src="/images/morze.png">
+                <img src="/images/morze.png" class="w-full h-full object-cover group-hover:scale-110 transition duration-300" alt="Plaża">
+                <div class="absolute inset-0 bg-blue-600/20 group-hover:bg-transparent transition"></div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+                <div id="tab-content-2" class="tab-content hidden animate-fade-in w-full">
+                    <div class="w-full max-w-4xl mx-auto bg-white rounded-3xl shadow-2xl border border-gray-200 overflow-hidden relative h-auto md:h-[550px] flex flex-col">
+                        <div class="bg-gray-100 px-4 py-3 flex items-center gap-2 border-b border-gray-200 shrink-0">
+                            <div class="w-3 h-3 rounded-full bg-red-400"></div>
+                            <div class="w-3 h-3 rounded-full bg-yellow-400"></div>
+                            <div class="w-3 h-3 rounded-full bg-green-400"></div>
+                            <div class="ml-4 text-xs text-gray-400 font-mono flex items-center">
+                                <svg class="w-3 h-3 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
+                                TwojSklep.pl / karta-produktu
+                            </div>
+                        </div>
+                        
+                        <div class="p-6 md:p-8 flex flex-col md:flex-row gap-8 relative flex-grow overflow-visible">
+                            
+                            <div class="w-full md:w-1/2 relative flex items-center">
+                                <img src="/images/noga.jpg" class="w-full rounded-2xl shadow-sm border border-gray-100" alt="Mockup">
+                                <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 group cursor-pointer z-20">
+                                    <div class="w-6 h-6 bg-blue-600 rounded-full animate-ping absolute opacity-75"></div>
+                                    <div class="w-6 h-6 bg-blue-600 border-2 border-white rounded-full relative z-10 flex items-center justify-center text-white text-xs font-bold">+</div>
+                                    <div class="absolute top-8 left-1/2 -translate-x-1/2 w-48 bg-slate-900 text-white p-3 rounded-lg text-xs opacity-0 group-hover:opacity-100 transition shadow-2xl pointer-events-none z-30">
+                                        <strong>Jakość Premium:</strong> Zdjęcie na nodze modelki z wygenerowaną scenerią AI. Detale, które sprzedają.
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="w-full md:w-1/2 relative flex flex-col justify-center">
+                                
+                                <div class="bg-green-50 border border-green-200 rounded-xl p-3 mb-3 flex items-start gap-3 shadow-sm">
+                                    <div class="bg-green-500 text-white rounded-full p-1 shrink-0 mt-0.5">
+                                        <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
+                                    </div>
+                                    <p class="text-[11px] text-green-800 font-medium leading-tight">
+                                        <strong>Full Service:</strong> Oddajesz nam produkt, a odbierasz gotową stronę sprzedażową!
+                                    </p>
+                                </div>
+
+                                <h3 class="text-2xl font-bold text-gray-800">Kolorowe skórzane sneakrsy</h3>
+                                <p class="text-xl text-blue-600 font-bold mb-3">499,00 zł</p>
+                                
+                                <div class="relative bg-gray-50 p-4 rounded-xl border border-gray-100 text-sm text-gray-700 leading-relaxed pr-8 shadow-inner">
+                                    Szukasz <strong>wygodnych butów miejskich</strong>, które posłużą Ci przez lata? Poznaj model <em>Urban Red</em>. To autentyczna <strong>polska produkcja</strong> i najwyższej jakości <strong>skóra naturalna</strong>.
+                                    
+                                    <ul class="mt-2 space-y-1.5 text-xs">
+                                        <li class="flex items-start"><span class="text-green-500 mr-2 font-bold">✓</span> <span><strong>Skóra naturalna:</strong> Dopasowuje się do stopy i pozwala jej oddychać.</span></li>
+                                        <li class="flex items-start"><span class="text-green-500 mr-2 font-bold">✓</span> <span><strong>Polska produkcja:</strong> Lokalne rzemiosło i gwarancja solidnych szwów.</span></li>
+                                        <li class="flex items-start"><span class="text-green-500 mr-2 font-bold">✓</span> <span><strong>Lekka podeszwa:</strong> Maksymalna wygoda na twardych, miejskich chodnikach.</span></li>
+                                    </ul>
+                                    
+                                    <p class="mt-2 text-[10px] text-gray-500 italic">Postaw na klasykę w odważnym kolorze. Zamów dziś i poczuj różnicę premium!</p>
+                                    
+                                    <div class="absolute -top-3 -right-3 group cursor-pointer z-20">
+                                        <div class="w-6 h-6 bg-orange-500 rounded-full animate-ping absolute opacity-75"></div>
+                                        <div class="w-6 h-6 bg-orange-500 border-2 border-white rounded-full relative z-10 flex items-center justify-center text-white text-xs font-bold">+</div>
+                                        <div class="absolute top-8 right-0 w-56 bg-slate-900 text-white p-3 rounded-lg text-xs opacity-0 group-hover:opacity-100 transition shadow-2xl pointer-events-none z-30">
+                                            <strong>Opis SEO & Copywriting:</strong> Zobacz ten tekst! Używamy słów kluczowych ("polska produkcja", "skóra naturalna"), wypunktowań korzyści i Call To Action.
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <button class="w-full bg-black text-white py-3 rounded-xl font-bold mt-4 relative shadow-lg hover:bg-gray-800 transition">
+                                    Dodaj do koszyka
+                                    <div class="absolute top-1/2 right-4 transform -translate-y-1/2 group cursor-pointer z-20">
+                                        <div class="w-6 h-6 bg-purple-500 rounded-full animate-ping absolute opacity-75"></div>
+                                        <div class="w-6 h-6 bg-purple-500 border-2 border-white rounded-full relative z-10 flex items-center justify-center text-white text-xs font-bold">+</div>
+                                        <div class="absolute bottom-10 right-0 w-56 bg-slate-900 text-white p-3 rounded-lg text-xs opacity-0 group-hover:opacity-100 transition shadow-2xl pointer-events-none z-30">
+                                            <strong>Obsługa Sklepu:</strong> Logujemy się do Twojego CMS (WooCommerce, Shoper, itp.), dodajemy zdjęcia, warianty i ceny!
+                                        </div>
+                                    </div>
+                                </button>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
-                <div class="bg-slate-900 text-white p-8 rounded-3xl border border-slate-700 relative shadow-2xl transform md:-translate-y-4" data-aos="fade-left">
-                    <div class="absolute top-0 left-1/2 -translate-x-1/2 -mt-4 bg-green-500 text-white px-4 py-1 rounded-full text-xs font-bold uppercase tracking-widest shadow-lg">
-                        Studio.AI
-                    </div>
+                <div id="tab-content-3" class="tab-content hidden animate-fade-in w-full">
+                    <div class="bg-slate-900 rounded-3xl p-6 md:p-10 shadow-2xl text-white relative h-auto md:h-[500px] flex flex-col justify-center overflow-hidden">
+                        <div class="absolute top-0 left-0 w-64 h-64 bg-green-500/20 rounded-full blur-3xl -ml-20 -mt-20 pointer-events-none"></div>
+                        
+                        <div class="relative z-10 mb-6 mt-4 md:mt-0">
+                            <h3 class="text-2xl font-bold mb-4">Oblicz swoje oszczędności</h3>
+                            
+                            <div class="grid grid-cols-2 md:grid-cols-4 gap-2 bg-slate-800/50 p-1.5 rounded-xl border border-slate-700">
+                                <button class="calc-type-btn active bg-blue-600 text-white font-bold text-xs py-2 px-2 rounded-lg transition" data-type="packshot">Packshoty</button>
+                                <button class="calc-type-btn bg-transparent text-gray-400 hover:text-white font-bold text-xs py-2 px-2 rounded-lg transition" data-type="ai">Modelka AI</button>
+                                <button class="calc-type-btn bg-transparent text-gray-400 hover:text-white font-bold text-xs py-2 px-2 rounded-lg transition" data-type="real">Real Modelka</button>
+                                <button class="calc-type-btn bg-transparent text-gray-400 hover:text-white font-bold text-xs py-2 px-2 rounded-lg transition" data-type="360">Wideo 360°</button>
+                            </div>
+                        </div>
 
-                    <h3 class="text-xl font-bold text-white mb-8 text-center mt-4">Nasza Sesja Produktowa</h3>
+                        <div class="grid md:grid-cols-2 gap-8 md:gap-12 relative z-10">
+                            <div class="flex flex-col justify-center">
+                                <div class="mb-6">
+                                    <div class="flex justify-between mb-2">
+                                        <label class="font-bold text-sm text-gray-300">Liczba produktów do sesji:</label>
+                                        <span id="calc-products-val" class="font-bold text-blue-400">10</span>
+                                    </div>
+                                    <input type="range" id="calc-products" min="1" max="50" value="10" class="w-full h-2 bg-slate-700 rounded-lg appearance-none cursor-pointer">
+                                </div>
 
-                    <div class="space-y-4 font-mono text-sm text-gray-300">
-                        <div class="flex justify-between items-center border-b border-gray-700 pb-2">
-                            <span>Fotograf (Packshot)</span>
-                            <span class="font-bold text-white">$$</span>
-                        </div>
-                        <div class="flex justify-between items-center border-b border-gray-700 pb-2">
-                            <span class="text-green-400">Wynajem Studia</span>
-                            <span class="font-bold text-green-400">0 zł (W cenie)</span>
-                        </div>
-                        <div class="flex justify-between items-center border-b border-gray-700 pb-2">
-                            <span class="text-green-400">Modelka</span>
-                            <span class="font-bold text-green-400">$$</span>
-                        </div>
-                        <div class="flex justify-between items-center border-b border-gray-700 pb-2">
-                            <span class="text-green-400">Wizażystka</span>
-                            <span class="font-bold text-green-400">0 zł (Cyfrowo)</span>
-                        </div>
-                        <div class="flex justify-between items-center border-b border-gray-700 pb-2">
-                            <span class="text-green-400">Transport</span>
-                            <span class="font-bold text-green-400">Tylko wysyłka kurierem</span>
-                        </div>
-                        <div class="flex justify-between items-center border-b border-gray-700 pb-2">
-                            <span class="text-blue-300">Magia AI & Retusz</span>
-                            <span class="font-bold text-white">W cenie zdjęcia</span>
-                        </div>
-                    </div>
+                                <div id="calc-photos-wrapper" class="mb-4 transition-all duration-300 overflow-hidden">
+                                    <div class="flex justify-between mb-2">
+                                        <label class="font-bold text-sm text-gray-300">Ujęć na produkt:</label>
+                                        <span id="calc-photos-val" class="font-bold text-blue-400">3</span>
+                                    </div>
+                                    <input type="range" id="calc-photos" min="1" max="6" value="3" class="w-full h-2 bg-slate-700 rounded-lg appearance-none cursor-pointer">
+                                </div>
+                                <p id="calc-info-text" class="text-[10px] text-gray-500 mt-2 leading-tight mb-4 md:mb-0">
+                                    * Oszczędzasz na wynajmie studia fotograficznego na godziny.
+                                </p>
+                            </div>
 
-                    <div class="mt-8 pt-6 border-t-2 border-slate-600 text-center">
-                        <p class="text-xs uppercase text-gray-400 font-bold">Wynik</p>
-                        <p class="text-3xl font-bold text-white">Płacisz tylko za efekt.</p>
-                        <p class="text-xs text-green-400 mt-2">Oszczędzasz do 70% budżetu na każdej sesji.</p>
-                    </div>
+                            <div class="bg-white/5 rounded-2xl p-5 border border-white/10 flex flex-col justify-center relative">
+                                <div class="mb-4 border-b border-white/10 pb-4">
+                                    <p class="text-xs text-gray-400 uppercase tracking-wider mb-1">Standardowa agencja (ok.)</p>
+                                    
+                                    <p id="calc-trad-cost" class="text-xl font-mono text-gray-500 line-through">2700 zł</p>
+                                </div>
+                                
+                                <div class="mb-4">
+                                    <p class="text-xs text-green-400 font-bold uppercase tracking-wider mb-1">K&M Studio (z obsługą)</p>
+                                    <span>od</span>
+                                    <p id="calc-km-cost" class="text-4xl font-bold text-white">1050 zł</p>
+                                </div>
 
-                    <div class="mt-8 text-center">
-                        <a href="#kontakt" class="inline-block w-full py-3 bg-white text-black font-bold rounded-xl hover:bg-blue-50 transition">
-                            Sprawdź cennik
-                        </a>
+                                <div class="bg-green-500/20 border border-green-500/30 rounded-xl p-3 text-center mb-4">
+                                    <p class="text-[10px] text-green-200 uppercase font-bold mb-1">Zostaje w Twojej kieszeni</p>
+                                    <p id="calc-savings" class="text-2xl font-bold text-green-400">1650 zł</p>
+                                </div>
+
+                                <div class="flex items-center gap-3 bg-blue-500/10 border border-blue-500/20 rounded-xl p-3">
+                                    <div class="bg-gradient-to-br from-blue-500 to-blue-700 text-white font-black text-sm px-2 py-1 rounded shadow-md shrink-0">
+                                        -20%
+                                    </div>
+                                    <p class="text-[10px] text-blue-200 leading-tight">
+                                        <strong>Więcej = Taniej!</strong> Przy większej ilości produktów lub stałej współpracy oferujemy dodatkowe rabaty sięgające nawet 20%.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
             </div>
         </div>
     </section>
-    
-    <!-- <section id="oferta" class="py-24 bg-slate-50">
+
+    <style>
+        .animate-fade-in {
+            animation: fadeInTab 0.5s ease-out forwards;
+        }
+        @keyframes fadeInTab {
+            from { opacity: 0; transform: translateY(15px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        /* Styl suwaka kalkulatora (Webkit) */
+        input[type=range]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: #3B82F6; /* Tailwind blue-500 */
+            cursor: pointer;
+            box-shadow: 0 0 10px rgba(59, 130, 246, 0.5);
+        }
+    </style>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const container = document.getElementById('interactive-container');
+            const btns = document.querySelectorAll('.tab-btn');
+            const contents = document.querySelectorAll('.tab-content');
+            
+            let currentTabIndex = 0;
+            let autoplayInterval;
+
+            const activeClasses = ['bg-white', 'shadow-md', 'text-slate-900'];
+            const inactiveClasses = ['text-gray-500', 'hover:text-slate-900', 'bg-transparent', 'shadow-none'];
+
+            // 1. ZARZĄDZANIE ZAKŁADKAMI
+            function switchTab(index) {
+                // Ukryj wszystkie
+                contents.forEach(c => {
+                    c.classList.add('hidden');
+                    c.classList.remove('block');
+                });
+                btns.forEach(b => {
+                    b.classList.remove(...activeClasses);
+                    b.classList.add(...inactiveClasses);
+                });
+
+                // Pokaż wybrany
+                contents[index].classList.remove('hidden');
+                contents[index].classList.add('block');
+                btns[index].classList.remove(...inactiveClasses);
+                btns[index].classList.add(...activeClasses);
+                
+                currentTabIndex = index;
+            }
+
+            // Podpięcie kliknięcia pod przyciski
+            btns.forEach((btn, index) => {
+                btn.addEventListener('click', () => {
+                    switchTab(index);
+                    stopAutoplay(); // Jeśli kliknął ręcznie, zatrzymaj automat
+                });
+            });
+
+            // 2. AUTOPLAY LOGIC
+            function startAutoplay() {
+                autoplayInterval = setInterval(() => {
+                    let nextIndex = (currentTabIndex + 1) % btns.length;
+                    switchTab(nextIndex);
+                }, 8000); // Zmiana co 8 sekund
+            }
+
+            function stopAutoplay() {
+                clearInterval(autoplayInterval);
+            }
+
+            // Rozpocznij automat
+            startAutoplay();
+
+            // Zatrzymaj, gdy klient najedzie lub dotknie interaktywnej sekcji
+            if(container) {
+                container.addEventListener('mouseenter', stopAutoplay);
+                container.addEventListener('touchstart', stopAutoplay, {passive: true});
+            }
+
+            // 3. LOGIKA: KASKADA AI (Tab 1)
+            const mainImg = document.getElementById('ai-main-img');
+            const mainTitle = document.getElementById('ai-main-title');
+            const thumbs = document.querySelectorAll('.ai-thumb');
+
+            thumbs.forEach(thumb => {
+                thumb.addEventListener('mouseenter', function() {
+                    // Reset borders
+                    thumbs.forEach(t => {
+                        t.classList.remove('border-blue-500');
+                        t.classList.add('border-transparent');
+                        const overlay = t.querySelector('.absolute');
+                        if(overlay) overlay.classList.remove('hidden');
+                    });
+
+                    // Set active border
+                    this.classList.remove('border-transparent');
+                    this.classList.add('border-blue-500');
+                    const overlay = this.querySelector('.absolute');
+                    if(overlay) overlay.classList.add('hidden');
+
+                    // Change main image and text
+                    if(mainImg) mainImg.src = this.getAttribute('data-src');
+                    if(mainTitle) mainTitle.innerText = this.getAttribute('data-title');
+                });
+            });
+
+            // 4. LOGIKA: KALKULATOR (Tab 3)
+            // 4. LOGIKA: KALKULATOR (Tab 3)
+            const inputProducts = document.getElementById('calc-products');
+            const inputPhotos = document.getElementById('calc-photos');
+            const wrapperPhotos = document.getElementById('calc-photos-wrapper'); // Nasz kontener z suwakiem ujęć
+            
+            const valProducts = document.getElementById('calc-products-val');
+            const valPhotos = document.getElementById('calc-photos-val');
+            const textTrad = document.getElementById('calc-trad-cost');
+            const textKM = document.getElementById('calc-km-cost');
+            const textSavings = document.getElementById('calc-savings');
+            const infoText = document.getElementById('calc-info-text');
+            const calcTypes = document.querySelectorAll('.calc-type-btn');
+
+            let currentCalcType = 'packshot';
+
+            const rates = {
+                'packshot': { 
+                    tradBase: 0, tradPic: 30, kmBase: 0, kmPic: 20,
+                    info: "* Oszczędzasz na wynajmie studia na godziny oraz logistyce."
+                },
+                'ai': { 
+                    tradBase: 0, tradPic: 40, kmBase: 0, kmPic: 30,
+                    info: "* W tradycyjnej agencji płacisz za studio, modelkę z agencji i wizażystkę. U nas generuje to sztuczna inteligencja."
+                },
+                'real': { 
+                    tradBase: 0, tradPic: 80, kmBase: 0, kmPic: 50,
+                    info: "* Oszczędzasz na ukrytych prowizjach agencji modelek. Mamy stałe, sprawdzone osoby."
+                },
+                '360': { 
+                    tradBase: 0, tradPic: 120, kmBase: 0, kmPic: 60,
+                    info: "* W wideo 360° wykonujemy 1 pełny obrót na produkt. Zoptymalizowaliśmy ten proces do maksimum."
+                }
+            };
+
+            function calculateCost() {
+                if(!inputProducts || !inputPhotos) return;
+
+                const p = parseInt(inputProducts.value);
+                let ph = parseInt(inputPhotos.value);
+                const rate = rates[currentCalcType];
+
+                // Ukrywamy suwak "Ujęć" jeśli wybrano Wideo 360 i wymuszamy 1 ujęcie w obliczeniach
+                if (currentCalcType === '360') {
+                    if (wrapperPhotos) {
+                        wrapperPhotos.style.opacity = '0';
+                        wrapperPhotos.style.height = '0px';
+                        wrapperPhotos.style.pointerEvents = 'none';
+                    }
+                    ph = 1; // 360 to zawsze 1 rotacja
+                } else {
+                    if (wrapperPhotos) {
+                        wrapperPhotos.style.opacity = '1';
+                        wrapperPhotos.style.height = '60px'; // przywraca standardową wysokość
+                        wrapperPhotos.style.pointerEvents = 'auto';
+                    }
+                }
+
+                if(valProducts) valProducts.innerText = p.toString();
+                if(valPhotos) valPhotos.innerText = ph.toString();
+                if(infoText) infoText.innerText = rate.info;
+
+                // Obliczenia
+                const tradCost = rate.tradBase + (p * ph * rate.tradPic);
+                const kmCost = rate.kmBase + (p * ph * rate.kmPic);
+                const savings = tradCost - kmCost;
+
+                // Aktualizacja UI
+                if(textTrad) textTrad.innerText = tradCost.toLocaleString('pl-PL') + ' zł';
+                if(textKM) textKM.innerText = kmCost.toLocaleString('pl-PL') + ' zł';
+                if(textSavings) textSavings.innerText = savings.toLocaleString('pl-PL') + ' zł';
+            }
+
+            // Obsługa kliknięć w przyciski typów
+            calcTypes.forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    calcTypes.forEach(b => {
+                        b.classList.remove('bg-blue-600', 'text-white');
+                        b.classList.add('bg-transparent', 'text-gray-400');
+                    });
+                    
+                    const target = e.currentTarget;
+                    // @ts-ignore
+                    target.classList.remove('bg-transparent', 'text-gray-400');
+                    // @ts-ignore
+                    target.classList.add('bg-blue-600', 'text-white');
+                    
+                    // @ts-ignore
+                    currentCalcType = target.getAttribute('data-type');
+                    calculateCost();
+                });
+            });
+
+            if(inputProducts && inputPhotos) {
+                inputProducts.addEventListener('input', calculateCost);
+                inputPhotos.addEventListener('input', calculateCost);
+                calculateCost(); 
+            }
+
+            // Podpięcie zdarzeń
+            if(inputProducts && inputPhotos) {
+                inputProducts.addEventListener('input', calculateCost);
+                inputPhotos.addEventListener('input', calculateCost);
+                calculateCost(); // Initial calc
+            }
+        });
+    </script>
+
+   <section id="koszty" class="py-24 bg-slate-50">
         <div class="max-w-7xl mx-auto px-4">
             
             <div class="text-center mb-16">
-                <span class="text-blue-600 font-bold tracking-wider text-sm uppercase">Pełna Oferta</span>
-                <h2 class="text-3xl md:text-5xl font-bold mt-2 mb-4" data-aos="fade-up">Więcej niż fotografia</h2>
-                <p class="text-gray-600 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="100">
-                    Zdejmujemy Ci z głowy cały proces wizualny i techniczny. Od surowego zdjęcia po gotowy produkt na wirtualnej półce.
+                <span class="text-blue-600 font-bold tracking-wider text-sm uppercase">Twój święty spokój</span>
+                <h2 class="text-3xl md:text-5xl font-bold mt-2 mb-6" data-aos="fade-up">Zdejmujemy Ci problem z głowy</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto" data-aos="fade-up" data-aos-delay="100">
+                    Większość studiów oddaje Ci po prostu pliki ze zdjęciami. My oddajemy gotowy produkt wystawiony w Twoim sklepie. Zobacz różnicę.
                 </p>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div class="grid lg:grid-cols-2 gap-8 items-stretch mb-16">
                 
-                <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 hover:shadow-lg hover:-translate-y-1 transition group" data-aos="fade-up" data-aos-delay="0">
-                    <div class="w-12 h-12 bg-blue-50 text-blue-600 rounded-lg flex items-center justify-center mb-4 group-hover:bg-blue-600 group-hover:text-white transition">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 13a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                <div class="bg-white p-8 md:p-10 rounded-3xl border border-gray-200 shadow-sm opacity-90" data-aos="fade-right">
+                    <div class="flex items-center gap-4 mb-8 border-b border-gray-100 pb-6">
+                        <div class="w-12 h-12 bg-gray-100 rounded-full flex items-center justify-center text-gray-500 font-bold text-xl">?</div>
+                        <div>
+                            <h3 class="text-xl font-bold text-gray-800">Standardowy Fotograf</h3>
+                            <p class="text-sm text-gray-500">Dostajesz link do zdjęć i... co dalej?</p>
+                        </div>
                     </div>
-                    <h3 class="text-lg font-bold mb-2">Packshoty Premium</h3>
-                    <p class="text-xs text-gray-500">Zdjęcia na idealnie białym tle. Standard wymagany przez Allegro, Amazon i e-sklepy.</p>
+
+                    <ul class="space-y-8 relative border-l-2 border-gray-200 ml-3 pl-8 pb-4">
+                        <li class="relative">
+                            <span class="absolute -left-[39px] w-6 h-6 bg-gray-200 rounded-full border-4 border-white"></span>
+                            <h4 class="font-bold text-gray-700">1. Logistyka</h4>
+                            <p class="text-sm text-gray-500 mt-1">Musisz spakować i wysłać towar, albo jechać na drugi koniec miasta i pilnować sesji.</p>
+                        </li>
+                        <li class="relative">
+                            <span class="absolute -left-[39px] w-6 h-6 bg-gray-200 rounded-full border-4 border-white"></span>
+                            <h4 class="font-bold text-gray-700">2. Tylko statyczne zdjęcia</h4>
+                            <p class="text-sm text-gray-500 mt-1">Otrzymujesz zwykłe zdjęcia. Jeśli chcesz wideo lub obrót 360, musisz szukać innej firmy.</p>
+                        </li>
+                        <li class="relative">
+                            <span class="absolute -left-[39px] w-6 h-6 bg-gray-200 rounded-full border-4 border-white"></span>
+                            <h4 class="font-bold text-gray-700">3. Odbiór plików</h4>
+                            <p class="text-sm text-gray-500 mt-1">Dostajesz 100 zdjęć na maila. Często nieobrobione, za duże, o nazwach "DSC_9932.jpg".</p>
+                        </li>
+                        <li class="relative">
+                            <span class="absolute -left-[39px] w-6 h-6 bg-red-500 rounded-full border-4 border-white"></span>
+                            <h4 class="font-bold text-red-600">4. Męka z wdrożeniem</h4>
+                            <p class="text-sm text-red-500 mt-1 font-bold">
+                                To Ty musisz zmniejszyć zdjęcia, wymyślić opisy, zalogować się do sklepu i ręcznie wszystko "wklepać". Tracisz 2 dni pracy.
+                            </p>
+                        </li>
+                    </ul>
                 </div>
 
-                <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 hover:shadow-lg hover:-translate-y-1 transition group" data-aos="fade-up" data-aos-delay="100">
-                    <div class="w-12 h-12 bg-blue-50 text-blue-600 rounded-lg flex items-center justify-center mb-4 group-hover:bg-blue-600 group-hover:text-white transition">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path></svg>
-                    </div>
-                    <h3 class="text-lg font-bold mb-2">Fotografia 360°</h3>
-                    <p class="text-xs text-gray-500">Interaktywne prezentacje obrotowe produktów. Zwiększają konwersję pokazując produkt z każdej strony.</p>
-                </div>
+                <div class="bg-slate-900 text-white p-8 md:p-10 rounded-3xl border border-slate-700 shadow-2xl relative overflow-hidden" data-aos="fade-left">
+                    <div class="absolute top-0 right-0 w-64 h-64 bg-blue-600/10 rounded-full blur-3xl -mr-16 -mt-16 pointer-events-none"></div>
 
-                <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 hover:shadow-lg hover:-translate-y-1 transition group" data-aos="fade-up" data-aos-delay="200">
-                    <div class="w-12 h-12 bg-blue-50 text-blue-600 rounded-lg flex items-center justify-center mb-4 group-hover:bg-blue-600 group-hover:text-white transition">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"></path></svg>
+                    <div class="flex items-center gap-4 mb-8 border-b border-slate-700 pb-6 relative z-10">
+                        <div class="w-12 h-12 bg-green-500 text-white rounded-full flex items-center justify-center font-bold text-xl shadow-lg shadow-green-500/30">✓</div>
+                        <div>
+                            <h3 class="text-xl font-bold text-white">K&M Studio</h3>
+                            <p class="text-sm text-blue-200">Full Service: Od paczki do sprzedaży.</p>
+                        </div>
                     </div>
-                    <h3 class="text-lg font-bold mb-2">Retusz & Kolor</h3>
-                    <p class="text-xs text-gray-500">Szparowanie (wycinanie tła), idealne odwzorowanie kolorów produktu, usuwanie skaz i pyłków.</p>
-                </div>
 
-                <div class="bg-slate-900 text-white p-6 rounded-2xl shadow-lg hover:shadow-xl hover:-translate-y-1 transition group" data-aos="fade-up" data-aos-delay="300">
-                    <div class="w-12 h-12 bg-white/10 rounded-lg flex items-center justify-center mb-4 group-hover:bg-green-500 group-hover:text-white transition">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path></svg>
+                    <ul class="space-y-8 relative border-l-2 border-slate-700 ml-3 pl-8 pb-4 relative z-10">
+                        <li class="relative">
+                            <span class="absolute -left-[39px] w-6 h-6 bg-blue-500 rounded-full border-4 border-slate-900 shadow-[0_0_10px_rgba(59,130,246,0.5)]"></span>
+                            <h4 class="font-bold text-white text-lg">1. Elastyczna Logistyka</h4>
+                            <p class="text-sm text-gray-400 mt-1">
+                                Wysyłasz kurierem, my odbieramy (okolice) lub <strong>dostarczasz towar osobiście</strong> do nas (po umówieniu). Pełna wygoda.
+                            </p>
+                        </li>
+                        <li class="relative">
+                            <span class="absolute -left-[39px] w-6 h-6 bg-blue-500 rounded-full border-4 border-slate-900 shadow-[0_0_10px_rgba(59,130,246,0.5)]"></span>
+                            <h4 class="font-bold text-white text-lg">2. Zdjęcia + Modelka + AI</h4>
+                            <p class="text-sm text-gray-400 mt-1">
+                                Robimy packshoty i zdjęcia na modelce (stała współpraca). Tła generujemy cyfrowo (AI), więc nie płacisz za scenografię.
+                            </p>
+                        </li>
+                        <li class="relative">
+                            <span class="absolute -left-[39px] w-6 h-6 bg-purple-500 rounded-full border-4 border-slate-900 shadow-[0_0_10px_rgba(168,85,247,0.5)]"></span>
+                            <h4 class="font-bold text-white text-lg">3. 360° & Wideo</h4>
+                            <p class="text-sm text-gray-400 mt-1">
+                                Twój klient chce obejrzeć produkt z każdej strony? Robimy <strong>interaktywne prezentacje 360°</strong> (obracanie myszką) oraz filmy produktowe.
+                            </p>
+                        </li>
+                        <li class="relative">
+                            <span class="absolute -left-[39px] w-6 h-6 bg-blue-500 rounded-full border-4 border-slate-900 shadow-[0_0_10px_rgba(59,130,246,0.5)]"></span>
+                            <h4 class="font-bold text-white text-lg">4. Opisy sprzedażowe</h4>
+                            <p class="text-sm text-gray-400 mt-1">
+                                Nie wiesz co napisać? My napiszemy profesjonalny opis produktu pod SEO, który zachęci do kupna.
+                            </p>
+                        </li>
+                        <li class="relative">
+                            <span class="absolute -left-[39px] w-6 h-6 bg-green-500 rounded-full border-4 border-slate-900 shadow-[0_0_15px_rgba(34,197,94,0.6)] animate-pulse"></span>
+                            <h4 class="font-bold text-green-400 text-lg">5. Wystawiamy w Sklepie!</h4>
+                            <div class="mt-2 bg-white/10 p-4 rounded-xl border border-white/5">
+                                <p class="text-sm text-white font-medium mb-2">To robimy za Ciebie:</p>
+                                <ul class="space-y-1 text-xs text-gray-300">
+                                    <li class="flex items-center"><svg class="w-3 h-3 text-green-400 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Skalowanie i kompresja zdjęć</li>
+                                    <li class="flex items-center"><svg class="w-3 h-3 text-green-400 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Wgranie do CMS (Shop, Allegro)</li>
+                                    <li class="flex items-center"><svg class="w-3 h-3 text-green-400 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Uzupełnienie parametrów i ceny</li>
+                                </ul>
+                                <p class="text-green-400 font-bold text-sm mt-3 border-t border-white/10 pt-2">Efekt: Produkt gotowy do sprzedaży.</p>
+                            </div>
+                        </li>
+                    </ul>
+
+                    <div class="mt-8 text-center">
+                        <a href="#kontakt" class="inline-block w-full py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-bold rounded-xl hover:shadow-lg hover:shadow-blue-500/25 transition transform hover:-translate-y-1">
+                            Chcę taką obsługę
+                        </a>
                     </div>
-                    <h3 class="text-lg font-bold mb-2">Scenerie AI</h3>
-                    <p class="text-xs text-gray-300">Generujemy dowolne tło i lokalizację dla Twojego produktu. Paryż, las czy kosmos – bez wychodzenia ze studia.</p>
                 </div>
-
-                <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 hover:shadow-lg hover:-translate-y-1 transition group" data-aos="fade-up" data-aos-delay="0">
-                    <div class="w-12 h-12 bg-purple-50 text-purple-600 rounded-lg flex items-center justify-center mb-4 group-hover:bg-purple-600 group-hover:text-white transition">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                    </div>
-                    <h3 class="text-lg font-bold mb-2">Wideo & Motion AI</h3>
-                    <p class="text-xs text-gray-500">Ożywiamy statyczne zdjęcia (ruch wody, pary, światła) oraz tworzymy rolki produktowe na TikToka/Reels.</p>
-                </div>
-
-                <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 hover:shadow-lg hover:-translate-y-1 transition group" data-aos="fade-up" data-aos-delay="100">
-                    <div class="w-12 h-12 bg-pink-50 text-pink-600 rounded-lg flex items-center justify-center mb-4 group-hover:bg-pink-600 group-hover:text-white transition">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path></svg>
-                    </div>
-                    <h3 class="text-lg font-bold mb-2">Social Media</h3>
-                    <p class="text-xs text-gray-500">Przygotowujemy gotowe posty na FB i IG. Format, grafika, estetyka dopasowana do Twojej marki.</p>
-                </div>
-
-                <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 hover:shadow-lg hover:-translate-y-1 transition group" data-aos="fade-up" data-aos-delay="200">
-                    <div class="w-12 h-12 bg-orange-50 text-orange-600 rounded-lg flex items-center justify-center mb-4 group-hover:bg-orange-600 group-hover:text-white transition">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path></svg>
-                    </div>
-                    <h3 class="text-lg font-bold mb-2">Opisy SEO</h3>
-                    <p class="text-xs text-gray-500">Tworzymy unikalne, sprzedażowe opisy produktów, które pozycjonują Twój sklep wyżej w Google.</p>
-                </div>
-
-                <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 hover:shadow-lg hover:-translate-y-1 transition group" data-aos="fade-up" data-aos-delay="300">
-                    <div class="w-12 h-12 bg-green-50 text-green-600 rounded-lg flex items-center justify-center mb-4 group-hover:bg-green-600 group-hover:text-white transition">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
-                    </div>
-                    <h3 class="text-lg font-bold mb-2">Obsługa Sklepu</h3>
-                    <p class="text-xs text-gray-500">Wprowadzanie produktów, zarządzanie siatką zdjęć, aktualizacje stanów. Ty wysyłasz towar, my dbamy o witrynę.</p>
-                </div>
-
             </div>
+
+            <div class="max-w-4xl mx-auto bg-white border border-gray-200 rounded-2xl p-8 md:p-12 text-center shadow-sm relative overflow-hidden" data-aos="fade-up">
+                <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-400 to-purple-500"></div>
+                
+                <h3 class="text-2xl md:text-3xl font-bold mb-4">Potrzebujesz tylko zdjęć? A może samą obsługę Twojego sklepu internetowego?</h3>
+                <p class="text-gray-600 mb-8 text-lg">
+                    Spokojnie, nie musisz zamawiać wszystkiego. <br class="hidden md:block"/>
+                    Każdą z naszych usług (Packshoty, 360°, Opisy, Obsługa Sklepu) realizujemy również <strong>jako osobne zlecenia</strong>.
+                </p>
+                
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="#kontakt" class="px-8 py-3 bg-gray-100 text-gray-800 font-bold rounded-full hover:bg-gray-200 transition">
+                        Pytanie o same zdjęcia
+                    </a>
+                    <a href="#kontakt" class="px-8 py-3 bg-white border-2 border-slate-900 text-slate-900 font-bold rounded-full hover:bg-slate-900 hover:text-white transition">
+                        Wycena pakietu
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+
+
+
+<!-- fajna sekcja o 360 -->
+    <!-- <section class="py-24 bg-white overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4">
+            
+            <div class="flex flex-col lg:flex-row items-center gap-16">
+                
+                <div class="lg:w-1/2" data-aos="fade-right">
+                    <span class="text-blue-600 font-bold tracking-wider text-sm uppercase">Pokaż każdy detal</span>
+                    <h2 class="text-3xl md:text-5xl font-bold mt-2 mb-6">Twój klient chce to obrócić.</h2>
+                    <p class="text-lg text-gray-600 mb-6 leading-relaxed">
+                        W internecie nie można dotknąć produktu. Najbliżej tego doświadczenia jest <strong>fotografia obrotowa 360°</strong>. 
+                        Dajemy Twoim klientom władzę – to oni decydują, z której strony chcą obejrzeć but, torebkę czy mebel.
+                    </p>
+                    
+                    <div class="space-y-6">
+                        <div class="flex gap-4">
+                            <div class="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center text-blue-600 shrink-0">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 15l-2 5L9 9l11 4-5 2zm0 0l5 5M7.188 2.239l.777 2.897M5.136 7.965l-2.898-.777M13.95 4.05l-2.122 2.122m-5.657 5.656l-2.12 2.122"></path></svg>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-lg">Interaktywne 360° (HTML5)</h4>
+                                <p class="text-sm text-gray-500">
+                                    Gotowy moduł na Twoją stronę www. Klient myszką lub palcem obraca produkt. Działa na Allegro, Shopify i własnych sklepach.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="flex gap-4">
+                            <div class="w-12 h-12 bg-purple-100 rounded-xl flex items-center justify-center text-purple-600 shrink-0">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-lg">Wideo & GIF</h4>
+                                <p class="text-sm text-gray-500">
+                                    Ten sam obrót zamieniamy na płynny film (MP4) lub GIF. Idealne na Facebooka, Instagrama i TikToka, gdzie liczy się ruch.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="flex gap-4">
+                            <div class="w-12 h-12 bg-green-100 rounded-xl flex items-center justify-center text-green-600 shrink-0">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-lg">Mniej zwrotów</h4>
+                                <p class="text-sm text-gray-500">
+                                    Kiedy klient widzi tył i bok produktu, rzadziej go odsyła. To czysta oszczędność na logistyce.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lg:w-1/2 relative" data-aos="fade-left">
+                    <div class="absolute -inset-4 bg-gray-100 rounded-[2rem] transform -rotate-2"></div>
+                    
+                    <div class="relative bg-white rounded-3xl shadow-2xl p-4 md:p-8 border border-gray-100">
+                        <div class="aspect-square bg-gray-50 rounded-2xl mb-6 relative overflow-hidden flex items-center justify-center group cursor-ew-resize">
+                            
+                            <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=600&auto=format&fit=crop" class="w-3/4 object-contain" alt="But 360">
+                            
+                            <div class="absolute inset-0 bg-black/5 flex items-center justify-center group-hover:bg-black/10 transition">
+                                <div class="bg-white/90 backdrop-blur px-6 py-3 rounded-full shadow-lg flex items-center gap-3">
+                                    <svg class="w-6 h-6 text-slate-900 animate-spin-slow" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path></svg>
+                                    <span class="font-bold text-sm tracking-widest text-slate-900">PRZESUŃ MYSZKĄ</span>
+                                </div>
+                            </div>
+
+                            <div class="absolute bottom-4 left-4 right-4 h-1 bg-gray-200 rounded-full overflow-hidden">
+                                <div class="w-1/3 h-full bg-blue-600 rounded-full"></div>
+                            </div>
+                        </div>
+
+                        <div class="flex justify-between items-center border-t border-gray-100 pt-6">
+                            <div>
+                                <h3 class="font-bold text-lg">Nike Air Red</h3>
+                                <p class="text-sm text-gray-500">Wygenerowany widok 360°</p>
+                            </div>
+                            <span class="bg-green-100 text-green-700 px-3 py-1 rounded-full text-xs font-bold">Gotowe w 24h</span>
+                        </div>
+                    </div>
+
+                    <div class="absolute -bottom-6 -right-6 bg-white p-4 rounded-xl shadow-xl border border-gray-100 hidden md:block animate-bounce-slow">
+                        <span class="font-bold text-slate-900 block text-center text-xl">MP4</span>
+                        <span class="text-[10px] text-gray-400 uppercase tracking-wider">Social Media</span>
+                    </div>
+                    <div class="absolute -top-6 -right-6 bg-white p-4 rounded-xl shadow-xl border border-gray-100 hidden md:block">
+                        <span class="font-bold text-slate-900 block text-center text-xl">HTML</span>
+                        <span class="text-[10px] text-gray-400 uppercase tracking-wider">Sklep WWW</span>
+                    </div>
+
+                </div>
+            </div>
+
         </div>
     </section> -->
 
-<section id="oferta" class="py-24 bg-slate-50">
+    <section id="oferta" class="py-24 bg-slate-50">
         <div class="max-w-7xl mx-auto px-4">
             
             <div class="text-center mb-16">
-                <span class="text-blue-600 font-bold tracking-wider text-sm uppercase">Pełna Oferta</span>
+                <span class="text-blue-600 font-bold tracking-wider text-sm uppercase">Pełny Zakres Usług</span>
                 <h2 class="text-3xl md:text-5xl font-bold mt-2 mb-4" data-aos="fade-up">Więcej niż fotografia</h2>
                 <p class="text-gray-600 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="100">
-                    Zdejmujemy Ci z głowy cały proces wizualny i techniczny. Od surowego zdjęcia po gotowy produkt i materiały reklamowe.
+                    Każdą z poniższych usług możesz zamówić osobno lub w pakiecie. Dopasowujemy się do etapu rozwoju Twojego biznesu.
                 </p>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 
-                <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 hover:shadow-lg hover:-translate-y-1 transition group" data-aos="fade-up">
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 hover:shadow-lg hover:-translate-y-1 transition group h-full" data-aos="fade-up">
+                    <div class="w-12 h-12 bg-blue-50 text-blue-600 rounded-lg flex items-center justify-center mb-4 group-hover:bg-blue-600 group-hover:text-white transition">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"></path></svg>
+                    </div>
+                    <h3 class="text-lg font-bold mb-2">Packshoty Premium</h3>
+                    <p class="text-xs text-gray-500">Zdjęcia na idealnie białym tle, ostrość "żyleta". Standard wymagany przez Allegro, Amazon i profesjonalne e-sklepy.</p>
+                </div>
+
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 hover:shadow-lg hover:-translate-y-1 transition group h-full" data-aos="fade-up" data-aos-delay="100">
+                    <div class="w-12 h-12 bg-indigo-50 text-indigo-600 rounded-lg flex items-center justify-center mb-4 group-hover:bg-indigo-600 group-hover:text-white transition">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path></svg>
+                    </div>
+                    <h3 class="text-lg font-bold mb-2">Fotografia 360°</h3>
+                    <p class="text-xs text-gray-500">
+                        Interaktywne prezentacje obrotowe. Klient może obracać produkt myszką. Zwiększa zaufanie i zmniejsza liczbę zwrotów.
+                    </p>
+                </div>
+
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 hover:shadow-lg hover:-translate-y-1 transition group h-full" data-aos="fade-up" data-aos-delay="200">
+                    <div class="w-12 h-12 bg-purple-50 text-purple-600 rounded-lg flex items-center justify-center mb-4 group-hover:bg-purple-600 group-hover:text-white transition">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path></svg>
+                    </div>
+                    <h3 class="text-lg font-bold mb-2">Scenerie AI</h3>
+                    <p class="text-xs text-gray-500">
+                        Generujemy dowolne tło dla Twojego produktu. Paryż, las czy kosmos – bez wychodzenia ze studia i drogich rekwizytów.
+                    </p>
+                </div>
+
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 hover:shadow-lg hover:-translate-y-1 transition group h-full" data-aos="fade-up">
                     <div class="w-12 h-12 bg-orange-50 text-orange-600 rounded-lg flex items-center justify-center mb-4 group-hover:bg-orange-600 group-hover:text-white transition">
                         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path></svg>
                     </div>
                     <h3 class="text-lg font-bold mb-2">Opisy SEO</h3>
-                    <p class="text-xs text-gray-500">Tworzymy unikalne, sprzedażowe opisy produktów, które pozycjonują Twój sklep wyżej w Google.</p>
+                    <p class="text-xs text-gray-500">Tworzymy unikalne, sprzedażowe opisy produktów, które pozycjonują Twój sklep wyżej w Google i zachęcają do zakupu.</p>
                 </div>
 
-                <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 hover:shadow-lg hover:-translate-y-1 transition group" data-aos="fade-up" data-aos-delay="100">
-                    <div class="w-12 h-12 bg-green-50 text-green-600 rounded-lg flex items-center justify-center mb-4 group-hover:bg-green-600 group-hover:text-white transition">
+                <div class="bg-slate-900 text-white p-6 rounded-2xl shadow-xl border border-slate-700 hover:-translate-y-1 transition group h-full relative overflow-hidden" data-aos="fade-up" data-aos-delay="100">
+                    <div class="w-12 h-12 bg-white/10 rounded-lg flex items-center justify-center mb-4 group-hover:bg-green-500 group-hover:text-white transition">
                         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
                     </div>
                     <h3 class="text-lg font-bold mb-2">Obsługa Sklepu</h3>
-                    <p class="text-xs text-gray-500">Wprowadzanie produktów, zarządzanie siatką zdjęć, aktualizacje stanów. Ty wysyłasz towar, my dbamy o witrynę.</p>
+                    <p class="text-xs text-gray-300">
+                        Wprowadzanie produktów, zarządzanie siatką zdjęć, aktualizacje stanów. Ty wysyłasz towar, my dbamy o witrynę.
+                    </p>
                 </div>
 
-                <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 hover:shadow-lg hover:-translate-y-1 transition group" data-aos="fade-up" data-aos-delay="200">
-                    <div class="w-12 h-12 bg-blue-50 text-blue-600 rounded-lg flex items-center justify-center mb-4 group-hover:bg-blue-600 group-hover:text-white transition">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 13a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
-                    </div>
-                    <h3 class="text-lg font-bold mb-2">Packshoty Premium</h3>
-                    <p class="text-xs text-gray-500">Zdjęcia na idealnie białym tle. Standard wymagany przez Allegro, Amazon i e-sklepy.</p>
-                </div>
-
-                <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 hover:shadow-lg hover:-translate-y-1 transition group" data-aos="fade-up">
-                    <div class="w-12 h-12 bg-blue-50 text-blue-600 rounded-lg flex items-center justify-center mb-4 group-hover:bg-blue-600 group-hover:text-white transition">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path></svg>
-                    </div>
-                    <h3 class="text-lg font-bold mb-2">Fotografia 360°</h3>
-                    <p class="text-xs text-gray-500">Interaktywne prezentacje obrotowe produktów. Zwiększają konwersję pokazując produkt z każdej strony.</p>
-                </div>
-
-                <div class="bg-slate-900 text-white p-6 rounded-2xl shadow-lg hover:shadow-xl hover:-translate-y-1 transition group" data-aos="fade-up" data-aos-delay="100">
-                    <div class="w-12 h-12 bg-white/10 rounded-lg flex items-center justify-center mb-4 group-hover:bg-green-500 group-hover:text-white transition">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path></svg>
-                    </div>
-                    <h3 class="text-lg font-bold mb-2">Scenerie AI</h3>
-                    <p class="text-xs text-gray-300">Generujemy dowolne tło i lokalizację dla Twojego produktu. Paryż, las czy kosmos – bez wychodzenia ze studia.</p>
-                </div>
-
-                <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 hover:shadow-lg hover:-translate-y-1 transition group" data-aos="fade-up" data-aos-delay="200">
-                    <div class="w-12 h-12 bg-blue-50 text-blue-600 rounded-lg flex items-center justify-center mb-4 group-hover:bg-blue-600 group-hover:text-white transition">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"></path></svg>
-                    </div>
-                    <h3 class="text-lg font-bold mb-2">Retusz & Kolor</h3>
-                    <p class="text-xs text-gray-500">Szparowanie (wycinanie tła), idealne odwzorowanie kolorów produktu, usuwanie skaz i pyłków.</p>
-                </div>
-
-                <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 hover:shadow-lg hover:-translate-y-1 transition group" data-aos="fade-up">
-                    <div class="w-12 h-12 bg-purple-50 text-purple-600 rounded-lg flex items-center justify-center mb-4 group-hover:bg-purple-600 group-hover:text-white transition">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                    </div>
-                    <h3 class="text-lg font-bold mb-2">Wideo & Motion AI</h3>
-                    <p class="text-xs text-gray-500">Ożywiamy statyczne zdjęcia (ruch wody, pary, światła) oraz tworzymy rolki produktowe na TikToka/Reels.</p>
-                </div>
-
-                <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 hover:shadow-lg hover:-translate-y-1 transition group" data-aos="fade-up" data-aos-delay="100">
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 hover:shadow-lg hover:-translate-y-1 transition group h-full" data-aos="fade-up" data-aos-delay="200">
                     <div class="w-12 h-12 bg-pink-50 text-pink-600 rounded-lg flex items-center justify-center mb-4 group-hover:bg-pink-600 group-hover:text-white transition">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path></svg>
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 3.055A9.001 9.001 0 1020.945 13H11V3.055z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.488 9H15V3.512A9.025 9.025 0 0120.488 9z"></path></svg>
                     </div>
-                    <h3 class="text-lg font-bold mb-2">Social Media</h3>
-                    <p class="text-xs text-gray-500">Przygotowujemy gotowe posty na FB i IG. Format, grafika, estetyka dopasowana do Twojej marki.</p>
+                    <h3 class="text-lg font-bold mb-2">Kampanie FB | Google | Tiktok
+                        <span class="bg-pink-200 text-pink-700 text-[10px] font-bold px-2 py-0.5 rounded uppercase tracking-wide">Wkrótce</span>
+                    </h3>
+                    
+                    <p class="text-xs text-gray-500">Ustawianie i optymalizacja płatnych reklam na platformach. Zmienimy wykonane zdjęcia w maszynkę do pozyskiwania klientów.</p>
                 </div>
 
-                <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 hover:shadow-lg hover:-translate-y-1 transition group" data-aos="fade-up" data-aos-delay="200">
-                    <div class="w-12 h-12 bg-indigo-50 text-indigo-600 rounded-lg flex items-center justify-center mb-4 group-hover:bg-indigo-600 group-hover:text-white transition">
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 hover:shadow-lg hover:-translate-y-1 transition group h-full" data-aos="fade-up">
+                    <div class="w-12 h-12 bg-gray-100 text-gray-600 rounded-lg flex items-center justify-center mb-4 group-hover:bg-gray-800 group-hover:text-white transition">
                         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z"></path></svg>
                     </div>
                     <h3 class="text-lg font-bold mb-2">Grafika & Druk</h3>
                     <p class="text-xs text-gray-500">
-                        Projekty graficzne do Internetu (banery, pop-upy) oraz do druku (ulotki, wizytówki, kalendarze). Pełny branding.
+                        Projekty graficzne do Internetu (banery, pop-upy) oraz do druku (ulotki, wizytówki, vouchery). Spójny wizerunek.
+                    </p>
+                </div>
+
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 opacity-80 hover:opacity-100 transition group h-full" data-aos="fade-up" data-aos-delay="100">
+                    <div class="w-12 h-12 bg-teal-50 text-teal-600 rounded-lg flex items-center justify-center mb-4 group-hover:bg-teal-600 group-hover:text-white transition">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path></svg>
+                    </div>
+                    <div class="flex items-center gap-2 mb-2">
+                        <h3 class="text-lg font-bold text-gray-800">Budowa Sklepów</h3>
+                        <span class="bg-teal-100 text-teal-700 text-[10px] font-bold px-2 py-0.5 rounded uppercase tracking-wide">Wkrótce</span>
+                    </div>
+                    <p class="text-xs text-gray-400">
+                        Kompleksowe stawianie sklepów internetowych na platformach Shoper, WooCommerce i Shopify. Od projektu po pierwszą sprzedaż.
+                    </p>
+                </div>
+
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 opacity-80 hover:opacity-100 transition group h-full" data-aos="fade-up" data-aos-delay="200">
+                    <div class="w-12 h-12 bg-purple-50 text-purple-600 rounded-lg flex items-center justify-center mb-4 group-hover:bg-purple-600 group-hover:text-white transition">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
+                    </div>
+                    <div class="flex items-center gap-2 mb-2">
+                        <h3 class="text-lg font-bold text-gray-800">Wideo & Motion</h3>
+                        <span class="bg-purple-100 text-purple-700 text-[10px] font-bold px-2 py-0.5 rounded uppercase tracking-wide">Wkrótce</span>
+                    </div>
+                    <p class="text-xs text-gray-400">
+                        Rolki na Instagram/TikTok, filmy produktowe i dynamiczne animacje. Ożywienie statycznych zdjęć (Motion AI).
                     </p>
                 </div>
 
             </div>
         </div>
     </section>
-
 
     <section id="portfolio" class="py-24 bg-white">
         <div class="max-w-7xl mx-auto px-4">
@@ -518,46 +967,22 @@ import MagicShowcase from '../components/MagicShowcase.astro';
             </div>
 
             <div class="grid grid-cols-2 lg:grid-cols-3 gap-3 md:gap-6">
-                
                 <div class="group relative overflow-hidden rounded-xl aspect-[4/5] bg-gray-100 cursor-pointer" data-aos="fade-up" data-aos-delay="0">
-                    <img src="https://images.unsplash.com/photo-1549298916-b41d501d3772?q=80&w=800&auto=format&fit=crop" class="w-full h-full object-cover transition duration-700 group-hover:scale-110" alt="Obuwie" />
+                    <img src="/images/noga.jpg" class="w-full h-full object-cover transition duration-700 group-hover:scale-110" alt="Obuwie" />
                     <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition duration-300 flex items-end p-3 md:p-6">
                         <span class="text-white font-bold text-sm md:text-base">Obuwie Premium</span>
                     </div>
                 </div>
-
-                 <div class="group relative overflow-hidden rounded-xl aspect-[4/5] bg-gray-100 cursor-pointer" data-aos="fade-up" data-aos-delay="100">
-                    <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?q=80&w=800&auto=format&fit=crop" class="w-full h-full object-cover transition duration-700 group-hover:scale-110" alt="Zegarek" />
+                <div class="group relative overflow-hidden rounded-xl aspect-[4/5] bg-gray-100 cursor-pointer" data-aos="fade-up" data-aos-delay="100">
+                    <img src="/images/sesja1.jpg" class="w-full h-full object-cover transition duration-700 group-hover:scale-110" alt="Zegarek" />
                     <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition duration-300 flex items-end p-3 md:p-6">
                         <span class="text-white font-bold text-sm md:text-base">Packshot</span>
                     </div>
                 </div>
-
-                 <div class="group relative overflow-hidden rounded-xl aspect-[4/5] bg-gray-100 cursor-pointer" data-aos="fade-up" data-aos-delay="200">
-                    <img src="https://images.unsplash.com/photo-1618331835717-801e976710b2?q=80&w=800&auto=format&fit=crop" class="w-full h-full object-cover transition duration-700 group-hover:scale-110" alt="AI Tło" />
+                <div class="group relative overflow-hidden rounded-xl aspect-[4/5] bg-gray-100 cursor-pointer" data-aos="fade-up" data-aos-delay="200">
+                    <img src="/images/galeria44.jpg" class="w-full h-full object-cover transition duration-700 group-hover:scale-110" alt="AI Tło" />
                     <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition duration-300 flex items-end p-3 md:p-6">
                         <span class="text-white font-bold text-sm md:text-base">Kreacja AI</span>
-                    </div>
-                </div>
-
-                <div class="group relative overflow-hidden rounded-xl aspect-[4/5] bg-gray-100 cursor-pointer" data-aos="fade-up" data-aos-delay="0">
-                    <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=800&auto=format&fit=crop" class="w-full h-full object-cover transition duration-700 group-hover:scale-110" alt="Fashion" />
-                    <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition duration-300 flex items-end p-3 md:p-6">
-                        <span class="text-white font-bold text-sm md:text-base">Fashion</span>
-                    </div>
-                </div>
-
-                <div class="group relative overflow-hidden rounded-xl aspect-[4/5] bg-gray-100 cursor-pointer" data-aos="fade-up" data-aos-delay="100">
-                    <img src="https://images.unsplash.com/photo-1629198688000-71f23e745b6e?q=80&w=800&auto=format&fit=crop" class="w-full h-full object-cover transition duration-700 group-hover:scale-110" alt="Kosmetyki" />
-                    <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition duration-300 flex items-end p-3 md:p-6">
-                        <span class="text-white font-bold text-sm md:text-base">Beauty</span>
-                    </div>
-                </div>
-
-                <div class="group relative overflow-hidden rounded-xl aspect-[4/5] bg-gray-100 cursor-pointer" data-aos="fade-up" data-aos-delay="200">
-                    <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?q=80&w=800&auto=format&fit=crop" class="w-full h-full object-cover transition duration-700 group-hover:scale-110" alt="Tech" />
-                    <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition duration-300 flex items-end p-3 md:p-6">
-                        <span class="text-white font-bold text-sm md:text-base">Elektronika</span>
                     </div>
                 </div>
             </div>
@@ -567,74 +992,90 @@ import MagicShowcase from '../components/MagicShowcase.astro';
             </div>
         </div>
     </section>
-    
 
     <section id="case-study" class="py-24 bg-slate-50 border-y border-gray-200">
-        <div class="max-w-7xl mx-auto px-4">
-            <div class="flex flex-col lg:flex-row items-center gap-16">
-                <div class="lg:w-1/2" data-aos="fade-up">
-                    <span class="bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-xs font-bold tracking-wide uppercase mb-4 inline-block">Case Study</span>
-                    <h2 class="text-3xl md:text-5xl font-extrabold mb-6 leading-tight">
-                        Od 5 do 60 zamówień dziennie.
-                    </h2>
-                    <p class="text-gray-600 text-lg mb-8 leading-relaxed">
-                        Polski producent obuwia damskiego miał świetny produkt, ale zdjęcia robione "domowym sposobem" nie budziły zaufania. Wdrożyliśmy pełny proces: nowe packshoty + sesja wizerunkowa AI.
-                    </p>
-                    
-                    <div class="flex gap-8 mb-10">
-                        <div>
-                            <div class="text-3xl font-bold text-slate-900">1200%</div>
-                            <div class="text-sm text-gray-500">Wzrost sprzedaży</div>
-                        </div>
-                        <div class="w-px bg-gray-300 h-12"></div>
-                        <div>
-                            <div class="text-3xl font-bold text-slate-900">30 dni</div>
-                            <div class="text-sm text-gray-500">Czas wdrożenia</div>
-                        </div>
+    <div class="max-w-7xl mx-auto px-4">
+        <div class="flex flex-col lg:flex-row items-center gap-16">
+            
+            <div class="lg:w-1/2" data-aos="fade-up">
+                <span class="bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-xs font-bold tracking-wide uppercase mb-4 inline-block">Prawdziwa Historia</span>
+                
+                <h2 class="text-3xl md:text-5xl font-extrabold mb-6 leading-tight text-slate-900">
+                    Od drogiej agencji po rewolucję AI.
+                </h2>
+                
+                <p class="text-gray-600 text-lg mb-8 leading-relaxed">
+                    Producent obuwia szukał ratunku przed rosnącymi cennikami tradycyjnych studiów fotograficznych. Zaczęliśmy od wykonania perfekcyjnych packshotów w lepszej cenie, a następnie, przy użyciu AI, wygenerowaliśmy wirtualne modelki – zbijając koszty wynajmu ekipy i plenerów praktycznie do zera.
+                </p>
+                
+                <div class="flex gap-8 mb-10">
+                    <div>
+                        <div class="text-3xl font-bold text-green-500">-60%</div>
+                        <div class="text-sm text-gray-500 font-medium">Koszty produkcji zdjęć</div>
                     </div>
-
-                    <a href="/case-study" class="inline-flex items-center text-blue-600 font-bold hover:text-blue-800 transition group">
-                        Czytaj pełną historię
-                        <svg class="w-5 h-5 ml-2 transform group-hover:translate-x-1 transition" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
-                    </a>
+                    <div class="w-px bg-gray-300 h-12"></div>
+                    <div>
+                        <div class="text-3xl font-bold text-blue-600">+45%</div>
+                        <div class="text-sm text-gray-500 font-medium">Konwersja z reklam</div>
+                    </div>
                 </div>
                 
-                <div class="lg:w-1/2 relative" data-aos="fade-left" data-aos-delay="200">
-                    <div class="absolute -inset-4 bg-blue-600/10 rounded-2xl transform rotate-3"></div>
-                    <img src="https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?q=80&w=1000&auto=format&fit=crop" alt="Case study sukces" class="relative rounded-xl shadow-2xl w-full object-cover h-[500px]">
-                </div>
+                <a href="/case-study" class="inline-flex items-center text-blue-600 font-bold hover:text-blue-800 transition group">
+                    Czytaj pełną historię
+                    <svg class="w-5 h-5 ml-2 transform group-hover:translate-x-1 transition" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                </a>
             </div>
+            
+            <div class="lg:w-1/2 relative" data-aos="fade-left" data-aos-delay="200">
+                <div class="absolute -inset-4 bg-blue-600/10 rounded-2xl transform rotate-3"></div>
+                <img src="/images/email3.jpg" alt="Case study - buty" class="relative rounded-xl shadow-2xl w-full object-cover h-[500px]">
+            </div>
+            
         </div>
-    </section>
+    </div>
+</section>
 
-    <section id="onas" class="py-24 bg-white">
-        <div class="max-w-4xl mx-auto px-4 text-center">
-            <h2 class="text-3xl font-bold mb-12" data-aos="fade-up">Technologia spotyka Sztukę</h2>
-            
-            <div class="flex flex-col md:flex-row justify-center items-center gap-12" data-aos="fade-up" data-aos-delay="100">
-                <div class="flex-1 text-center md:text-right">
-                    <!-- <div class="text-xl font-bold text-slate-900">Mariusz</div>
-                    <div class="text-blue-600 font-medium text-sm mb-3">Tech Lead & AI Specialist</div>
-                    <p class="text-gray-600 italic">"Zoptymalizowałem procesy dla tysięcy zdjęć. Wiem, jak sprawić, by technologia pracowała na Twój zysk, a nie koszt."</p> -->
-                    <div class="text-xl font-bold text-slate-900">Katarzyna</div>
-                    <div class="text-purple-600 font-medium text-sm mb-3">Art Director</div>
-                    <p class="text-gray-600 italic">"Dla mnie liczy się estetyka i detal. Technologia to narzędzie, ale to artystyczne oko sprzedaje produkt."</p>
+    <section id="onas" class="py-24 bg-white overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex flex-col md:flex-row items-center gap-12 lg:gap-20">
+                
+                <div class="md:w-1/2" data-aos="fade-right">
+                    <span class="text-blue-600 font-bold tracking-wider text-sm uppercase mb-2 block">Dlaczego my?</span>
+                    <h2 class="text-3xl md:text-5xl font-bold mb-6">Twój partner w e-commerce</h2>
+                    <p class="text-gray-600 text-lg mb-8 leading-relaxed">
+                        K&M Studio to połączenie fotografii produktowej i pełnego wsparcia technicznego. Wiemy, że lokalne firmy tworzą świetne produkty, ale często brakuje im czasu (i nerwów) na "internetową czarną robotę". Działamy po to, by to zmienić.
+                    </p>
+                    
+                    <div class="bg-slate-50 p-8 rounded-3xl border border-slate-100 relative shadow-sm">
+                        <div class="absolute -top-4 -left-2 text-6xl text-blue-200 font-serif leading-none opacity-50">"</div>
+                        
+                        <div class="relative z-10">
+                            <h3 class="text-xl font-bold text-slate-900">Mariusz</h3>
+                            <div class="text-blue-600 font-medium text-sm mb-4">Właściciel K&M Studio</div>
+                            <p class="text-gray-700 italic leading-relaxed">
+                                Wiem, jak to wygląda u lokalnych producentów. Robicie świetny towar, a potem tracicie godziny na robienie zdjęć i mękę z dodawaniem ich na sklep czy Allegro. Stworzyłem to studio, by zdjąć Wam ten problem z głowy. 
+                                <br><br>
+                                <strong>Wy dajecie produkt, a my robimy resztę:</strong> od zdjęć premium, przez opisy, aż po wgranie wszystkiego na Waszą stronę. Wy zajmujecie się biznesem i pakowaniem zamówień, a my sprawiamy, że Wasz towar po prostu świetnie się sprzedaje w sieci.
+                            </p>
+                        </div>
+                    </div>
                 </div>
 
-                <div class="w-16 h-1 bg-gray-200 md:w-1 md:h-24"></div>
-
-                <div class="flex-1 text-center md:text-left">
-                    <div class="text-xl font-bold text-slate-900">Mariusz</div>
-                    <div class="text-blue-600 font-medium text-sm mb-3">Tech Lead & AI Specialist</div>
-                    <p class="text-gray-600 italic">"Zoptymalizowałem procesy dla tysięcy zdjęć. Wiem, jak sprawić, by technologia pracowała na Twój zysk, a nie koszt."</p>
-                    <!-- <div class="text-xl font-bold text-slate-900">Anna</div>
-                    <div class="text-purple-600 font-medium text-sm mb-3">Art Director</div>
-                    <p class="text-gray-600 italic">"Dla mnie liczy się estetyka i detal. Technologia to narzędzie, ale to artystyczne oko sprzedaje produkt."</p> -->
+                <div class="md:w-1/2 relative mt-8 md:mt-0" data-aos="fade-left" data-aos-delay="100">
+                    <div class="absolute -inset-4 bg-gray-100 rounded-[2.5rem] transform rotate-3"></div>
+                    
+                    <img src="/images/zrobimy1.jpg" alt="Workspace K&M Studio" class="relative rounded-3xl shadow-xl w-full object-cover aspect-[4/3] grayscale hover:grayscale-0 transition duration-700">
+                    
+                    <div class="absolute -bottom-6 -left-6 bg-white p-5 rounded-2xl shadow-xl border border-gray-100 flex items-center gap-4 z-10 animate-bounce-slow">
+                        <div class="w-14 h-14 bg-gradient-to-br from-green-500 to-emerald-600 rounded-full flex items-center justify-center text-white font-bold text-lg shadow-inner">
+                            100%
+                        </div>
+                        <div class="text-sm font-bold text-slate-800 leading-tight">
+                            Świętego <br> <span class="text-gray-500 font-normal">spokoju</span>
+                        </div>
+                    </div>
                 </div>
-            </div>
-            
-            <div class="mt-12" data-aos="fade-up" data-aos-delay="200">
-                <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=1000&auto=format&fit=crop" alt="Zespół" class="w-full max-w-2xl mx-auto rounded-2xl shadow-lg grayscale hover:grayscale-0 transition duration-700">
+
             </div>
         </div>
     </section>
@@ -644,52 +1085,19 @@ import MagicShowcase from '../components/MagicShowcase.astro';
         <div class="absolute bottom-0 left-0 -ml-20 -mb-20 w-96 h-96 bg-purple-600 rounded-full blur-3xl opacity-20"></div>
 
         <div class="max-w-xl mx-auto px-4 relative z-10">
-        <div class="text-center mb-10">
-            <h2 class="text-3xl md:text-4xl font-bold mb-4">Masz projekt?</h2>
-            <p class="text-gray-400 mb-2">
-                Działamy stacjonarnie: <strong>Kalwaria Zebrzydowska / Wadowice</strong>.<br/>
-                Obsługujemy zdalnie całą Polskę.
-            </p>
-            <p class="text-gray-500 text-sm">Opisz nam swoje potrzeby. Przygotujemy darmową wycenę w 24h.</p>
-        </div>
-
-            <!-- <form name="kontakt-glowna" method="POST" data-netlify="true" class="space-y-4 bg-white/5 p-8 rounded-2xl backdrop-blur-sm border border-white/10" data-aos="zoom-in">
-                
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div>
-                        <label class="block text-xs font-bold text-gray-400 uppercase mb-2">Imię</label>
-                        <input type="text" name="imie" class="w-full bg-slate-800 border border-slate-700 rounded-lg p-3 text-white focus:outline-none focus:border-blue-500 transition" placeholder="Jan Kowalski" required>
-                    </div>
-                    <div>
-                        <label class="block text-xs font-bold text-gray-400 uppercase mb-2">Email</label>
-                        <input type="email" name="email" class="w-full bg-slate-800 border border-slate-700 rounded-lg p-3 text-white focus:outline-none focus:border-blue-500 transition" placeholder="jan@firma.pl" required>
-                    </div>
-                </div>
-
-                <div>
-                    <label class="block text-xs font-bold text-gray-400 uppercase mb-2">O czym chcesz porozmawiać?</label>
-                    <select name="temat" class="w-full bg-slate-800 border border-slate-700 rounded-lg p-3 text-white focus:outline-none focus:border-blue-500 transition">
-                        <option>Packshoty Produktowe</option>
-                        <option>Sesja Wizerunkowa / AI</option>
-                        <option>Wideo / Reels</option>
-                        <option>Inne</option>
-                    </select>
-                </div>
-
-                <div>
-                    <label class="block text-xs font-bold text-gray-400 uppercase mb-2">Wiadomość</label>
-                    <textarea name="wiadomosc" rows="4" class="w-full bg-slate-800 border border-slate-700 rounded-lg p-3 text-white focus:outline-none focus:border-blue-500 transition" placeholder="Napisz krótko o produktach i ilości zdjęć..."></textarea>
-                </div>
-
-                <button type="submit" class="w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white font-bold py-4 rounded-lg hover:shadow-lg hover:shadow-blue-500/30 transition transform hover:-translate-y-1">
-                    Wyślij zapytanie
-                </button>
-                <p class="text-xs text-center text-gray-500 mt-4">Klikając wyślij, akceptujesz politykę prywatności.</p>
-            </form> -->
+            <div class="text-center mb-10">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Masz projekt?</h2>
+                <p class="text-gray-400 mb-2">
+                    Działamy stacjonarnie: <strong>Kalwaria Zebrzydowska / Wadowice</strong>.<br/>
+                    Obsługujemy zdalnie całą Polskę.
+                </p>
+                <p class="text-gray-500 text-sm">Opisz nam swoje potrzeby. Przygotujemy darmową wycenę w 24h.</p>
+            </div>
         
-        <form id="home-contact-form" name="kontakt-glowna" method="POST" data-netlify="true" class="space-y-4 bg-white/5 p-8 rounded-2xl backdrop-blur-sm border border-white/10" data-aos="zoom-in">
+            <form id="home-contact-form" name="kontakt-glowna" method="POST" data-netlify="true" class="space-y-4 bg-white/5 p-8 rounded-2xl backdrop-blur-sm border border-white/10" data-aos="zoom-in">
                 
                 <input type="hidden" name="form-name" value="kontakt-glowna" />
+                <input type="hidden" name="samo_imie" />
 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div>
@@ -726,24 +1134,22 @@ import MagicShowcase from '../components/MagicShowcase.astro';
                 </button>
                 <p class="text-xs text-center text-gray-500 mt-4">Klikając wyślij, akceptujesz politykę prywatności.</p>
             </form>
-        
         </div>
     </section>
+
     <div id="home-toast" class="fixed bottom-10 left-1/2 transform -translate-x-1/2 translate-y-32 opacity-0 z-50 max-w-[90vw] w-auto bg-white border border-green-100 shadow-2xl rounded-2xl p-4 md:p-6 flex items-center gap-4 transition-all duration-500 pointer-events-none">
-        
         <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center shrink-0">
             <svg class="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
         </div>
-        
         <div>
             <h4 class="font-bold text-gray-900 text-sm md:text-base">Wiadomość wysłana!</h4>
             <p class="text-xs md:text-sm text-gray-500 mt-1">Dziękujemy. Wrócimy do Ciebie w 24h.</p>
         </div>
-
     </div>
 
+</MainLayout>
 
-    <script>
+<script>
     document.addEventListener('DOMContentLoaded', () => {
         const form = document.getElementById('home-contact-form');
         const toast = document.getElementById('home-toast');
@@ -751,57 +1157,58 @@ import MagicShowcase from '../components/MagicShowcase.astro';
 
         if (form) {
             form.addEventListener('submit', (e) => {
-                e.preventDefault(); // Stop przeładowania
+                e.preventDefault(); 
 
-                const myForm = e.target as HTMLFormElement;
+                const myForm = e.target;
                 const formData = new FormData(myForm);
 
-                // Zmieniamy przycisk
+                if (!formData.has('form-name')) {
+                    formData.append('form-name', myForm.getAttribute('name'));
+                }
+
+                // Wyciąganie imienia dla Zapiera
+                const pelneImie = formData.get('imie').toString().trim();
+                let samoImie = pelneImie.split(' ')[0];
+                samoImie = samoImie.charAt(0).toUpperCase() + samoImie.slice(1).toLowerCase();
+                formData.append('samo_imie', samoImie);
+
+                let originalBtnText = "Wyślij zapytanie";
                 if(btn) {
-                    var originalText = btn.innerText;
+                    originalBtnText = btn.innerText;
                     btn.innerText = "Wysyłanie...";
                     btn.style.opacity = "0.7";
-                    // @ts-ignore
                     btn.disabled = true;
                 }
 
-                // Wysyłka AJAX
                 fetch('/', {
                     method: 'POST',
                     headers: { "Content-Type": "application/x-www-form-urlencoded" },
-                    // @ts-ignore
                     body: new URLSearchParams(formData).toString()
                 })
                 .then(() => {
-                    // 1. Reset formularza
                     myForm.reset();
-                    
-                    // 2. Pokaż Toast
                     if(toast) {
                         toast.classList.remove('translate-y-32', 'opacity-0', 'pointer-events-none');
-                        // Ukryj po 5s
                         setTimeout(() => {
                             toast.classList.add('translate-y-32', 'opacity-0', 'pointer-events-none');
                         }, 5000);
                     }
-
-                    // 3. Reset przycisku
                     if(btn) {
                         btn.innerText = "Wysłano pomyślnie!";
+                        btn.style.background = "#10B981";
                         setTimeout(() => {
-                            btn.innerText = originalText;
+                            btn.innerText = originalBtnText;
+                            btn.style.background = "";
                             btn.style.opacity = "1";
-                            // @ts-ignore
                             btn.disabled = false;
                         }, 3000);
                     }
                 })
-                .catch(() => {
-                    alert('Błąd wysyłania. Spróbuj ponownie.');
+                .catch((error) => {
+                    alert('Wystąpił błąd połączenia.');
                     if(btn) {
-                        btn.innerText = originalText;
+                        btn.innerText = originalBtnText;
                         btn.style.opacity = "1";
-                        // @ts-ignore
                         btn.disabled = false;
                     }
                 });
@@ -809,4 +1216,3 @@ import MagicShowcase from '../components/MagicShowcase.astro';
         }
     });
 </script>
-</MainLayout>

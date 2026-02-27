@@ -1,0 +1,161 @@
+---
+// Plik: src/pages/blog/[id].astro
+import MainLayout from '../../layouts/MainLayout.astro';
+
+// Ta funkcja mówi Astro, jakie podstrony ma wygenerować
+export function getStaticPaths() {
+    
+    // TWOJA BAZA DANYCH ZE WSZYSTKIMI ARTYKUŁAMI
+    const blogPosts = [
+        {
+            id: 'sklep-stolarz',
+            date: '10 Marca 2026',
+            category: 'Realizacja',
+            readTime: '3 min czytania',
+            title: 'Od zera do prosperującego e-commerce dla lokalnego stolarza',
+            coverImage: 'https://images.unsplash.com/photo-1610555356070-d0efb6505f81?q=80&w=1000&auto=format&fit=crop',
+            htmlContent: `
+                <p class="text-xl text-gray-600 mb-8 leading-relaxed">Nasz klient, lokalny producent ekskluzywnych stołów dębowych, od lat sprzedawał swoje produkty wyłącznie z polecenia. Chciał wejść na rynek ogólnopolski, ale jego zdjęcia robione telefonem na hali produkcyjnej nie oddawały jakości premium.</p>
+                
+                <h3 class="text-3xl font-bold text-slate-800 mt-12 mb-6">Wyzwanie: Pokazać jakość na ekranie</h3>
+                <p class="text-gray-600 mb-6 leading-relaxed">Produkty klienta kosztowały od 4000 zł wzwyż. Klient kupujący stół za takie pieniądze w internecie musi mieć absolutną pewność co do jakości drewna i wykończenia detali. Surowe zdjęcia z warsztatu po prostu go odstraszały.</p>
+                
+                <img src="https://images.unsplash.com/photo-1533090161767-e6ffed986c88?q=80&w=1000&auto=format&fit=crop" alt="Stół dębowy realizacja">
+                
+                <blockquote class="border-l-4 border-blue-500 bg-blue-50 p-8 rounded-r-2xl text-blue-900 italic my-10 shadow-sm text-lg">
+                    "K&M Studio nie tylko zbudowało dla mnie piękny i szybki sklep na platformie Shoper, ale przede wszystkim zadbało o zdjęcia, które w końcu pokazują, ile pracy wkładam w te meble."
+                </blockquote>
+                
+                <h3 class="text-3xl font-bold text-slate-800 mt-12 mb-6">Co dokładnie zrobiliśmy?</h3>
+                <ul class="space-y-4 text-gray-600 mb-10 list-disc pl-6 text-lg">
+                    <li><strong>Sesja na miejscu:</strong> Przyjechaliśmy z mobilnym oświetleniem na halę produkcyjną.</li>
+                    <li><strong>Retusz i szparowanie:</strong> Wycięliśmy tło warsztatu, dodając idealną biel.</li>
+                    <li><strong>Wdrożenie sklepu:</strong> Zbudowaliśmy kompletny sklep e-commerce, dodając warianty (wymiary stołów, kolory nóg).</li>
+                    <li><strong>Copywriting SEO:</strong> Napisaliśmy opisy skupiające się na trwałości dębu i rzemieślniczej precyzji.</li>
+                </ul>
+
+                <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=1000&auto=format&fit=crop" alt="Gotowy sklep internetowy klienta">
+            `
+        },
+        {
+            id: '3-sekundy',
+            date: '28 Lutego 2026',
+            category: 'Wiedza',
+            readTime: '4 min czytania',
+            title: 'Dlaczego 3 pierwsze sekundy decydują o tym, czy klient u Ciebie kupi?',
+            coverImage: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?q=80&w=1000&auto=format&fit=crop',
+            htmlContent: `
+                <p class="text-xl text-gray-600 mb-8 leading-relaxed">W dzisiejszym, przebodźcowanym świecie e-commerce nie ma miejsca na powolne budowanie relacji. Użytkownik, wchodząc na Twoją kartę produktu (np. z reklamy na Facebooku), podejmuje podświadomą decyzję w ciągu zaledwie 3 sekund.</p>
+                <h3 class="text-3xl font-bold text-slate-800 mt-12 mb-6">Mózg kocha obrazy</h3>
+                <p class="text-gray-600 mb-6 leading-relaxed">Nasz mózg przetwarza obrazy 60 000 razy szybciej niż tekst. Oznacza to, że zanim klient zdąży przeczytać, z jak świetnych materiałów wykonana jest Twoja torebka czy but, najpierw oceni zdjęcie.</p>
+                
+                <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=1000&auto=format&fit=crop" alt="Przykład dobrego packshotu">
+
+                <div class="bg-slate-50 p-8 rounded-2xl border border-slate-200 my-10">
+                    <h4 class="font-bold text-slate-800 mb-3 text-xl">Sprawdź sam siebie. Co robisz na Allegro?</h4>
+                    <p class="text-gray-600 leading-relaxed">Wpisujesz frazę "skórzany portfel". Pojawia się 50 wyników w tej samej cenie. W który klikniesz? Oczywiście w ten, którego miniatura jest najjaśniejsza, najbardziej ostra i najlepiej wyeksponowana na białym tle. To jest właśnie potęga <strong>profesjonalnego packshotu</strong>.</p>
+                </div>
+            `
+        },
+        {
+            id: 'identyfikacja-kalendarz',
+            date: '15 Stycznia 2026',
+            category: 'Realizacja',
+            readTime: '2 min czytania',
+            title: 'Kompleksowa identyfikacja wizualna i kalendarze firmowe',
+            coverImage: 'https://images.unsplash.com/photo-1629429408209-1f912961dbd8?q=80&w=1000&auto=format&fit=crop',
+            htmlContent: `
+                <p class="text-xl text-gray-600 mb-8 leading-relaxed">Kolejna udana realizacja w naszym studiu! Tym razem zgłosiła się do nas lokalna firma transportowa, która obchodziła swoje 10-lecie i chciała z tej okazji całkowicie odświeżyć swój wizerunek.</p>
+                <h3 class="text-3xl font-bold text-slate-800 mt-12 mb-6">Zakres prac</h3>
+                <ul class="space-y-4 text-gray-600 mb-10 list-disc pl-6 text-lg">
+                    <li><strong>Nowe Logo:</strong> Nowoczesne, minimalistyczne i wektorowe.</li>
+                    <li><strong>Materiały DTP:</strong> Zaprojektowaliśmy wizytówki Premium (z wybiórczym lakierem UV) oraz eleganckie teczki ofertowe na dokumenty.</li>
+                    <li><strong>Kalendarz firmowy:</strong> Zaprojektowaliśmy i zleciliśmy do druku 200 trójdzielnych kalendarzy.</li>
+                </ul>
+            `
+        }
+    ];
+
+    return blogPosts.map(post => {
+        return {
+            params: { id: post.id },
+            props: { post },
+        };
+    });
+}
+
+// Pobieranie danych dla konkretnej podstrony
+const { post } = Astro.props;
+---
+
+<MainLayout title={`${post.title} | Blog K&M Studio`}>
+
+    <header class="relative w-full h-[50vh] md:h-[60vh] bg-slate-900 flex items-end mt-0">
+        <img src={post.coverImage} class="absolute inset-0 w-full h-full object-cover opacity-60" alt="Cover">
+        <div class="absolute inset-0 bg-gradient-to-t from-white via-transparent to-transparent"></div>
+
+        <div class="absolute top-28 md:top-36 left-1/2 transform -translate-x-1/2 z-[9999]">
+            <a href="/blog" class="bg-slate-900/90 backdrop-blur-md text-white px-6 py-3 rounded-full font-bold shadow-2xl flex items-center justify-center gap-2 hover:bg-blue-600 hover:scale-105 transition-all border border-slate-700 group text-sm whitespace-nowrap">
+                <svg class="w-4 h-4 transform group-hover:-translate-x-1 transition duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+                Wróć do listy wpisów
+            </a>
+        </div>
+
+        <div class="relative z-10 w-full max-w-4xl mx-auto px-4 pb-12 md:pb-16 text-center pt-32">
+            <span class="bg-blue-600 text-white text-xs font-bold px-4 py-1.5 rounded-full mb-6 inline-block shadow-lg">{post.category}</span>
+            <h1 class="text-3xl md:text-5xl lg:text-6xl font-black text-slate-900 leading-tight mb-6 drop-shadow-sm">{post.title}</h1>
+            <div class="flex justify-center gap-6 text-sm text-gray-500 font-bold">
+                <span>{post.date}</span>
+                <span>{post.readTime}</span>
+            </div>
+        </div>
+    </header>
+
+    <article class="bg-white">
+        <div class="max-w-3xl mx-auto px-4 py-12 md:py-20">
+            
+            <div class="prose prose-lg md:prose-xl prose-slate max-w-none" set:html={post.htmlContent}></div>
+
+            <div class="mt-16 mb-8 flex justify-center">
+                <a href="/blog" class="bg-slate-900 text-white px-8 py-4 rounded-xl font-bold flex items-center gap-3 hover:bg-blue-600 transition shadow-xl hover:scale-105 transform group w-full sm:w-auto justify-center">
+                    <svg class="w-5 h-5 transform group-hover:-translate-x-1 transition duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+                    Wróć do wszystkich wpisów
+                </a>
+            </div>
+
+            <div class="mt-12 pt-10 border-t border-gray-200 flex flex-col sm:flex-row items-center justify-between gap-6 bg-slate-50 p-8 rounded-3xl">
+                <div class="flex items-center gap-4">
+                    <div class="w-14 h-14 bg-blue-600 rounded-full flex items-center justify-center text-xl font-bold text-white shadow-lg">K&M</div>
+                    <div>
+                        <p class="text-lg font-bold text-slate-800">K&M Studio</p>
+                        <p class="text-sm text-gray-500">Twój zewnętrzny dział E-commerce</p>
+                    </div>
+                </div>
+                <a href="/kontakt" class="bg-slate-200 text-slate-800 px-8 py-4 rounded-xl text-sm font-bold hover:bg-slate-300 transition shadow-sm text-center w-full sm:w-auto">
+                    Napisz do nas
+                </a>
+            </div>
+            
+        </div>
+    </article>
+
+</MainLayout>
+
+<style is:global>
+    /* GLOBALNE STYLE DLA WNĘTRZA ARTYKUŁU */
+    .prose p { margin-bottom: 1.8em; line-height: 1.8; }
+    .prose h3 { font-size: 1.8rem; font-weight: 800; color: #1e293b; margin-top: 2.5em; margin-bottom: 1em; }
+    .prose ul { margin-bottom: 2em; }
+    .prose li { margin-bottom: 0.5em; }
+    .prose strong { color: #0f172a; font-weight: 800; }
+    
+    /* AUTOMATYCZNE STYLE DLA ZDJĘĆ WRZUCANYCH W TREŚĆ (PORTFOLIO) */
+    .prose img {
+        width: 100%;
+        border-radius: 1.5rem;
+        box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        margin-top: 3rem;
+        margin-bottom: 3rem;
+        border: 1px solid #f1f5f9;
+    }
+</style>

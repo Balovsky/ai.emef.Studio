@@ -1,620 +1,350 @@
-<!-- ---
+---
 // Plik: src/pages/portfolio.astro
 import MainLayout from '../layouts/MainLayout.astro';
 ---
 
-<MainLayout title="Portfolio | Studio.AI">
+<MainLayout title="Portfolio Projekty | K&M Studio">
     
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css" />
+
     <div class="pt-32 pb-12 bg-white text-center px-4">
-        <h1 class="text-4xl md:text-6xl font-extrabold mb-6" data-aos="fade-up">
-            Nasze Realizacje
+        <span class="text-blue-600 font-bold tracking-widest text-xs uppercase mb-4 block" data-aos="fade-down">K&M Studio Wewnętrznie</span>
+        <h1 class="text-4xl md:text-6xl font-black text-slate-900 mb-6 tracking-tight" data-aos="fade-up">
+            Kompleksowe Kampanie
         </h1>
-        <p class="text-gray-600 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="100">
-            Przeglądaj wybrane projekty. Kliknij zdjęcie, aby zobaczyć detale.
+        <p class="text-lg text-gray-500 max-w-2xl mx-auto mb-10" data-aos="fade-up" data-aos-delay="100">
+            Od białego tła, przez wygenerowane AI sesje modowe, aż po materiały do druku. Zobacz całe kampanie.
         </p>
 
-        <div class="flex flex-wrap justify-center gap-3 mt-8" data-aos="fade-up" data-aos-delay="200" id="portfolio-filters">
-            <button class="filter-btn active px-5 py-2 bg-black text-white rounded-full text-sm font-bold transition-all" data-filter="all">Wszystkie</button>
-            <button class="filter-btn px-5 py-2 border border-gray-200 text-gray-500 rounded-full text-sm font-bold hover:border-black hover:text-black transition-all" data-filter="packshot">Packshoty</button>
-            <button class="filter-btn px-5 py-2 border border-gray-200 text-gray-500 rounded-full text-sm font-bold hover:border-black hover:text-black transition-all" data-filter="fashion">Fashion</button>
-            <button class="filter-btn px-5 py-2 border border-gray-200 text-gray-500 rounded-full text-sm font-bold hover:border-black hover:text-black transition-all" data-filter="ai">AI Creative</button>
+        <div class="bg-slate-100 p-1.5 md:p-2 rounded-full inline-flex mx-auto" data-aos="fade-up" data-aos-delay="200">
+            <button id="btn-ecommerce" class="px-6 md:px-10 py-3 md:py-4 rounded-full text-sm md:text-base font-bold bg-white text-slate-900 shadow-lg transition-all duration-300">
+                Kampanie E-commerce
+            </button>
+            <button id="btn-dtp" class="px-6 md:px-10 py-3 md:py-4 rounded-full text-sm md:text-base font-bold text-gray-500 hover:text-slate-900 transition-all duration-300">
+                Materiały do Druku (DTP)
+            </button>
         </div>
     </div>
 
-    <div class="max-w-7xl mx-auto px-4 pb-24">
-        <div class="columns-1 md:columns-2 lg:columns-3 gap-4 space-y-4" id="portfolio-grid">
-            
-            <div class="portfolio-item item-packshot break-inside-avoid relative group rounded-xl overflow-hidden cursor-zoom-in" data-aos="fade-up">
-                <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?q=80&w=800&auto=format&fit=crop" 
-                     data-full="https://images.unsplash.com/photo-1523275335684-37898b6baf30?q=80&w=1600&auto=format&fit=crop" 
-                     alt="Zegarek Premium" 
-                     class="gallery-img w-full h-auto object-cover transition duration-700 group-hover:scale-105"/>
-            </div>
 
-            <div class="portfolio-item item-fashion break-inside-avoid relative group rounded-xl overflow-hidden cursor-zoom-in" data-aos="fade-up">
-                <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=800&auto=format&fit=crop" 
-                     data-full="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=1600&auto=format&fit=crop"
-                     alt="Fashion Model" 
-                     class="gallery-img w-full h-auto object-cover transition duration-700 group-hover:scale-105"/>
-            </div>
-
-            <div class="portfolio-item item-ai break-inside-avoid relative group rounded-xl overflow-hidden cursor-zoom-in" data-aos="fade-up">
-                <img src="https://images.unsplash.com/photo-1618331835717-801e976710b2?q=80&w=800&auto=format&fit=crop" 
-                     data-full="https://images.unsplash.com/photo-1618331835717-801e976710b2?q=80&w=1600&auto=format&fit=crop"
-                     alt="AI Background" 
-                     class="gallery-img w-full h-auto object-cover transition duration-700 group-hover:scale-105"/>
-            </div>
-
-            <div class="portfolio-item item-packshot break-inside-avoid relative group rounded-xl overflow-hidden cursor-zoom-in" data-aos="fade-up">
-                <img src="https://images.unsplash.com/photo-1549298916-b41d501d3772?q=80&w=800&auto=format&fit=crop" 
-                     data-full="https://images.unsplash.com/photo-1549298916-b41d501d3772?q=80&w=1600&auto=format&fit=crop"
-                     alt="Obuwie" 
-                     class="gallery-img w-full h-auto object-cover transition duration-700 group-hover:scale-105"/>
-            </div>
-
-             <div class="portfolio-item item-ai break-inside-avoid relative group rounded-xl overflow-hidden cursor-zoom-in" data-aos="fade-up">
-                <img src="https://images.unsplash.com/photo-1629198688000-71f23e745b6e?q=80&w=800&auto=format&fit=crop" 
-                     data-full="https://images.unsplash.com/photo-1629198688000-71f23e745b6e?q=80&w=1600&auto=format&fit=crop"
-                     alt="Kosmetyki" 
-                     class="gallery-img w-full h-auto object-cover transition duration-700 group-hover:scale-105"/>
-            </div>
-
-             <div class="portfolio-item item-packshot break-inside-avoid relative group rounded-xl overflow-hidden cursor-zoom-in" data-aos="fade-up">
-                <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?q=80&w=800&auto=format&fit=crop" 
-                     data-full="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?q=80&w=1600&auto=format&fit=crop"
-                     alt="Elektronika" 
-                     class="gallery-img w-full h-auto object-cover transition duration-700 group-hover:scale-105"/>
-            </div>
-
-        </div>
-    </div>
-
-    <div id="lightbox" class="fixed inset-0 z-[100] bg-black/95 hidden flex flex-col justify-center items-center opacity-0 transition-opacity duration-300">
+    <div id="view-ecommerce" class="max-w-[1400px] mx-auto px-4 pb-24 space-y-8 animate-fade-in-slow">
         
-        <div class="absolute top-0 left-0 w-full p-4 flex justify-between items-center text-white z-20">
-            <div id="lightbox-counter" class="text-sm font-mono opacity-70 ml-2">1 / 10</div>
-            <button id="lightbox-close" class="text-4xl hover:text-gray-300 focus:outline-none leading-none">&times;</button>
-        </div>
-
-        <button id="btn-prev" class="absolute left-2 md:left-8 top-1/2 -translate-y-1/2 z-20 p-3 rounded-full bg-white/10 hover:bg-white/20 text-white transition backdrop-blur-sm">
-            <svg class="w-6 h-6 md:w-8 md:h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
-        </button>
-
-        <img id="lightbox-img" src="" alt="Pełny ekran" class="max-h-[70vh] md:max-h-[80vh] max-w-[95vw] object-contain rounded-sm shadow-2xl transition-transform duration-300" />
-        
-        <button id="btn-next" class="absolute right-2 md:right-8 top-1/2 -translate-y-1/2 z-20 p-3 rounded-full bg-white/10 hover:bg-white/20 text-white transition backdrop-blur-sm">
-            <svg class="w-6 h-6 md:w-8 md:h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
-        </button>
-
-        <div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black via-black/80 to-transparent pt-8 pb-4 px-4 z-20 flex flex-col items-center">
+         <div class="project-row relative bg-slate-50 border border-slate-200 rounded-[2rem] p-4 md:p-8 shadow-sm hover:shadow-xl transition-all duration-700 cursor-pointer group" onclick="toggleRow(this, event)">
             
-            <p id="lightbox-caption" class="text-white text-sm md:text-lg font-bold mb-4 tracking-wide"></p>
-            
-            <div class="flex gap-2 overflow-x-auto max-w-full pb-2 scrollbar-hide snap-x" id="thumbnails-container">
+            <div class="flex justify-between items-center mb-6">
+                <div>
+                    <span class="text-purple-600 text-xs font-bold uppercase tracking-widest bg-purple-100 px-3 py-1 rounded-full mb-2 inline-block">Kolekcja #2</span>
+                    <h2 class="text-2xl md:text-3xl font-bold text-slate-900">Kolekcja obuwia premium</h2>
                 </div>
-        </div>
+                <div class="text-gray-400 group-hover:text-purple-600 transition-colors">
+                    <span class="text-sm font-bold hidden md:inline mr-2 expand-text">Kliknij wiersz, aby powiększyć</span>
+                    <svg class="w-8 h-8 inline-block transform transition-transform duration-500 expand-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                </div>
+            </div>
 
-    </div>
-
-</MainLayout>
-
-<style>
-    .scrollbar-hide::-webkit-scrollbar {
-        display: none;
-    }
-    .scrollbar-hide {
-        -ms-overflow-style: none;
-        scrollbar-width: none;
-    }
-    .thumbnail {
-        opacity: 0.5;
-        transition: all 0.3s;
-        border: 2px solid transparent;
-    }
-    .thumbnail.active {
-        opacity: 1;
-        border-color: white;
-        transform: scale(1.1);
-    }
-</style>
-
-<script>
-    document.addEventListener('DOMContentLoaded', () => {
-        
-        // ELEMENTY DOM
-        const filterBtns = document.querySelectorAll('.filter-btn');
-        const allPortfolioItems = document.querySelectorAll('.portfolio-item');
-        
-        const lightbox = document.getElementById('lightbox');
-        const mainImg = document.getElementById('lightbox-img');
-        const caption = document.getElementById('lightbox-caption');
-        const counter = document.getElementById('lightbox-counter');
-        const thumbnailsContainer = document.getElementById('thumbnails-container');
-        
-        // ZMIENNE STANU
-        // 'allImages' to baza wszystkich zdjęć na stronie (stała)
-        const allImages = Array.from(document.querySelectorAll('.gallery-img'));
-        
-        // 'currentImages' to lista AKTUALNIE widocznych zdjęć (zmienna)
-        // Na start są to wszystkie zdjęcia
-        let currentImages = [...allImages]; 
-        let currentIndex = 0;
-
-        // --- 1. FUNKCJA FILTROWANIA ---
-        filterBtns.forEach(btn => {
-            btn.addEventListener('click', () => {
-                // UI Przycisków
-                filterBtns.forEach(b => {
-                    b.classList.remove('bg-black', 'text-white');
-                    b.classList.add('bg-white', 'text-gray-500', 'border-gray-200');
-                });
-                btn.classList.remove('bg-white', 'text-gray-500', 'border-gray-200');
-                btn.classList.add('bg-black', 'text-white');
-
-                const filterValue = btn.getAttribute('data-filter');
+            <div class="project-grid grid grid-cols-1 lg:grid-cols-4 gap-4 md:gap-6 h-[450px] lg:h-[320px] overflow-hidden transition-all duration-[800ms] ease-in-out">
                 
-                // Resetujemy listę aktualnych zdjęć
-                currentImages = [];
+                <div class="lg:col-span-1 grid grid-cols-2 grid-rows-2 gap-2 md:gap-4 h-full min-h-0">
+                    <a href="/images/portfolio/packshot1.jpg" data-fancybox="kosmetyki" class="block rounded-xl overflow-hidden shadow-sm border border-gray-100 bg-white relative">
+                        <img src="/images/portfolio/packshot1.jpg" loading="lazy" decoding="async" class="w-full h-full object-contain p-2 md:p-4 hover:scale-110 transition-transform duration-700"/>
+                        <div class="absolute bottom-2 left-2 bg-black/60 text-white text-[10px] px-2 py-1 rounded backdrop-blur-sm hidden lg:block">Baza: Packshot</div>
+                    </a>
+                    <a href="/images/portfolio/packshot2.jpg" data-fancybox="kosmetyki" class="block rounded-xl overflow-hidden shadow-sm border border-gray-100 bg-white relative">
+                        <img src="/images/portfolio/packshot2.jpg" loading="lazy" decoding="async" class="w-full h-full object-contain p-2 md:p-4 hover:scale-110 transition-transform duration-700"/>
+                    </a>
+                    <a href="/images/portfolio/packshot3.jpg" data-fancybox="kosmetyki" class="block rounded-xl overflow-hidden shadow-sm border border-gray-100 bg-white relative">
+                        <img src="/images/portfolio/packshot3.jpg" loading="lazy" decoding="async" class="w-full h-full object-contain p-2 md:p-4 hover:scale-110 transition-transform duration-700"/>
+                    </a>
+                    <a href="/images/portfolio/packshot4.jpg" data-fancybox="kosmetyki" class="block rounded-xl overflow-hidden shadow-sm border border-gray-100 bg-white relative">
+                        <img src="/images/portfolio/packshot4.jpg" loading="lazy" decoding="async" class="w-full h-full object-contain p-2 md:p-4 hover:scale-110 transition-transform duration-700"/>
+                    </a>
+                </div>
 
-                allPortfolioItems.forEach(item => {
-                    const img = item.querySelector('img');
+                <div class="lg:col-span-2 grid grid-cols-3 grid-rows-3 gap-2 md:gap-3 h-full min-h-0 relative">
                     
-                    // Sprawdzamy czy element pasuje do filtra
-                    if (filterValue === 'all' || item.classList.contains(`item-${filterValue}`)) {
-                        item.classList.remove('hidden');
-                        item.classList.add('block');
-                        // Dodajemy zdjęcie do nowej listy playlisty Lightboxa
-                        if(img) currentImages.push(img);
-                    } else {
-                        item.classList.add('hidden');
-                        item.classList.remove('block');
-                    }
-                });
+                    <a href="/images/portfolio/modowe2.jpg" data-fancybox="kosmetyki" class="col-span-2 row-span-2 block rounded-xl overflow-hidden shadow-md relative group/fashion">
+                        <img src="/images/portfolio/modowe2.jpg" loading="lazy" decoding="async" class="w-full h-full object-cover group-hover/fashion:scale-105 transition-transform duration-700"/>
+                        <div class="absolute bottom-2 left-2 bg-purple-600 text-white text-[10px] font-bold px-2 py-1 rounded-md shadow-lg z-10 hidden md:block">MODELKA + AI</div>
+                    </a>
+                    
+                    <a href="/images/portfolio/modowe1.jpg" data-fancybox="kosmetyki" class="col-span-1 row-span-1 block rounded-xl overflow-hidden shadow-sm relative group/fashion">
+                        <img src="/images/portfolio/modowe1.jpg" loading="lazy" decoding="async" class="w-full h-full object-cover group-hover/fashion:scale-105 transition-transform duration-700"/>
+                    </a>
 
-                // Ważne: Po zmianie filtra musimy przebudować miniatury w Lightboxie
-                // (Zrobimy to dynamicznie dopiero przy otwarciu Lightboxa, żeby nie mulić strony)
-            });
-        });
+                    <a href="/images/portfolio/morze.webp" data-fancybox="kosmetyki" class="col-span-1 row-span-1 block rounded-xl overflow-hidden shadow-sm relative group/fashion">
+                        <img src="/images/portfolio/morze.webp" loading="lazy" decoding="async" class="w-full h-full object-cover group-hover/fashion:scale-105 transition-transform duration-700"/>
+                    </a>
 
+                    <a href="/images/portfolio/studio.webp" data-fancybox="kosmetyki" class="col-span-2 row-span-1 block rounded-xl overflow-hidden shadow-sm relative group/fashion">
+                        <img src="/images/portfolio/studio.webp" loading="lazy" decoding="async" class="w-full h-full object-cover group-hover/fashion:scale-105 transition-transform duration-700"/>
+                    </a>
 
-        // --- 2. FUNKCJE LIGHTBOXA ---
+                    <a href="/images/portfolio/paryz.webp" data-fancybox="kosmetyki" class="col-span-1 row-span-1 block rounded-xl overflow-hidden shadow-sm relative group/fashion">
+                        <img src="/images/portfolio/paryz.webp" loading="lazy" decoding="async" class="w-full h-full object-cover group-hover/fashion:scale-105 transition-transform duration-700"/>
+                    </a>
+                </div>
 
-        const updateLightboxContent = () => {
-            const currentImgElement = currentImages[currentIndex];
-            const fullSrc = currentImgElement.getAttribute('data-full') || currentImgElement.src;
-            
-            // Podmień główne zdjęcie
-            mainImg.src = fullSrc;
-            if(caption) caption.innerText = currentImgElement.alt;
-            if(counter) counter.innerText = `${currentIndex + 1} / ${currentImages.length}`;
-
-            // Aktualizuj styl miniatur
-            highlightThumbnail();
-        };
-
-        const renderThumbnails = () => {
-            if(!thumbnailsContainer) return;
-            thumbnailsContainer.innerHTML = ''; // Wyczyść stare miniatury
-
-            currentImages.forEach((img, index) => {
-                const thumb = document.createElement('img');
-                thumb.src = img.src; 
-                thumb.className = `thumbnail h-12 w-12 md:h-16 md:w-16 object-cover rounded cursor-pointer shrink-0 snap-center border-2 border-transparent transition-all opacity-50`;
-                
-                // Kliknięcie w miniaturę
-                thumb.addEventListener('click', (e) => {
-                    e.stopPropagation();
-                    currentIndex = index;
-                    updateLightboxContent();
-                });
-                
-                thumbnailsContainer.appendChild(thumb);
-            });
-        };
-
-        const highlightThumbnail = () => {
-            if(!thumbnailsContainer) return;
-            const thumbs = Array.from(thumbnailsContainer.children);
-            
-            thumbs.forEach((t, i) => {
-                if (i === currentIndex) {
-                    t.classList.remove('opacity-50', 'border-transparent');
-                    t.classList.add('opacity-100', 'border-white', 'scale-110');
-                    t.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
-                } else {
-                    t.classList.add('opacity-50', 'border-transparent');
-                    t.classList.remove('opacity-100', 'border-white', 'scale-110');
-                }
-            });
-        };
-
-        const openLightbox = (imgElement) => {
-            // Znajdź indeks klikniętego zdjęcia w AKTUALNEJ (przefiltrowanej) liście
-            const index = currentImages.indexOf(imgElement);
-            
-            if (index > -1) {
-                currentIndex = index;
-                
-                // Przebuduj miniatury (bo lista mogła się zmienić przez filtr)
-                renderThumbnails();
-                updateLightboxContent();
-                
-                lightbox.classList.remove('hidden');
-                setTimeout(() => lightbox.classList.remove('opacity-0'), 10);
-                // document.body.style.overflow = 'hidden';
-            }
-        };
-
-        const closeLightbox = () => {
-            lightbox.classList.add('opacity-0');
-            setTimeout(() => {
-                lightbox.classList.add('hidden');
-                document.body.style.overflow = '';
-            }, 300);
-        };
-
-        // --- 3. EVENT LISTENERS ---
-
-        // Kliknięcie w zdjęcie w siatce
-        // Musimy nasłuchiwać na rodzicu lub dodać do wszystkich, ale allImages mamy w pamięci
-        allImages.forEach(img => {
-            img.parentElement.addEventListener('click', (e) => {
-                // Upewnij się, że klikamy w zdjęcie, które jest w aktualnej liście (widoczne)
-                if (currentImages.includes(img)) {
-                    openLightbox(img);
-                }
-            });
-        });
-
-        // Nawigacja
-        const showNext = (e) => { e?.stopPropagation(); currentIndex = (currentIndex + 1) % currentImages.length; updateLightboxContent(); };
-        const showPrev = (e) => { e?.stopPropagation(); currentIndex = (currentIndex - 1 + currentImages.length) % currentImages.length; updateLightboxContent(); };
-
-        document.getElementById('btn-next')?.addEventListener('click', showNext);
-        document.getElementById('btn-prev')?.addEventListener('click', showPrev);
-        document.getElementById('lightbox-close')?.addEventListener('click', closeLightbox);
-
-        lightbox?.addEventListener('click', (e) => {
-            if (e.target === lightbox || e.target === document.querySelector('#lightbox > div')) closeLightbox();
-        });
-
-        document.addEventListener('keydown', (e) => {
-            if (lightbox.classList.contains('hidden')) return;
-            if (e.key === 'Escape') closeLightbox();
-            if (e.key === 'ArrowRight') showNext();
-            if (e.key === 'ArrowLeft') showPrev();
-        });
-
-    });
-</script> -->
-
-
----
-// Plik: src/pages/portfolio.astro
-import MainLayout from '../layouts/MainLayout.astro';
----
-
-<MainLayout title="Portfolio | Studio.AI">
-    
-    <div class="pt-32 pb-12 bg-white text-center px-4">
-        <h1 class="text-4xl md:text-6xl font-extrabold mb-6" data-aos="fade-up">
-            Nasze Realizacje
-        </h1>
-        <p class="text-gray-600 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="100">
-            Przeglądaj wybrane projekty. Kliknij zdjęcie, aby zobaczyć detale.
-        </p>
-
-        <div class="flex flex-wrap justify-center gap-3 mt-8" data-aos="fade-up" data-aos-delay="200" id="portfolio-filters">
-            <button class="filter-btn active px-5 py-2 bg-black text-white rounded-full text-sm font-bold transition-all" data-filter="all">Wszystkie</button>
-            <button class="filter-btn px-5 py-2 border border-gray-200 text-gray-500 rounded-full text-sm font-bold hover:border-black hover:text-black transition-all" data-filter="packshot">Packshoty</button>
-            <button class="filter-btn px-5 py-2 border border-gray-200 text-gray-500 rounded-full text-sm font-bold hover:border-black hover:text-black transition-all" data-filter="fashion">Fashion</button>
-            <button class="filter-btn px-5 py-2 border border-gray-200 text-gray-500 rounded-full text-sm font-bold hover:border-black hover:text-black transition-all" data-filter="ai">AI Creative</button>
-            <button class="filter-btn px-5 py-2 border border-gray-200 text-gray-500 rounded-full text-sm font-bold hover:border-black hover:text-black transition-all" data-filter="graphic">Grafika & DTP</button>
+                <div class="lg:col-span-1 grid grid-cols-2 lg:grid-cols-1 grid-rows-1 lg:grid-rows-2 gap-2 md:gap-4 h-full min-h-0">
+                    <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" data-fancybox="kosmetyki" class="block rounded-xl overflow-hidden shadow-sm bg-slate-900 relative group/vid">
+                        <img src="/images/portfolio/modowe1.jpg" loading="lazy" decoding="async" class="w-full h-full object-cover opacity-50 group-hover/vid:scale-110 transition-transform duration-700">
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <div class="w-10 h-10 md:w-14 md:h-14 bg-white/30 rounded-full flex items-center justify-center transition backdrop-blur-md">
+                                <svg class="w-5 h-5 md:w-6 md:h-6 text-white ml-1" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                            </div>
+                        </div>
+                        <div class="absolute top-2 left-2 bg-red-600 text-white text-[10px] font-bold px-2 py-1 rounded hidden lg:block">Video już wkrótce</div>
+                    </a>
+                    <a href="/images/portfolio/packshot1.jpg" data-fancybox="kosmetyki" class="block rounded-xl overflow-hidden shadow-sm bg-white border border-gray-100 relative group/360">
+                        <img src="/images/portfolio/packshot1.jpg" loading="lazy" decoding="async" class="w-full h-full object-contain p-4 group-hover/360:scale-110 transition-transform duration-700">
+                        <div class="absolute inset-0 flex items-center justify-center bg-black/5">
+                            <div class="bg-black/80 text-white px-3 py-1.5 md:px-4 md:py-2 rounded-full font-bold text-xs md:text-sm flex items-center gap-2 backdrop-blur-sm shadow-xl">
+                                Widok 360°
+                            </div>
+                        </div>
+                        
+                    </a>
+                </div>
+            </div>
         </div>
+
+        <div class="project-row relative bg-slate-50 border border-slate-200 rounded-[2rem] p-4 md:p-8 shadow-sm hover:shadow-xl transition-all duration-700 cursor-pointer group" onclick="toggleRow(this, event)">
+            
+            <div class="flex justify-between items-center mb-6">
+                <div>
+                    <span class="text-blue-600 text-xs font-bold uppercase tracking-widest bg-blue-100 px-3 py-1 rounded-full mb-2 inline-block">Kolekcja #1</span>
+                    <h2 class="text-2xl md:text-3xl font-bold text-slate-900">Kolekcja Obuwia Premium</h2>
+                </div>
+                <div class="text-gray-400 group-hover:text-blue-600 transition-colors">
+                    <span class="text-sm font-bold hidden md:inline mr-2 expand-text">Kliknij wiersz, aby powiększyć</span>
+                    <svg class="w-8 h-8 inline-block transform transition-transform duration-500 expand-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                </div>
+            </div>
+
+            <div class="project-grid grid grid-cols-1 lg:grid-cols-4 gap-4 md:gap-6 h-[450px] lg:h-[320px] overflow-hidden transition-all duration-[800ms] ease-in-out">
+                
+                <div class="lg:col-span-1 grid grid-cols-2 grid-rows-2 gap-2 md:gap-4 h-full min-h-0">
+                    <a href="/images/portfolio/pack1.webp" data-fancybox="obuwie" data-caption="Packshot Przód" class="block rounded-xl overflow-hidden shadow-sm border border-gray-100 bg-white relative">
+                        <img src="/images/portfolio/pack1.webp" loading="lazy" decoding="async" class="w-full h-full object-contain p-2 md:p-4 transition-transform duration-700 hover:scale-110" alt="Shoe"/>
+                        <div class="absolute bottom-2 left-2 bg-black/60 text-white text-[10px] px-2 py-1 rounded backdrop-blur-sm hidden lg:block">Baza: Packshot</div>
+                    </a>
+                    <a href="/images/portfolio/pack2.webp" data-fancybox="obuwie" data-caption="Packshot Tył" class="block rounded-xl overflow-hidden shadow-sm border border-gray-100 bg-white relative">
+                        <img src="/images/portfolio/pack2.webp" loading="lazy" decoding="async" class="w-full h-full object-contain p-2 md:p-4 transition-transform duration-700 hover:scale-110" alt="Shoe"/>
+                    </a>
+                    <a href="/images/portfolio/pack3.webp" data-fancybox="obuwie" data-caption="Packshot Bok" class="block rounded-xl overflow-hidden shadow-sm border border-gray-100 bg-white relative">
+                        <img src="/images/portfolio/pack3.webp" loading="lazy" decoding="async" class="w-full h-full object-contain p-2 md:p-4 transition-transform duration-700 hover:scale-110" alt="Shoe"/>
+                    </a>
+                    <a href="/images/portfolio/pack4.webp" data-fancybox="obuwie" data-caption="Detale" class="block rounded-xl overflow-hidden shadow-sm border border-gray-100 bg-white relative">
+                        <img src="/images/portfolio/pack4.webp" loading="lazy" decoding="async" class="w-full h-full object-contain p-2 md:p-4 transition-transform duration-700 hover:scale-110" alt="Shoe"/>
+                    </a>
+                </div>
+
+                <div class="lg:col-span-2 grid grid-cols-4 grid-rows-2 gap-2 md:gap-3 h-full min-h-0 relative">
+                    
+                    <a href="/images/portfolio/mod1.webp" data-fancybox="obuwie" class="col-span-2 row-span-2 block rounded-xl overflow-hidden shadow-md relative group/fashion">
+                        <img src="/images/portfolio/mod1.webp" loading="lazy" decoding="async" class="w-full h-full object-cover transition-transform duration-700 group-hover/fashion:scale-105" alt="Fashion 1"/>
+                        <div class="absolute bottom-2 left-2 bg-purple-600 text-white text-[10px] font-bold px-2 py-1 rounded-md shadow-lg z-10 hidden md:block">Modelka = AI</div>
+                    </a>
+                    
+                    <a href="/images/portfolio/mod2.webp" data-fancybox="obuwie" class="col-span-1 row-span-1 block rounded-xl overflow-hidden shadow-sm relative group/fashion">
+                        <img src="/images/portfolio/mod2.webp" loading="lazy" decoding="async" class="w-full h-full object-cover transition-transform duration-700 group-hover/fashion:scale-105" alt="Fashion 2"/>
+                    </a>
+
+                    <a href="/images/portfolio/mod3.webp" data-fancybox="obuwie" class="col-span-1 row-span-2 block rounded-xl overflow-hidden shadow-sm relative group/fashion">
+                        <img src="/images/portfolio/mod3.webp" loading="lazy" decoding="async" class="w-full h-full object-cover transition-transform duration-700 group-hover/fashion:scale-105" alt="Fashion 3"/>
+                    </a>
+
+                    <a href="/images/portfolio/mod4.webp" data-fancybox="obuwie" class="col-span-1 row-span-1 block rounded-xl overflow-hidden shadow-sm relative group/fashion">
+                        <img src="/images/portfolio/mod4.webp" loading="lazy" decoding="async" class="w-full h-full object-cover transition-transform duration-700 group-hover/fashion:scale-105" alt="Fashion 4"/>
+                    </a>
+
+                </div>
+
+                <div class="lg:col-span-1 grid grid-cols-2 lg:grid-cols-1 grid-rows-1 lg:grid-rows-2 gap-2 md:gap-4 h-full min-h-0">
+                    <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" data-fancybox="obuwie" class="block rounded-xl overflow-hidden shadow-sm relative bg-slate-900 group/vid">
+                        <img src="/images/portfolio/mod1.webp" loading="lazy" decoding="async" class="w-full h-full object-cover opacity-50 transition-transform duration-700 group-hover/vid:scale-110" alt="Video">
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <div class="w-10 h-10 md:w-14 md:h-14 bg-white/30 backdrop-blur-md rounded-full flex items-center justify-center group-hover/vid:bg-white/50 transition">
+                                <svg class="w-5 h-5 md:w-6 md:h-6 text-white ml-1" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                            </div>
+                        </div>
+                        <div class="absolute top-2 left-2 bg-red-600 text-white text-[10px] font-bold px-2 py-1 rounded hidden lg:block">Video już wkrótce</div>
+                    </a>
+                    
+                    <a href="/images/portfolio/pack1.webp" data-fancybox="obuwie" data-caption="Obrót 360 stopni" class="block rounded-xl overflow-hidden shadow-sm relative bg-slate-100 group/360">
+                        <img src="/images/portfolio/pack1.webp" loading="lazy" decoding="async" class="w-full h-full object-contain p-4 transition-transform duration-700 group-hover/360:scale-110" alt="360">
+                        <div class="absolute inset-0 flex items-center justify-center bg-black/10">
+                            <div class="bg-black/80 text-white px-3 py-1.5 md:px-4 md:py-2 rounded-full font-bold text-xs md:text-sm flex items-center gap-2 backdrop-blur-sm shadow-xl">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path></svg>
+                                Widok 360°
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+
+       
+
     </div>
 
-    <div class="max-w-7xl mx-auto px-4 pb-24">
-        
-        <div class="columns-1 md:columns-2 lg:columns-3 gap-4 space-y-4" id="portfolio-grid">
-            
-            <div class="portfolio-item item-packshot break-inside-avoid relative group rounded-xl overflow-hidden cursor-zoom-in" data-aos="fade-up">
-                <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?q=80&w=800&auto=format&fit=crop" 
-                     data-full="https://images.unsplash.com/photo-1523275335684-37898b6baf30?q=80&w=1600&auto=format&fit=crop" 
-                     alt="Zegarek Premium" 
-                     class="gallery-img w-full h-auto object-cover transition duration-700 group-hover:scale-105"/>
-                <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center pointer-events-none">
-                    <span class="text-white font-bold border border-white px-4 py-2 rounded-full text-sm">Zegarek</span>
+
+    <div id="view-dtp" class="hidden max-w-7xl mx-auto px-4 pb-24 animate-fade-in-slow">
+        <div class="columns-1 md:columns-2 lg:columns-3 gap-6 space-y-6">
+            <a href="/images/scianka.jpeg" data-fancybox="dtp" data-caption="Projekt ścianki reklamowej" class="block rounded-3xl overflow-hidden shadow-lg border border-gray-100 hover:shadow-2xl hover:scale-[1.02] transition duration-500 break-inside-avoid relative group">
+                <img src="/images/scianka.jpeg" alt="DTP" class="w-full h-auto object-cover bg-slate-100"/>
+                <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center">
+                    <div class="text-center text-white">
+                        <svg class="w-10 h-10 mx-auto mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"></path></svg>
+                        <span class="font-bold block text-lg">Ścianka Targowa stoiska na między narodowych targach MICAM we Włoszech na zlecenie Bioeco by Arka 1927</span>
+                        <span class="text-sm">Powiększ projekt</span>
+                    </div>
                 </div>
-            </div>
-
-            <div class="portfolio-item item-graphic break-inside-avoid relative group rounded-xl overflow-hidden cursor-zoom-in" data-aos="fade-up">
-                <img src="https://images.unsplash.com/photo-1596464716127-f2a82984de30?q=80&w=800&auto=format&fit=crop" 
-                     data-full="https://images.unsplash.com/photo-1596464716127-f2a82984de30?q=80&w=1600&auto=format&fit=crop"
-                     alt="Branding & Wizytówki" 
-                     class="gallery-img w-full h-auto object-cover transition duration-700 group-hover:scale-105"/>
-                <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center pointer-events-none">
-                    <span class="text-white font-bold border border-white px-4 py-2 rounded-full text-sm">Wizytówki</span>
+            </a>
+             <a href="/images/portfolio/artykol.jpg" data-fancybox="dtp" data-caption="Projekt ścianki reklamowej" class="block rounded-3xl overflow-hidden shadow-lg border border-gray-100 hover:shadow-2xl hover:scale-[1.02] transition duration-500 break-inside-avoid relative group">
+                <img src="/images/portfolio/artykol.jpg" alt="DTP" class="w-full h-auto object-cover bg-slate-100"/>
+                <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center">
+                    <div class="text-center text-white">
+                        <svg class="w-10 h-10 mx-auto mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"></path></svg>
+                        <span class="font-bold block text-lg">Projekt strony reklamowej w znanym Polskim czasopiśmie na zlecenie Bioeco by Arka 1927</span>
+                        <span class="text-sm">Powiększ projekt</span>
+                    </div>
                 </div>
-            </div>
-
-            <div class="portfolio-item item-fashion break-inside-avoid relative group rounded-xl overflow-hidden cursor-zoom-in" data-aos="fade-up">
-                <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=800&auto=format&fit=crop" 
-                     data-full="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=1600&auto=format&fit=crop"
-                     alt="Fashion Model" 
-                     class="gallery-img w-full h-auto object-cover transition duration-700 group-hover:scale-105"/>
-                <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center pointer-events-none">
-                    <span class="text-white font-bold border border-white px-4 py-2 rounded-full text-sm">Fashion</span>
+            </a>
+            <a href="/images/portfolio/fotoshoe.jpg" data-fancybox="dtp" data-caption="Projekt ścianki reklamowej" class="block rounded-3xl overflow-hidden shadow-lg border border-gray-100 hover:shadow-2xl hover:scale-[1.02] transition duration-500 break-inside-avoid relative group">
+                <img src="/images/portfolio/fotoshoe.jpg" alt="DTP" class="w-full h-auto object-cover bg-slate-100"/>
+                <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center">
+                    <div class="text-center text-white">
+                        <svg class="w-10 h-10 mx-auto mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"></path></svg>
+                        <span class="font-bold block text-lg">Projekt okładki dla włoskiego magazynu na zlecenie Bioeco by Arka 1927</span>
+                        <span class="text-sm">Powiększ projekt</span>
+                    </div>
                 </div>
-            </div>
-
-            <div class="portfolio-item item-graphic break-inside-avoid relative group rounded-xl overflow-hidden cursor-zoom-in" data-aos="fade-up">
-                <img src="https://images.unsplash.com/photo-1586075010923-2dd4570fb338?q=80&w=800&auto=format&fit=crop" 
-                     data-full="https://images.unsplash.com/photo-1586075010923-2dd4570fb338?q=80&w=1600&auto=format&fit=crop"
-                     alt="Kalendarz & Plakat" 
-                     class="gallery-img w-full h-auto object-cover transition duration-700 group-hover:scale-105"/>
-                <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center pointer-events-none">
-                    <span class="text-white font-bold border border-white px-4 py-2 rounded-full text-sm">Kalendarze</span>
-                </div>
-            </div>
-
-            <div class="portfolio-item item-ai break-inside-avoid relative group rounded-xl overflow-hidden cursor-zoom-in" data-aos="fade-up">
-                <img src="https://images.unsplash.com/photo-1618331835717-801e976710b2?q=80&w=800&auto=format&fit=crop" 
-                     data-full="https://images.unsplash.com/photo-1618331835717-801e976710b2?q=80&w=1600&auto=format&fit=crop"
-                     alt="AI Background" 
-                     class="gallery-img w-full h-auto object-cover transition duration-700 group-hover:scale-105"/>
-                <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center pointer-events-none">
-                    <span class="text-white font-bold border border-white px-4 py-2 rounded-full text-sm">AI Sceneria</span>
-                </div>
-            </div>
-
-            <div class="portfolio-item item-packshot break-inside-avoid relative group rounded-xl overflow-hidden cursor-zoom-in" data-aos="fade-up">
-                <img src="https://images.unsplash.com/photo-1549298916-b41d501d3772?q=80&w=800&auto=format&fit=crop" 
-                     data-full="https://images.unsplash.com/photo-1549298916-b41d501d3772?q=80&w=1600&auto=format&fit=crop"
-                     alt="Obuwie" 
-                     class="gallery-img w-full h-auto object-cover transition duration-700 group-hover:scale-105"/>
-                 <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center pointer-events-none">
-                    <span class="text-white font-bold border border-white px-4 py-2 rounded-full text-sm">Obuwie</span>
-                </div>
-            </div>
-
-            <div class="portfolio-item item-graphic break-inside-avoid relative group rounded-xl overflow-hidden cursor-zoom-in" data-aos="fade-up">
-                <img src="https://images.unsplash.com/photo-1626785774625-ddcddc3445e9?q=80&w=800&auto=format&fit=crop" 
-                     data-full="https://images.unsplash.com/photo-1626785774625-ddcddc3445e9?q=80&w=1600&auto=format&fit=crop"
-                     alt="Projekt Ulotki" 
-                     class="gallery-img w-full h-auto object-cover transition duration-700 group-hover:scale-105"/>
-                 <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center pointer-events-none">
-                    <span class="text-white font-bold border border-white px-4 py-2 rounded-full text-sm">Ulotki</span>
-                </div>
-            </div>
-
-             <div class="portfolio-item item-ai break-inside-avoid relative group rounded-xl overflow-hidden cursor-zoom-in" data-aos="fade-up">
-                <img src="https://images.unsplash.com/photo-1629198688000-71f23e745b6e?q=80&w=800&auto=format&fit=crop" 
-                     data-full="https://images.unsplash.com/photo-1629198688000-71f23e745b6e?q=80&w=1600&auto=format&fit=crop"
-                     alt="Kosmetyki" 
-                     class="gallery-img w-full h-auto object-cover transition duration-700 group-hover:scale-105"/>
-                 <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center pointer-events-none">
-                    <span class="text-white font-bold border border-white px-4 py-2 rounded-full text-sm">Kosmetyki AI</span>
-                </div>
-            </div>
-
-            <div class="portfolio-item item-packshot break-inside-avoid relative group rounded-xl overflow-hidden cursor-zoom-in" data-aos="fade-up">
-                <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?q=80&w=800&auto=format&fit=crop" 
-                     data-full="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?q=80&w=1600&auto=format&fit=crop"
-                     alt="Elektronika" 
-                     class="gallery-img w-full h-auto object-cover transition duration-700 group-hover:scale-105"/>
-                 <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center pointer-events-none">
-                    <span class="text-white font-bold border border-white px-4 py-2 rounded-full text-sm">Elektronika</span>
-                </div>
-            </div>
-
-        </div>
-
-        <div class="text-center mt-20 bg-slate-50 p-12 rounded-3xl">
-            <h2 class="text-2xl font-bold mb-4">Podobają Ci się te realizacje?</h2>
-            <p class="text-gray-600 mb-8">Możemy stworzyć takie same dla Twojej marki w 7 dni.</p>
-            <a href="/kontakt" class="inline-block px-8 py-4 bg-black text-white font-bold rounded-full hover:bg-gray-800 transition shadow-lg transform hover:-translate-y-1">
-                Zamów darmową próbkę
             </a>
         </div>
+        
     </div>
 
-    <div id="lightbox" class="fixed inset-0 z-[100] bg-black/95 hidden flex flex-col justify-center items-center opacity-0 transition-opacity duration-300">
-        
-        <div class="absolute top-0 left-0 w-full p-4 flex justify-between items-center text-white z-20">
-            <div id="lightbox-counter" class="text-sm font-mono opacity-70 ml-2">1 / 10</div>
-            <button id="lightbox-close" class="text-4xl hover:text-gray-300 focus:outline-none leading-none">&times;</button>
-        </div>
-
-        <button id="btn-prev" class="absolute left-2 md:left-8 top-1/2 -translate-y-1/2 z-20 p-3 rounded-full bg-white/10 hover:bg-white/20 text-white transition backdrop-blur-sm">
-            <svg class="w-6 h-6 md:w-8 md:h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
-        </button>
-
-        <img id="lightbox-img" src="" alt="Pełny ekran" class="max-h-[70vh] md:max-h-[80vh] max-w-[95vw] object-contain rounded-sm shadow-2xl transition-transform duration-300" />
-        
-        <button id="btn-next" class="absolute right-2 md:right-8 top-1/2 -translate-y-1/2 z-20 p-3 rounded-full bg-white/10 hover:bg-white/20 text-white transition backdrop-blur-sm">
-            <svg class="w-6 h-6 md:w-8 md:h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
-        </button>
-
-        <div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black via-black/80 to-transparent pt-8 pb-4 px-4 z-20 flex flex-col items-center">
+    <div class="max-w-[1400px] mx-auto px-4 pb-24 mt-12">
+        <div class="relative bg-slate-900 rounded-[2rem] md:rounded-[3rem] p-10 md:p-20 overflow-hidden shadow-2xl text-center group">
             
-            <p id="lightbox-caption" class="text-white text-sm md:text-lg font-bold mb-4 tracking-wide"></p>
+            <div class="absolute top-0 right-0 w-96 h-96 bg-blue-600/20 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 transition-transform duration-1000 group-hover:scale-110"></div>
+            <div class="absolute bottom-0 left-0 w-96 h-96 bg-purple-600/20 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2 transition-transform duration-1000 group-hover:scale-110"></div>
             
-            <div class="flex gap-2 overflow-x-auto max-w-full pb-2 scrollbar-hide snap-x" id="thumbnails-container">
+            <div class="relative z-10">
+                <span class="text-blue-400 font-bold tracking-widest text-xs uppercase mb-4 block">Kolejny krok</span>
+                <h2 class="text-3xl md:text-5xl font-black text-white mb-6 tracking-tight">
+                    Spodobały Ci się nasze realizacje?
+                </h2>
+                <p class="text-gray-400 text-lg max-w-2xl mx-auto mb-10 leading-relaxed">
+                    Niezależnie od tego, czy potrzebujesz idealnie czystych packshotów, czy kompletnej rewolucji wizualnej z użyciem AI. Zbudujmy to razem.
+                </p>
+                
+                <div class="flex flex-col sm:flex-row justify-center gap-4">
+                    <a href="/kontakt" class="px-8 py-4 bg-white text-slate-900 font-bold rounded-full hover:scale-105 hover:shadow-[0_0_30px_rgba(255,255,255,0.3)] transition-all duration-300">
+                        Porozmawiajmy o projekcie
+                    </a>
+                    <a href="oferta#pakiety" class="px-8 py-4 border border-slate-700 text-white font-bold rounded-full hover:bg-slate-800 hover:border-slate-500 transition-all duration-300">
+                        Zobacz cennik i pakiety
+                    </a>
                 </div>
+                
+                <p class="text-slate-500 text-xs mt-8 font-medium">
+                    <span class="text-green-400 inline-block mr-1">●</span> Szybka wycena w 24h. Bez ukrytych kosztów.
+                </p>
+            </div>
+            
         </div>
-
     </div>
 
 </MainLayout>
 
-<style>
-    .scrollbar-hide::-webkit-scrollbar {
-        display: none;
+<style is:global>
+    .animate-fade-in-slow {
+        animation: fadeInSlow 0.6s ease-out forwards;
     }
-    .scrollbar-hide {
-        -ms-overflow-style: none;
-        scrollbar-width: none;
-    }
-    .thumbnail {
-        opacity: 0.5;
-        transition: all 0.3s;
-        border: 2px solid transparent;
-    }
-    .thumbnail.active {
-        opacity: 1;
-        border-color: white;
-        transform: scale(1.1);
+    @keyframes fadeInSlow {
+        from { opacity: 0; transform: translateY(15px); }
+        to { opacity: 1; transform: translateY(0); }
     }
 </style>
 
-<script>
+<script is:inline src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script>
+
+<script is:inline>
     document.addEventListener('DOMContentLoaded', () => {
-        
-        // ELEMENTY DOM
-        const filterBtns = document.querySelectorAll('.filter-btn');
-        const allPortfolioItems = document.querySelectorAll('.portfolio-item');
-        
-        const lightbox = document.getElementById('lightbox');
-        const mainImg = document.getElementById('lightbox-img');
-        const caption = document.getElementById('lightbox-caption');
-        const counter = document.getElementById('lightbox-counter');
-        const thumbnailsContainer = document.getElementById('thumbnails-container');
-        
-        // ZMIENNE STANU
-        const allImages = Array.from(document.querySelectorAll('.gallery-img'));
-        let currentImages = [...allImages]; 
-        let currentIndex = 0;
-
-        // --- 1. FUNKCJA FILTROWANIA ---
-        filterBtns.forEach(btn => {
-            btn.addEventListener('click', () => {
-                // UI Przycisków
-                filterBtns.forEach(b => {
-                    b.classList.remove('bg-black', 'text-white');
-                    b.classList.add('bg-white', 'text-gray-500', 'border-gray-200');
-                });
-                btn.classList.remove('bg-white', 'text-gray-500', 'border-gray-200');
-                btn.classList.add('bg-black', 'text-white');
-
-                const filterValue = btn.getAttribute('data-filter');
-                
-                // Resetujemy listę aktualnych zdjęć
-                currentImages = [];
-
-                allPortfolioItems.forEach(item => {
-                    const img = item.querySelector('img');
-                    
-                    // Sprawdzamy czy element pasuje do filtra
-                    if (filterValue === 'all' || item.classList.contains(`item-${filterValue}`)) {
-                        item.classList.remove('hidden');
-                        item.classList.add('block');
-                        if(img) currentImages.push(img);
-                    } else {
-                        item.classList.add('hidden');
-                        item.classList.remove('block');
-                    }
-                });
-            });
+        // Inicjalizacja profesjonalnej galerii Fancybox (obsługa Zoomu i nawigacji)
+        Fancybox.bind('[data-fancybox]', {
+            Thumbs: { autoStart: true },
+            Toolbar: {
+                display: {
+                    left: ["infobar"],
+                    middle: ["zoomIn", "zoomOut", "toggle1to1", "rotateCCW", "rotateCW"],
+                    right: ["slideshow", "thumbs", "close"],
+                },
+            }
         });
 
+        // Obsługa płynnego rozsuwania wierszy
+        window.toggleRow = function(rowElement, event) {
+            // Jeśli klikniesz na zdjęcie z linkiem, otworzy się Fancybox - przerywamy działanie skryptu wiersza
+            if(event.target.closest('a[data-fancybox]')) return;
 
-        // --- 2. FUNKCJE LIGHTBOXA ---
+            const grid = rowElement.querySelector('.project-grid');
+            const icon = rowElement.querySelector('.expand-icon');
+            const text = rowElement.querySelector('.expand-text');
+            const isExpanded = rowElement.classList.contains('is-expanded');
 
-        const updateLightboxContent = () => {
-            const currentImgElement = currentImages[currentIndex];
-            const fullSrc = currentImgElement.getAttribute('data-full') || currentImgElement.src;
-            
-            mainImg.src = fullSrc;
-            if(caption) caption.innerText = currentImgElement.alt;
-            if(counter) counter.innerText = `${currentIndex + 1} / ${currentImages.length}`;
-
-            highlightThumbnail();
-        };
-
-        const renderThumbnails = () => {
-            if(!thumbnailsContainer) return;
-            thumbnailsContainer.innerHTML = '';
-
-            currentImages.forEach((img, index) => {
-                const thumb = document.createElement('img');
-                thumb.src = img.src; 
-                thumb.className = `thumbnail h-12 w-12 md:h-16 md:w-16 object-cover rounded cursor-pointer shrink-0 snap-center border-2 border-transparent transition-all opacity-50`;
-                
-                thumb.addEventListener('click', (e) => {
-                    e.stopPropagation();
-                    currentIndex = index;
-                    updateLightboxContent();
-                });
-                
-                thumbnailsContainer.appendChild(thumb);
-            });
-        };
-
-        const highlightThumbnail = () => {
-            if(!thumbnailsContainer) return;
-            const thumbs = Array.from(thumbnailsContainer.children);
-            
-            thumbs.forEach((t, i) => {
-                if (i === currentIndex) {
-                    t.classList.remove('opacity-50', 'border-transparent');
-                    t.classList.add('opacity-100', 'border-white', 'scale-110');
-                    t.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
-                } else {
-                    t.classList.add('opacity-50', 'border-transparent');
-                    t.classList.remove('opacity-100', 'border-white', 'scale-110');
+            // Zwiń pozostałe otwarte wiersze (estetyka)
+            document.querySelectorAll('.project-row.is-expanded').forEach(row => {
+                if (row !== rowElement) {
+                    row.classList.remove('is-expanded');
+                    row.querySelector('.project-grid').classList.remove('h-[1100px]', 'lg:h-[700px]');
+                    row.querySelector('.project-grid').classList.add('h-[450px]', 'lg:h-[320px]');
+                    row.querySelector('.expand-icon').classList.remove('rotate-180');
+                    if(row.querySelector('.expand-text')) row.querySelector('.expand-text').innerText = 'Kliknij wiersz, aby powiększyć';
                 }
             });
-        };
 
-        const openLightbox = (imgElement) => {
-            const index = currentImages.indexOf(imgElement);
-            
-            if (index > -1) {
-                currentIndex = index;
-                renderThumbnails();
-                updateLightboxContent();
-                
-                lightbox.classList.remove('hidden');
-                setTimeout(() => lightbox.classList.remove('opacity-0'), 10);
-                // document.body.style.overflow = 'hidden'; // Usunięte żeby nie skakało
+            // Rozwiń/Zwiń ten, który kliknąłeś
+            if(!isExpanded) {
+                rowElement.classList.add('is-expanded');
+                grid.classList.remove('h-[450px]', 'lg:h-[320px]');
+                // Magia: rozciągamy na 700px, przez co przycięte wcześniej zdjęcia modowe pokazują cały detal!
+                grid.classList.add('h-[1100px]', 'lg:h-[700px]'); 
+                icon.classList.add('rotate-180');
+                if(text) text.innerText = 'Zwiń projekt';
+            } else {
+                rowElement.classList.remove('is-expanded');
+                grid.classList.add('h-[450px]', 'lg:h-[320px]');
+                grid.classList.remove('h-[1100px]', 'lg:h-[700px]');
+                icon.classList.remove('rotate-180');
+                if(text) text.innerText = 'Kliknij wiersz, aby powiększyć';
             }
         };
 
-        const closeLightbox = () => {
-            lightbox.classList.add('opacity-0');
-            setTimeout(() => {
-                lightbox.classList.add('hidden');
-                document.body.style.overflow = '';
-            }, 300);
-        };
+        // Przełączanie widoków (Ecommerce vs DTP)
+        const btnEco = document.getElementById('btn-ecommerce');
+        const btnDtp = document.getElementById('btn-dtp');
+        const viewEco = document.getElementById('view-ecommerce');
+        const viewDtp = document.getElementById('view-dtp');
 
-        // --- 3. EVENT LISTENERS ---
-
-        allImages.forEach(img => {
-            img.parentElement.addEventListener('click', (e) => {
-                if (currentImages.includes(img)) {
-                    openLightbox(img);
-                }
-            });
+        btnEco.addEventListener('click', () => {
+            btnEco.classList.add('bg-white', 'text-slate-900', 'shadow-lg');
+            btnEco.classList.remove('text-gray-500', 'hover:text-slate-900');
+            btnDtp.classList.remove('bg-white', 'text-slate-900', 'shadow-lg');
+            btnDtp.classList.add('text-gray-500', 'hover:text-slate-900');
+            viewEco.classList.remove('hidden');
+            viewDtp.classList.add('hidden');
         });
 
-        const showNext = (e) => { e?.stopPropagation(); currentIndex = (currentIndex + 1) % currentImages.length; updateLightboxContent(); };
-        const showPrev = (e) => { e?.stopPropagation(); currentIndex = (currentIndex - 1 + currentImages.length) % currentImages.length; updateLightboxContent(); };
-
-        document.getElementById('btn-next')?.addEventListener('click', showNext);
-        document.getElementById('btn-prev')?.addEventListener('click', showPrev);
-        document.getElementById('lightbox-close')?.addEventListener('click', closeLightbox);
-
-        lightbox?.addEventListener('click', (e) => {
-            if (e.target === lightbox || e.target === document.querySelector('#lightbox > div')) closeLightbox();
+        btnDtp.addEventListener('click', () => {
+            btnDtp.classList.add('bg-white', 'text-slate-900', 'shadow-lg');
+            btnDtp.classList.remove('text-gray-500', 'hover:text-slate-900');
+            btnEco.classList.remove('bg-white', 'text-slate-900', 'shadow-lg');
+            btnEco.classList.add('text-gray-500', 'hover:text-slate-900');
+            viewEco.classList.add('hidden');
+            viewDtp.classList.remove('hidden');
         });
-
-        document.addEventListener('keydown', (e) => {
-            if (lightbox.classList.contains('hidden')) return;
-            if (e.key === 'Escape') closeLightbox();
-            if (e.key === 'ArrowRight') showNext();
-            if (e.key === 'ArrowLeft') showPrev();
-        });
-
     });
 </script>

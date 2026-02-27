@@ -376,13 +376,22 @@ W sekcji `<style is:inline>` na dole pliku, usuń stare style preloadera i wklej
 
 ---
 // Plik: src/layouts/MainLayout.astro
-import 'aos/dist/aos.css';
 
-const { title = 'Studio Fotograficzne' } = Astro.props;
+
+import 'aos/dist/aos.css';
+interface Props {
+  title?: string;
+  description?: string; // Dodajemy opcjonalny opis
+}
+
+const { 
+  title = "KM-Studio | Fotografia Produktowa & AI - Kalwaria Zebrzydowska / Wadowice", 
+  description = "Profesjonalna fotografia produktowa, packshoty i kampanie AI. Studio fotograficzne w Kalwarii Zebrzydowskiej (okolice Wadowic i Krakowa). Obsługa E-commerce w całej Polsce."
+} = Astro.props;
 ---
 
 <html lang="pl">
-<head>
+<!-- <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
     <title>{title}</title>
@@ -391,7 +400,25 @@ const { title = 'Studio Fotograficzne' } = Astro.props;
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/img-comparison-slider@8/dist/styles.css"/>
     <script defer src="https://cdn.jsdelivr.net/npm/img-comparison-slider@8/dist/index.js"></script>
     
-    </head>
+    </head> -->
+
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <meta name="generator" content={Astro.generator} />
+    
+    <meta name="geo.region" content="PL-MA" />
+    <meta name="geo.placename" content="Kalwaria Zebrzydowska" />
+    <meta name="geo.position" content="49.866;19.673" /> <meta name="ICBM" content="49.866, 19.673" />
+
+    <title>{title}</title>
+    
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/img-comparison-slider@8/dist/styles.css"/>
+    <script defer src="https://cdn.jsdelivr.net/npm/img-comparison-slider@8/dist/index.js"></script>
+  </head>
 
 <body class="bg-white text-slate-900 font-sans flex flex-col min-h-screen overflow-hidden">
 
@@ -497,8 +524,9 @@ const { title = 'Studio Fotograficzne' } = Astro.props;
 
             <div class="hidden md:flex items-center space-x-6 text-sm font-medium text-gray-600">
                 <a href="/portfolio" class="hover:text-black transition">Portfolio</a>
-                <a href="/#technologia" class="hover:text-black transition">Technologia</a>
-                <a href="/#oferta" class="hover:text-black transition">Oferta</a>
+                <!-- <a href="/#technologia" class="hover:text-black transition">Technologia</a> -->
+                <a href="/proces" class="mobile-link hover:text-blue-600">Jak działamy?</a>
+                <a href="/oferta" class="hover:text-black transition">Oferta</a>
                 
                 <a href="/case-study" class="hover:text-black transition">Case Study</a>
                 <!-- <a href="/kontakt" class="hover:text-black transition">Kontakt</a> -->
@@ -517,8 +545,10 @@ const { title = 'Studio Fotograficzne' } = Astro.props;
          <div id="mobile-menu" class="hidden absolute top-0 left-0 w-full h-screen bg-white flex flex-col items-center justify-center space-y-8 text-xl font-bold z-40 md:hidden opacity-0 transition-opacity duration-300">
             <a href="/" class="mobile-link hover:text-blue-600">Start</a>
             <a href="/portfolio" class="mobile-link hover:text-blue-600">Portfolio</a>
-            <a href="/#oferta" class="mobile-link hover:text-blue-600">Oferta</a>
-            <a href="/#technologia" class="mobile-link hover:text-blue-600">Technologia</a>
+            <a href="/oferta" class="mobile-link hover:text-blue-600">Oferta</a>
+            <!-- <a href="/#technologia" class="mobile-link hover:text-blue-600">Technologia</a> -->
+            <a href="/proces" class="mobile-link hover:text-blue-600">Jak działamy?</a>
+            
             
             <a href="/case-study" class="mobile-link hover:text-blue-600">Case Study</a>
             <!-- <a href="/kontakt" class="mobile-link hover:text-blue-600">Kontakt</a> -->
@@ -534,13 +564,106 @@ const { title = 'Studio Fotograficzne' } = Astro.props;
         <slot /> 
     </main>
 
-    <footer class="bg-gray-900 text-white py-8 text-center text-sm mt-auto">
-        <p>&copy; 2025 K&M Studio. Wszelkie prawa zastrzeżone.</p>
+    <!-- <footer class="bg-gray-900 text-white py-2 text-center text-sm mt-auto">
+
+        <div class="bg-slate-900 text-white pt-12 border-t border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 grid md:grid-cols-3 gap-8 text-sm">
+        
+        <div>
+            <h4 class="font-bold text-lg mb-4">K&M Studio.AI</h4>
+            <p class="text-gray-400 mb-4">
+                Łączymy artystyczną fotografię produktową z technologią AI. 
+                Szybsze realizacje, niższe koszty, lepsza konwersja.
+            </p>
+        </div>
+
+        <div>
+            <h4 class="font-bold text-lg mb-4">Lokalizacja</h4>
+            <address class="not-italic text-gray-400">
+                ul. Przykładowa 123<br>
+                34-130 Kalwaria Zebrzydowska<br>
+                <span class="block mt-2 text-xs text-gray-500">Obsługujemy też: Wadowice, Kraków, Bielsko-Biała</span>
+            </address>
+            <div class="mt-4">
+                <a href="tel:+48123456789" class="block hover:text-blue-400 transition">+48 123 456 789</a>
+                <a href="mailto:kontakt@emef.studio" class="block hover:text-blue-400 transition">kontakt@emef.studio</a>
+            </div>
+        </div>
+
+        <div>
+            <h4 class="font-bold text-lg mb-4">Na skróty</h4>
+            <ul class="space-y-2 text-gray-400">
+                <li><a href="/portfolio" class="hover:text-white transition">Portfolio</a></li>
+                <li><a href="/blog" class="hover:text-white transition">Blog & Realizacje</a></li>
+                <li><a href="/kontakt" class="hover:text-white transition">Darmowa Wycena</a></li>
+            </ul>
+        </div>
+    </div>
+    
+    <div class="text-center text-gray-600 text-xs mt-12 pt-8 border-t border-slate-800">
+      <p>&copy; 2025 K&M Studio. Wszelkie prawa zastrzeżone.</p>
         <div class="flex justify-center space-x-4 mt-4">
         <a href="/polityka-prywatnosci" class="hover:text-white transition">Polityka Prywatności</a>
         <a href="/kontakt" class="hover:text-white transition">Kontakt</a>
     </div>
+
+    </footer> -->
+
+<footer class="bg-slate-900 text-white py-12 border-t border-slate-800 mt-auto">
+        <div class="max-w-7xl mx-auto px-4 grid md:grid-cols-3 gap-8 text-sm">
+            
+            <div>
+                <h4 class="font-bold text-lg mb-4">K&M Studio</h4>
+                <p class="text-gray-400 mb-4 leading-relaxed">
+                    Łączymy artystyczną fotografię produktową z technologią AI. 
+                    Szybsze realizacje, niższe koszty, lepsza konwersja.
+                </p>
+            </div>
+    
+            <div>
+                <h4 class="font-bold text-lg mb-4">Lokalizacja & Dostawa</h4>
+                <div class="text-gray-400 space-y-3">
+                    <p>
+                        <strong>Siedziba:</strong><br>
+                        34-130 Kalwaria Zebrzydowska<br>
+                        <span class="text-xs text-gray-500">(Małopolska)</span>
+                    </p>
+                    
+                    <div class="border-t border-slate-700 pt-3 mt-2">
+                        <p class="mb-1 text-gray-300 font-bold">Jak przekazać produkty?</p>
+                        <ul class="space-y-1">
+                            <li>📦 <strong>Kurier / Paczkomat</strong> (Cała Polska)</li>
+                            <li>🤝 <strong>Dostarcz nam</strong> (Po umówieniu)</li>
+                            <li class="text-green-400 font-medium">🚗 <strong>Odbieramy od firm</strong> (Okolice Wadowic/Kalwarii)</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="mt-4 space-y-1">
+                    <a href="tel:+48789193827" class="block hover:text-blue-400 transition font-bold text-white text-base">+48 789 193 827</a>
+                    <a href="mailto:kontakt@km-studio.pl" class="block hover:text-blue-400 transition">kontakt@km-studio.pl</a>
+                </div>
+            </div>
+    
+            <div>
+                <h4 class="font-bold text-lg mb-4">Na skróty</h4>
+                <ul class="space-y-2 text-gray-400">
+                    <li><a href="/portfolio" class="hover:text-white transition">Portfolio</a></li>
+                    <li><a href="/blog" class="hover:text-white transition">Blog & Realizacje</a></li>
+                    <li><a href="/oferta" class="hover:text-white transition">Oferta</a></li>
+                    <li><a href="/proces" class="mobile-link hover:text-blue-600">Jak działamy?</a></li>
+                    <li><a href="/kontakt" class="hover:text-white transition">Darmowa Wycena</a></li>
+                    <li><a href="/polityka-prywatnosci" class="hover:text-white transition">Polityka Prywatności</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="text-center text-gray-500 text-xs mt-12 pt-8 border-t border-slate-800">
+            <p>&copy; 2025 K&M Studio. Fotografia Produktowa & AI.</p>
+        </div>
     </footer>
+
+
 
     <button id="to-top-btn" class="fixed bottom-8 right-8 z-50 p-4 bg-black text-white rounded-full shadow-2xl transition-all duration-500 opacity-0 translate-y-10 pointer-events-none hover:bg-blue-600 hover:scale-110 group">
         <svg class="w-6 h-6 transform transition-transform duration-300 group-hover:-translate-y-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"></path></svg>
@@ -583,6 +706,8 @@ const { title = 'Studio Fotograficzne' } = Astro.props;
             </button>
         </div>
     </div>
+
+    
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
@@ -766,6 +891,46 @@ const { title = 'Studio Fotograficzne' } = Astro.props;
             backdrop?.addEventListener('click', hidePopup);
             ctaBtn?.addEventListener('click', hidePopup);
         });
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ProfessionalService", 
+      "name": "K&M Studio",
+      "image": "https://km-studio.pl/images/og-image.jpg",
+      "url": "https://km-studio.pl",
+      "telephone": "+48789193827",
+      "priceRange": "$$",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Leśnica 81",
+        "addressLocality": "Kalwaria Zebrzydowska",
+        "postalCode": "34-145",
+        "addressCountry": "PL"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 49.866,
+        "longitude": 19.673
+      },
+      "openingHoursSpecification": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": [
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday"
+        ],
+        "opens": "07:00",
+        "closes": "15:00"
+      },
+      "sameAs": [
+        "https://www.facebook.com/twojestudio",
+        "https://www.instagram.com/twojestudio"
+      ]
+    }
     </script>
 </body>
 </html>
