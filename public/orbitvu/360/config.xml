@@ -7,9 +7,9 @@
     <background_color>#ffffff</background_color>
     <border_color>#ffffff</border_color>
     <id>ORBITVU</id>
-    <preload>no</preload>
+    <preload>yes</preload>
     <teaser>zoomin</teaser>
-    <style>0</style>
+    <style>5</style>
     <gui_background>#ffffff</gui_background>
     <gui_foreground>#ffffff</gui_foreground>
     <gui_foreground_active>#000000</gui_foreground_active>

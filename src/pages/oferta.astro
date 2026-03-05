@@ -55,16 +55,21 @@ import MainLayout from '../layouts/MainLayout.astro';
         
         <div class="relative w-[90%] md:w-3/4 aspect-square bg-white rounded-3xl shadow-xl border border-gray-100 flex items-center justify-center overflow-hidden">
             
-            <div id="viewer_content360" class="w-full h-full"></div>
+            <div id="orbitvu-loader" class="absolute inset-0 flex flex-col items-center justify-center bg-white z-0 transition-opacity duration-500">
+                <svg class="w-8 h-8 text-indigo-500 animate-spin mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path></svg>
+                <span class="text-[10px] font-bold text-gray-400 uppercase tracking-widest">Ładowanie 360°...</span>
+            </div>
+
+            <div id="viewer_content360" class="w-full h-full relative z-10"></div>
             
-            <div class="absolute bottom-2 ridgt-1/2 -translate-x-1/2 bg-white/95 backdrop-blur px-5 py-2.5 rounded-full shadow-lg flex items-center gap-2 pointer-events-none z-10 animate-bounce">
+            <div class="absolute bottom-4 left-1/2 -translate-x-1/2 bg-white/95 backdrop-blur px-5 py-2.5 rounded-full shadow-lg flex items-center gap-2 pointer-events-none z-20 animate-bounce">
                 <svg class="w-5 h-5 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"></path></svg>
                 <span class="font-bold text-[10px] uppercase tracking-widest text-slate-900">Obróć</span>
             </div>
         </div>
         
-        <div class="absolute top-6 right-6 bg-indigo-600 px-3 py-1.5 rounded-lg shadow-md text-[10px] font-bold text-white border border-indigo-500 transform rotate-2 z-20">Live Demo</div>
-        <div class="absolute bottom-6 left-6 bg-white px-3 py-1.5 rounded-lg shadow-md text-[10px] font-bold text-slate-600 border border-gray-100 transform -rotate-2 z-20">Wideo & GIF</div>
+        <div class="absolute top-6 right-6 bg-indigo-600 px-3 py-1.5 rounded-lg shadow-md text-[10px] font-bold text-white border border-indigo-500 transform rotate-2 z-30">Live Demo</div>
+        <div class="absolute bottom-6 left-6 bg-white px-3 py-1.5 rounded-lg shadow-md text-[10px] font-bold text-slate-600 border border-gray-100 transform -rotate-2 z-30">Wideo & GIF</div>
     </div>
 
     <div data-aos="fade-left" class="order-1 lg:order-2">
@@ -94,28 +99,66 @@ import MainLayout from '../layouts/MainLayout.astro';
 
 <script is:inline>
     document.addEventListener('DOMContentLoaded', () => {
-        // Czekamy chwilę, aż plik wyżej się w pełni wczyta
-        let attempts = 0;
-        const checkOrbitvu = setInterval(() => {
-            if (typeof inject_orbitvu !== 'undefined') {
-                clearInterval(checkOrbitvu);
-                
-                inject_orbitvu(
-                    "viewer_content360",
-                    "/orbitvu/360/orbitvu12/", 
-                    undefined,
-                    {
-                        ovus_folder: "/orbitvu/360/", 
-                        content2: "yes",
-                        width: "100%",
-                        height: "100%",
+        const viewerContainer = document.getElementById('viewer_content360');
+        const loader = document.getElementById('orbitvu-loader');
+        
+        if (!viewerContainer) return;
+
+        // Funkcja ładująca pliki Orbitvu tylko na żądanie
+        const loadOrbitvu = () => {
+            // 1. Dynamicznie wstrzykujemy skrypt JS do dokumentu
+            const script = document.createElement('script');
+            script.src = "/orbitvu/360/orbitvu12/orbitvu.js";
+            
+            script.onload = () => {
+                // 2. Kiedy skrypt się pobierze, odpalamy maszynę
+                let attempts = 0;
+                const checkOrbitvu = setInterval(() => {
+                    if (typeof inject_orbitvu !== 'undefined') {
+                        clearInterval(checkOrbitvu);
+                        
+                        inject_orbitvu(
+                            "viewer_content360",
+                            "/orbitvu/360/orbitvu12/", 
+                            undefined,
+                            {
+                                ovus_folder: "/orbitvu/360/", 
+                                content2: "yes",
+                                width: "100%",
+                                height: "100%",
+                            }
+                        );
+
+                        // Usuwamy loader z ekranu
+                        if(loader) loader.style.opacity = '0';
+                        setTimeout(() => loader?.remove(), 500);
+
+                    } else {
+                        attempts++;
+                        if (attempts > 20) clearInterval(checkOrbitvu);
                     }
-                );
-            } else {
-                attempts++;
-                if (attempts > 20) clearInterval(checkOrbitvu);
-            }
-        }, 100);
+                }, 100);
+            };
+            
+            document.body.appendChild(script);
+        };
+
+        // Tworzymy "Obserwatora", który śledzi, gdzie użytkownik scrolluje
+        const observer = new IntersectionObserver((entries, obs) => {
+            entries.forEach(entry => {
+                // Kiedy kontener pojawia się na ekranie (lub jest 300px od niego)
+                if (entry.isIntersecting) {
+                    obs.unobserve(entry.target); // Przestajemy go obserwować (ładujemy tylko raz)
+                    loadOrbitvu();               // Uruchamiamy pobieranie!
+                }
+            });
+        }, {
+            rootMargin: '300px 0px', // Zacznie ładować, gdy kontener będzie 300px poniżej krawędzi ekranu
+            threshold: 0.1
+        });
+
+        // Podpinamy obserwatora pod naszego diva
+        observer.observe(viewerContainer);
     });
 </script>
 
@@ -423,6 +466,7 @@ import MainLayout from '../layouts/MainLayout.astro';
     .ovvloader_text,
     .ovloader_background,
     .ovviosinfo,
+    .ovviosmoverotatedragger ,
     .ovviosfullscreen,
     [class*="ovviosfullscreen"] {
         display: none !important;
