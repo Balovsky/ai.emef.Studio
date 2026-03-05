@@ -11,8 +11,12 @@ import MainLayout from '../layouts/MainLayout.astro';
         </h1>
         <p class="text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed" data-aos="fade-up" data-aos-delay="100">
             Masz świetne produkty? My mamy technologię i czas, by je sprzedać. <br/>
-            Napisz do nas, zadzwoń do Mariusza, albo po prostu wyślij zapytanie.
+            Napisz do nas, zadzwoń, albo po prostu wyślij zapytanie.
         </p>
+        <div class="mt-8 inline-flex items-center justify-center gap-3 bg-blue-50 border border-blue-100 text-blue-800 px-6 py-3 rounded-full text-sm md:text-base font-bold shadow-sm" data-aos="fade-up" data-aos-delay="200">
+            <span class="text-xl">🎁</span>
+            <span>Chcesz sprawdzić jakość? Pierwsza sesja z 1 produktem jest darmowa!</span>
+        </div>
     </header>
 
     <section class="pb-24 px-4">
@@ -156,7 +160,7 @@ import MainLayout from '../layouts/MainLayout.astro';
                     formData.append('form-name', myForm.getAttribute('name'));
                 }
 
-                let originalBtnText = "Wyślij zapytanie do Mariusza";
+                let originalBtnText = "Wyślij zapytanie";
 
                 if(btn) {
                     originalBtnText = btn.innerText;
@@ -209,3 +213,4 @@ import MainLayout from '../layouts/MainLayout.astro';
         }
     });
 </script>
+

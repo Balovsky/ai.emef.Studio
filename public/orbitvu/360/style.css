@@ -1,0 +1,32 @@
+/* Wyczyść tła, niech będą przezroczyste/białe */
+body {
+    background: transparent;
+    margin: 0;
+    padding: 0;
+}
+
+/* Dostosuj identyfikator do tego, którego użyliśmy w Astro */
+#viewer_content360,
+#viewer_content {
+    background: transparent !important;
+}
+
+#viewer_content-obj-canvas {
+    background: transparent !important;
+}
+
+/* UKRYCIE PRZYCISKÓW ORBITVU (czysty design) */
+/* UKRYCIE PRZYCISKÓW ORBITVU (Desktop + Mobile) */
+.ov-toolbar,
+.orbitvu-toolbar,
+.ov-controls,
+.ov-logo,
+[class*="ovm-"],          /* Wyłapuje wszystkie mobilne klasy Orbitvu */
+[class*="ov-mobile"],     /* Wyłapuje mobilne menu */
+[class*="ov-gui"] {
+    display: none !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+    height: 0 !important;
+}

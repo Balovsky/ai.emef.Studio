@@ -49,49 +49,75 @@ import MainLayout from '../layouts/MainLayout.astro';
             </div>
 
             <div class="grid lg:grid-cols-2 gap-16 items-center">
-                <div class="relative h-[450px] bg-slate-50 rounded-3xl overflow-hidden shadow-2xl group border border-slate-200 order-2 lg:order-1 flex items-center justify-center" data-aos="fade-right">
-                    <div class="absolute inset-0 bg-gradient-to-br from-indigo-50/50 to-white"></div>
-                    
-                    <div class="relative w-3/4 aspect-square bg-white rounded-3xl shadow-xl border border-gray-100 flex items-center justify-center overflow-hidden cursor-ew-resize">
-                        <img src="/images/oferta1.jpg" class="w-3/4 object-contain transition-transform duration-300 group-hover:scale-105" alt="Produkt 360">
-                        
-                        <div class="absolute inset-0 bg-black/5 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                            <div class="bg-white/95 backdrop-blur px-5 py-2.5 rounded-full shadow-lg flex items-center gap-2">
-                                <svg class="w-5 h-5 text-indigo-600 animate-spin-slow" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path></svg>
-                                <span class="font-bold text-[10px] uppercase tracking-widest text-slate-900">Przesuń myszką</span>
-                            </div>
-                        </div>
-                        <div class="absolute bottom-4 left-4 right-4 h-1 bg-gray-100 rounded-full overflow-hidden">
-                            <div class="w-1/3 h-full bg-indigo-500 rounded-full"></div>
-                        </div>
-                    </div>
-                    
-                    <div class="absolute top-6 right-6 bg-pink-200 px-3 py-1.5 rounded-lg shadow-md text-[10px] font-bold text-slate-600 border border-gray-100 transform rotate-2">Już wkrótce</div>
-                    <div class="absolute bottom-6 left-6 bg-white px-3 py-1.5 rounded-lg shadow-md text-[10px] font-bold text-slate-600 border border-gray-100 transform -rotate-2">Wideo & GIF</div>
-                </div>
-
-                <div data-aos="fade-left" class="order-1 lg:order-2">
-                    <div class="inline-flex bg-indigo-50 text-indigo-600 px-4 py-2 rounded-full font-bold text-xs uppercase tracking-wider mb-6">#2 Interakcja</div>
-                    <h2 class="text-3xl md:text-4xl font-bold mb-4">Fotografia 360° i Wideo</h2>
-                    <p class="text-gray-600 mb-6 text-lg leading-relaxed">
-                        Płaskie zdjęcia to czasem za mało. Dajemy Twoim klientom władzę – mogą obrócić produkt o 360 stopni, obejrzeć detal i poczuć się, jakby trzymali go w rękach.
-                    </p>
-                    <ul class="space-y-4 text-gray-700">
-                        <li class="flex items-start gap-3">
-                            <span class="w-6 h-6 mt-0.5 rounded-full bg-indigo-100 text-indigo-600 flex justify-center items-center text-xs font-bold shrink-0">✓</span> 
-                            <div><strong>Interaktywny moduł (HTML5):</strong> Dostajesz gotowy kod. Klient na Twojej stronie może swobodnie obracać produkt palcem na telefonie.</div>
-                        </li>
-                        <li class="flex items-start gap-3">
-                            <span class="w-6 h-6 mt-0.5 rounded-full bg-indigo-100 text-indigo-600 flex justify-center items-center text-xs font-bold shrink-0">✓</span> 
-                            <div><strong>Wideo produktowe i GIF:</strong> Ten sam obrót eksportujemy jako płynny filmik, idealny na rolki, relacje i do reklam na Facebooku.</div>
-                        </li>
-                        <li class="flex items-start gap-3">
-                            <span class="w-6 h-6 mt-0.5 rounded-full bg-indigo-100 text-indigo-600 flex justify-center items-center text-xs font-bold shrink-0">✓</span> 
-                            <div><strong>Mniej zwrotów towaru:</strong> Kiedy kupujący dokładnie widzi tył, bok i fakturę materiału, ryzyko, że produkt mu się nie spodoba na żywo, drastycznie spada.</div>
-                        </li>
-                    </ul>
-                </div>
+    
+    <div class="relative h-[450px] bg-slate-50 rounded-3xl overflow-hidden shadow-2xl group border border-slate-200 order-2 lg:order-1 flex items-center justify-center" data-aos="fade-right">
+        <div class="absolute inset-0 bg-gradient-to-br from-indigo-50/50 to-white"></div>
+        
+        <div class="relative w-[90%] md:w-3/4 aspect-square bg-white rounded-3xl shadow-xl border border-gray-100 flex items-center justify-center overflow-hidden">
+            
+            <div id="viewer_content360" class="w-full h-full"></div>
+            
+            <div class="absolute bottom-2 ridgt-1/2 -translate-x-1/2 bg-white/95 backdrop-blur px-5 py-2.5 rounded-full shadow-lg flex items-center gap-2 pointer-events-none z-10 animate-bounce">
+                <svg class="w-5 h-5 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"></path></svg>
+                <span class="font-bold text-[10px] uppercase tracking-widest text-slate-900">Obróć</span>
             </div>
+        </div>
+        
+        <div class="absolute top-6 right-6 bg-indigo-600 px-3 py-1.5 rounded-lg shadow-md text-[10px] font-bold text-white border border-indigo-500 transform rotate-2 z-20">Live Demo</div>
+        <div class="absolute bottom-6 left-6 bg-white px-3 py-1.5 rounded-lg shadow-md text-[10px] font-bold text-slate-600 border border-gray-100 transform -rotate-2 z-20">Wideo & GIF</div>
+    </div>
+
+    <div data-aos="fade-left" class="order-1 lg:order-2">
+        <div class="inline-flex bg-indigo-50 text-indigo-600 px-4 py-2 rounded-full font-bold text-xs uppercase tracking-wider mb-6">#2 Interakcja</div>
+        <h2 class="text-3xl md:text-4xl font-bold mb-4">Fotografia 360° i Wideo</h2>
+        <p class="text-gray-600 mb-6 text-lg leading-relaxed">
+            Płaskie zdjęcia to czasem za mało. Dajemy Twoim klientom władzę – mogą obrócić produkt o 360 stopni, obejrzeć detal i poczuć się, jakby trzymali go w rękach.
+        </p>
+        <ul class="space-y-4 text-gray-700">
+            <li class="flex items-start gap-3">
+                <span class="w-6 h-6 mt-0.5 rounded-full bg-indigo-100 text-indigo-600 flex justify-center items-center text-xs font-bold shrink-0">✓</span> 
+                <div><strong>Interaktywny moduł (HTML5):</strong> Dostajesz gotowy kod. Klient na Twojej stronie może swobodnie obracać produkt palcem na telefonie.</div>
+            </li>
+            <li class="flex items-start gap-3">
+                <span class="w-6 h-6 mt-0.5 rounded-full bg-indigo-100 text-indigo-600 flex justify-center items-center text-xs font-bold shrink-0">✓</span> 
+                <div><strong>Wideo produktowe i GIF:</strong> Ten sam obrót eksportujemy jako płynny filmik, idealny na rolki, relacje i do reklam na Facebooku.</div>
+            </li>
+            <li class="flex items-start gap-3">
+                <span class="w-6 h-6 mt-0.5 rounded-full bg-indigo-100 text-indigo-600 flex justify-center items-center text-xs font-bold shrink-0">✓</span> 
+                <div><strong>Mniej zwrotów towaru:</strong> Kiedy kupujący dokładnie widzi tył, bok i fakturę materiału, ryzyko, że produkt mu się nie spodoba na żywo, drastycznie spada.</div>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<script is:inline src="/orbitvu/360/orbitvu12/orbitvu.js"></script>
+
+<script is:inline>
+    document.addEventListener('DOMContentLoaded', () => {
+        // Czekamy chwilę, aż plik wyżej się w pełni wczyta
+        let attempts = 0;
+        const checkOrbitvu = setInterval(() => {
+            if (typeof inject_orbitvu !== 'undefined') {
+                clearInterval(checkOrbitvu);
+                
+                inject_orbitvu(
+                    "viewer_content360",
+                    "/orbitvu/360/orbitvu12/", 
+                    undefined,
+                    {
+                        ovus_folder: "/orbitvu/360/", 
+                        content2: "yes",
+                        width: "100%",
+                        height: "100%",
+                    }
+                );
+            } else {
+                attempts++;
+                if (attempts > 20) clearInterval(checkOrbitvu);
+            }
+        }, 100);
+    });
+</script>
 
             <div class="grid lg:grid-cols-2 gap-16 items-center">
                 <div data-aos="fade-right">
@@ -107,7 +133,7 @@ import MainLayout from '../layouts/MainLayout.astro';
                         </li>
                         <li class="flex items-start gap-3">
                             <span class="w-6 h-6 mt-0.5 rounded-full bg-green-100 text-green-600 flex justify-center items-center text-xs font-bold shrink-0">✓</span> 
-                            <div><strong>Copywriting "WOW":</strong> Tworzymy unikalne opisy (np. podkreślające <em>skórę naturalną</em> i <em>polską produkcję</em>), które windują Cię w wynikach Google.</div>
+                            <div><strong>Copywriting:</strong> Tworzymy unikalne opisy (np. podkreślające <em>unikatowe cechy produktu</em> i <em>słowa kluczowe</em>), które windują Cię w wynikach Google.</div>
                         </li>
                         <li class="flex items-start gap-3">
                             <span class="w-6 h-6 mt-0.5 rounded-full bg-green-100 text-green-600 flex justify-center items-center text-xs font-bold shrink-0">✓</span> 
@@ -133,15 +159,15 @@ import MainLayout from '../layouts/MainLayout.astro';
                         </div>
                         <div class="bg-slate-800/90 border border-slate-600/50 rounded-2xl p-5 shadow-2xl backdrop-blur-md transform group-hover:-translate-y-2 transition duration-500">
                             <div class="flex justify-between items-start mb-5">
-                                <div><h4 class="text-white font-bold text-lg">Skórzane Buty "Urban Red"</h4><p class="text-slate-400 text-[10px] mt-1 uppercase tracking-wider">ID: #49201</p></div>
-                                <span class="bg-blue-600 text-white text-xs font-bold px-3 py-1.5 rounded-lg shadow-inner">299,00 zł</span>
+                                <div><h4 class="text-white font-bold text-lg">Spodnie dresowe Firebird KG3706 Brązowy Loose Fit</h4><p class="text-slate-400 text-[10px] mt-1 uppercase tracking-wider">ID: #49201</p></div>
+                                <span class="bg-blue-600 text-white text-xs font-bold px-3 py-1.5 rounded-lg shadow-inner">199,00 zł</span>
                             </div>
                             <div class="grid grid-cols-2 gap-3 mt-2">
                                 <div class="bg-slate-900/60 p-3 rounded-xl border border-slate-700/50">
                                     <p class="text-slate-500 text-[9px] uppercase font-bold mb-1.5 tracking-wider">Wynik SEO</p>
                                     <div class="flex items-center gap-2">
-                                        <div class="w-full bg-slate-700 rounded-full h-1.5"><div class="bg-green-400 h-1.5 rounded-full w-[95%] shadow-[0_0_8px_rgba(34,197,94,0.8)]"></div></div>
-                                        <span class="text-green-400 font-bold text-xs">95/100</span>
+                                        <div class="w-full bg-slate-700 rounded-full h-1.5"><div class="bg-green-400 h-1.5 rounded-full w-[90%] shadow-[0_0_8px_rgba(34,197,94,0.8)]"></div></div>
+                                        <span class="text-green-400 font-bold text-xs">90/100</span>
                                     </div>
                                 </div>
                                 <div class="bg-slate-900/60 p-3 rounded-xl border border-slate-700/50">
@@ -186,11 +212,11 @@ import MainLayout from '../layouts/MainLayout.astro';
                     <ul class="space-y-4 text-gray-700">
                         <li class="flex items-start gap-3">
                             <span class="w-6 h-6 mt-0.5 rounded-full bg-purple-100 text-purple-600 flex justify-center items-center text-xs font-bold shrink-0">✓</span> 
-                            <div><strong>Internet & Digital:</strong> Projektujemy spójny układ Instagrama, szablony postów, banery na stronę główną sklepu, wyskakujące <strong>pop-upy reklamowe</strong> oraz grafiki do newsletterów.</div>
+                            <div><strong>Internet & Digital:</strong> Projektujemy spójny układ Instagrama, szablony postów, banery na stronę główną sklepu, wyskakujące pop-upy reklamowe oraz grafiki do newsletterów.</div>
                         </li>
                         <li class="flex items-start gap-3">
                             <span class="w-6 h-6 mt-0.5 rounded-full bg-purple-100 text-purple-600 flex justify-center items-center text-xs font-bold shrink-0">✓</span> 
-                            <div><strong>Materiały do druku (DTP):</strong> Projektujemy ulotki z kodem rabatowym do paczek, <strong>kalendarze firmowe</strong>, wizytówki, vouchery prezentowe, a nawet wielkie banery outdoorowe.</div>
+                            <div><strong>Materiały do druku (DTP):</strong> Projektujemy ulotki z kodem rabatowym do paczek, kalendarze firmowe, wizytówki, vouchery prezentowe, a nawet wielkie banery outdoorowe.</div>
                         </li>
                         <li class="flex items-start gap-3">
                             <span class="w-6 h-6 mt-0.5 rounded-full bg-purple-100 text-purple-600 flex justify-center items-center text-xs font-bold shrink-0">✓</span> 
@@ -344,4 +370,40 @@ import MainLayout from '../layouts/MainLayout.astro';
         </div>
     </section>
 
+
+    <style is:global>
+    /* ========================================================
+       NUKLEARNA OPCJA: CAŁKOWITE UKRYCIE INTERFEJSU ORBITVU
+       ======================================================== */
+       
+    /* 1. Standardowe paski na komputerach */
+    #viewer_content360 .ov-toolbar,
+    #viewer_content360 .orbitvu-toolbar,
+    #viewer_content360 .ov-controls,
+    #viewer_content360 .ov-logo {
+        display: none !important;
+        opacity: 0 !important;
+        visibility: hidden !important;
+        height: 0 !important;
+        pointer-events: none !important;
+    }
+
+    /* 2. Paski i przyciski w wersji MOBILNEJ (smartfony i tablety) */
+    #viewer_content360 [class*="ovm-"], 
+    #viewer_content360 [class*="ov-mobile"], 
+    #viewer_content360 [class*="ov-gui"],
+    #viewer_content360 [class*="mobile-gui"],
+    #viewer_content360 svg {
+        display: none !important;
+        opacity: 0 !important;
+        visibility: hidden !important;
+        pointer-events: none !important;
+    }
+
+    /* 3. Zabezpieczenie przezroczystości tła */
+    #viewer_content360,
+    #viewer_content360 > div {
+        background: transparent !important;
+    }
+</style>
 </MainLayout>
